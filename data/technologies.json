@@ -1,0 +1,58 @@
+[
+  {
+    "id": "html",
+    "name": "HTML5",
+    "description": "Structure & semantics",
+    "icon": "5",
+    "pageUrl": "html.html"
+  },
+  {
+    "id": "css",
+    "name": "CSS",
+    "description": "Layouts & responsive UI",
+    "icon": "✳",
+    "pageUrl": "css.html"
+  },
+  {
+    "id": "bootstrap",
+    "name": "Bootstrap 5",
+    "description": "Components & utilities",
+    "icon": "B5",
+    "pageUrl": "bootstrap.html"
+  },
+  {
+    "id": "javascript",
+    "name": "JavaScript",
+    "description": "ES6+ language concepts",
+    "icon": "JS",
+    "pageUrl": "javascript.html"
+  },
+  {
+    "id": "angular",
+    "name": "Angular",
+    "description": "Components & architecture",
+    "icon": "A",
+    "pageUrl": "angular.html"
+  },
+  {
+    "id": "react",
+    "name": "React",
+    "description": "Hooks & UI patterns",
+    "icon": "⚛",
+    "pageUrl": "react.html"
+  },
+  {
+    "id": "nextjs",
+    "name": "Next.js",
+    "description": "App Router & rendering",
+    "icon": "N",
+    "pageUrl": "nextjs.html"
+  },
+  {
+    "id": "rxjs",
+    "name": "RxJS",
+    "description": "Operators & observables",
+    "icon": "Rx",
+    "pageUrl": "rxjs.html"
+  }
+]
