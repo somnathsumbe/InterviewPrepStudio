@@ -1,0 +1,65 @@
+{
+  "technology": "TypeScript",
+  "questions": [
+    {
+      "id": 1,
+      "category": "TYPES",
+      "tags": ["type annotation", "inference"],
+      "question": "What is TypeScript, and how does it relate to JavaScript?",
+      "questionMarathi": "TypeScript म्हणजे काय आणि त्याचा JavaScript शी काय संबंध आहे?",
+      "answer": "TypeScript is a statically checked superset of JavaScript. It adds features such as type annotations and interfaces, then compiles to JavaScript that browsers and JavaScript runtimes execute. Existing JavaScript is generally valid TypeScript, although strict settings may expose values that need types.",
+      "answerMarathi": "TypeScript हे JavaScript चे statically checked superset आहे. यात type annotations आणि interfaces यांसारखी वैशिष्ट्ये मिळतात आणि नंतर ते browser किंवा JavaScript runtime चालवू शकणाऱ्या JavaScript मध्ये compile होते. Strict settings वापरल्यास काही values साठी types द्यावे लागू शकतात.",
+      "codeExample": "function greet(name: string): string {\n  return `Hello, ${name}`;\n}\n\nconsole.log(greet(\"Asha\"));",
+      "codeExplanation": "The parameter and return type are checked during development; the emitted JavaScript does not include these TypeScript annotations.",
+      "codeExplanationMarathi": "Development दरम्यान parameter आणि return type तपासले जातात; तयार होणाऱ्या JavaScript मध्ये हे TypeScript annotations नसतात."
+    },
+    {
+      "id": 2,
+      "category": "TYPE INFERENCE",
+      "tags": ["inference", "annotation"],
+      "question": "What is type inference, and when should you add an explicit type?",
+      "questionMarathi": "Type inference म्हणजे काय आणि explicit type कधी द्यावा?",
+      "answer": "Type inference means TypeScript derives a type from a value or context, so annotations are not needed everywhere. Add explicit types when they clarify a public API, function parameters, complex data boundaries, or values whose type cannot be inferred safely.",
+      "answerMarathi": "Type inference म्हणजे value किंवा context वरून TypeScript स्वतः type ठरवते; त्यामुळे प्रत्येक ठिकाणी annotation लिहिण्याची गरज नसते. Public API, function parameters, complex data boundaries किंवा सुरक्षितपणे type ठरवता येत नसलेल्या values साठी explicit type द्या.",
+      "codeExample": "const retries = 3; // inferred as number\n\nfunction findUser(id: string): User | undefined {\n  return users.find(user => user.id === id);\n}",
+      "codeExplanation": "The constant's type is inferred. The function signature explicitly documents its input and the possibility that no user is found.",
+      "codeExplanationMarathi": "Constant चा type आपोआप ठरतो. Function signature input आणि user न सापडण्याची शक्यता स्पष्ट करते."
+    },
+    {
+      "id": 3,
+      "category": "UNIONS AND NARROWING",
+      "tags": ["union type", "type guard"],
+      "question": "What are union types, and how do you narrow a union safely?",
+      "questionMarathi": "Union types म्हणजे काय आणि त्यांचा type सुरक्षितपणे narrow कसा कराल?",
+      "answer": "A union type allows a value to have one of several declared types. Narrow it with runtime checks such as typeof, property checks, or a discriminant field before using operations specific to one member. TypeScript's control-flow analysis follows those checks.",
+      "answerMarathi": "Union type मुळे value अनेक ठरवलेल्या types पैकी कोणताही असू शकतो. एखाद्या विशिष्ट type ची operation वापरण्यापूर्वी typeof, property check किंवा discriminant field ने type narrow करा. TypeScript या checks नुसार control flow मध्ये type समजते.",
+      "codeExample": "function format(value: string | number): string {\n  if (typeof value === \"number\") {\n    return value.toFixed(2);\n  }\n  return value.trim();\n}",
+      "codeExplanation": "The typeof check narrows value to number in the first branch and string after that branch.",
+      "codeExplanationMarathi": "typeof check मुळे पहिल्या branch मध्ये value number ठरते आणि त्यानंतर string ठरते."
+    },
+    {
+      "id": 4,
+      "category": "INTERFACES AND TYPE ALIASES",
+      "tags": ["interface", "type alias"],
+      "question": "How do interfaces and type aliases differ in TypeScript?",
+      "questionMarathi": "TypeScript मध्ये interface आणि type alias यांमध्ये काय फरक आहे?",
+      "answer": "Both can describe object shapes and are often interchangeable for that purpose. Interfaces can be reopened and merged through declaration merging, while type aliases can name unions, intersections, primitives, and other types. Choose based on the shape and API needs, and follow the project's conventions.",
+      "answerMarathi": "दोन्हींचा वापर object चा shape सांगण्यासाठी करता येतो. Declaration merging मुळे interface पुन्हा declare करून merge करता येते; type alias unions, intersections, primitives आणि इतर types ना नाव देऊ शकतो. गरज आणि project conventions नुसार निवडा.",
+      "codeExample": "interface User {\n  id: string;\n  name: string;\n}\n\ntype UserResult = User | null;\n\nconst result: UserResult = { id: \"u1\", name: \"Asha\" };",
+      "codeExplanation": "The interface describes the object shape, while the alias describes either that user object or null.",
+      "codeExplanationMarathi": "Interface object चा shape सांगते, तर alias मध्ये User object किंवा null असू शकतो."
+    },
+    {
+      "id": 5,
+      "category": "GENERICS",
+      "tags": ["generic", "reusable"],
+      "question": "What are generics, and why are they useful?",
+      "questionMarathi": "Generics म्हणजे काय आणि ते कशासाठी उपयुक्त आहेत?",
+      "answer": "Generics let a function, class, or type work with different data types while preserving the relationship between its inputs and outputs. They provide reuse without giving up useful type checking.",
+      "answerMarathi": "Generics मुळे function, class किंवा type वेगवेगळ्या data types सोबत काम करू शकते आणि input-output मधील type संबंध जपला जातो. त्यामुळे type checking न गमावता reusable code लिहिता येतो.",
+      "codeExample": "function first<T>(items: T[]): T | undefined {\n  return items[0];\n}\n\nconst name = first([\"Asha\", \"Ravi\"]); // string | undefined\nconst score = first([90, 85]); // number | undefined",
+      "codeExplanation": "Type parameter T is inferred from each array and carried through to the return type.",
+      "codeExplanationMarathi": "प्रत्येक array वरून T ठरतो आणि तोच return type मध्ये वापरला जातो."
+    }
+  ]
+}

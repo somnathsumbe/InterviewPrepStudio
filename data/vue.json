@@ -1,0 +1,65 @@
+{
+  "technology": "Vue.js",
+  "questions": [
+    {
+      "id": 1,
+      "category": "VUE BASICS",
+      "tags": ["framework", "reactivity"],
+      "question": "What is Vue.js, and what is a Vue component?",
+      "questionMarathi": "Vue.js म्हणजे काय आणि Vue component म्हणजे काय?",
+      "answer": "Vue.js is a progressive JavaScript framework for building user interfaces. A component is a reusable unit that combines a template with its state and behavior; components can be composed to build larger interfaces.",
+      "answerMarathi": "Vue.js हे user interfaces तयार करण्यासाठीचे progressive JavaScript framework आहे. Component हा template, state आणि behavior एकत्र ठेवणारा reusable भाग आहे. अनेक components जोडून मोठे interfaces तयार करता येतात.",
+      "codeExample": "<script setup>\nimport { ref } from 'vue'\nconst message = ref('Hello Vue')\n</script>\n\n<template>\n  <h1>{{ message }}</h1>\n</template>",
+      "codeExplanation": "The single-file component combines setup logic and a template. The ref value is available to the template.",
+      "codeExplanationMarathi": "Single-file component मध्ये setup logic आणि template एकत्र असतात. ref मधील value template मध्ये वापरता येते."
+    },
+    {
+      "id": 2,
+      "category": "REACTIVITY",
+      "tags": ["ref", "reactive"],
+      "question": "How does Vue 3 reactivity work with ref and reactive?",
+      "questionMarathi": "Vue 3 मध्ये ref आणि reactive वापरून reactivity कशी काम करते?",
+      "answer": "Vue tracks reactive values used by effects such as component rendering and reruns those effects when dependencies change. ref wraps a value and exposes it through .value in JavaScript; reactive creates a reactive proxy for an object. In templates, refs are usually unwrapped automatically.",
+      "answerMarathi": "Component rendering सारख्या effects मध्ये वापरलेल्या reactive values Vue track करते. Dependency बदलल्यास संबंधित effect पुन्हा चालतो. ref value ला wrap करते आणि JavaScript मध्ये .value मधून वापरतात; reactive object साठी reactive proxy तयार करते. Template मध्ये ref साधारणपणे आपोआप unwrap होते.",
+      "codeExample": "import { reactive, ref } from 'vue'\n\nconst count = ref(0)\nconst user = reactive({ name: 'Asha' })\n\ncount.value++\nuser.name = 'Ravi'",
+      "codeExplanation": "Changing either reactive value notifies Vue so dependent rendered output can update.",
+      "codeExplanationMarathi": "यापैकी reactive value बदलल्यावर Vue ला कळते आणि त्यावर अवलंबून असलेला rendered output update होतो."
+    },
+    {
+      "id": 3,
+      "category": "COMPUTED AND WATCH",
+      "tags": ["computed", "watch"],
+      "question": "When should you use computed properties versus watchers?",
+      "questionMarathi": "Computed properties आणि watchers यांचा वापर कधी करावा?",
+      "answer": "Use computed for a value derived from reactive state; it is cached until its dependencies change. Use watch when a state change should trigger a side effect, such as a request or an imperative integration. Keep derived values in computed rather than synchronizing duplicate state with a watcher.",
+      "answerMarathi": "Reactive state वरून तयार होणाऱ्या value साठी computed वापरा; dependencies बदलेपर्यंत ती cached राहते. Request किंवा imperative integration सारखा side effect state बदलल्यावर करायचा असल्यास watch वापरा. Duplicate state watcher ने sync करण्याऐवजी derived value computed मध्ये ठेवा.",
+      "codeExample": "import { computed, ref, watch } from 'vue'\n\nconst query = ref('')\nconst normalized = computed(() => query.value.trim().toLowerCase())\n\nwatch(query, value => {\n  console.log('Search changed:', value)\n})",
+      "codeExplanation": "normalized is derived and cached; the watcher performs a side effect when query changes.",
+      "codeExplanationMarathi": "normalized ही derived आणि cached value आहे; query बदलल्यावर watcher side effect करतो."
+    },
+    {
+      "id": 4,
+      "category": "COMPONENT COMMUNICATION",
+      "tags": ["props", "emits"],
+      "question": "How do Vue components communicate using props and events?",
+      "questionMarathi": "Vue components मध्ये props आणि events वापरून संवाद कसा साधतात?",
+      "answer": "A parent passes data down to a child through props. A child communicates an action or updated value to its parent by emitting an event. This one-way data flow makes ownership of state clearer and components easier to reason about.",
+      "answerMarathi": "Parent component props मधून child कडे data पाठवतो. Child एखादी action किंवा बदललेली value parent ला event emit करून सांगतो. या one-way data flow मुळे state कोणाकडे आहे हे स्पष्ट राहते आणि components समजायला सोपे होतात.",
+      "codeExample": "<script setup>\ndefineProps({ label: String })\nconst emit = defineEmits(['select'])\n</script>\n\n<template>\n  <button @click=\"emit('select')\">{{ label }}</button>\n</template>",
+      "codeExplanation": "The parent supplies label and listens for the child's select event.",
+      "codeExplanationMarathi": "Parent label पाठवतो आणि child च्या select event साठी listener ठेवतो."
+    },
+    {
+      "id": 5,
+      "category": "DIRECTIVES AND LISTS",
+      "tags": ["v-if", "v-for", "key"],
+      "question": "What are Vue directives, and why is a key important with v-for?",
+      "questionMarathi": "Vue directives म्हणजे काय आणि v-for सोबत key का महत्त्वाची आहे?",
+      "answer": "Directives are special template attributes, such as v-if and v-for, that apply reactive behavior to the DOM. A stable, unique key helps Vue track each rendered item across updates so it can reuse and reorder the correct nodes. Avoid using an array index as a key when items can be reordered or removed.",
+      "answerMarathi": "v-if आणि v-for सारखे directives हे template मधील विशेष attributes आहेत जे DOM ला reactive behavior देतात. Stable आणि unique key मुळे updates दरम्यान प्रत्येक item track करून योग्य nodes पुन्हा वापरता किंवा reorder करता येतात. Items reorder किंवा remove होऊ शकत असल्यास array index ला key म्हणून टाळा.",
+      "codeExample": "<ul>\n  <li v-for=\"task in tasks\" :key=\"task.id\">\n    {{ task.title }}\n  </li>\n</ul>",
+      "codeExplanation": "The stable task ID lets Vue preserve the identity of each list item when the list changes.",
+      "codeExplanationMarathi": "List बदलल्यावर task ची stable ID प्रत्येक item ची ओळख कायम ठेवण्यास Vue ला मदत करते."
+    }
+  ]
+}

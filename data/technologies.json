@@ -4,118 +4,170 @@
     "name": "HTML5",
     "description": "Structure & semantics",
     "icon": "5",
-    "pageUrl": "html.html"
+    "pageUrl": "html.html",
+    "dataUrl": "data/html.json",
+    "accentColor": "#e34f26"
   },
   {
     "id": "css",
     "name": "CSS",
     "description": "Layouts & responsive UI",
     "icon": "✳",
-    "pageUrl": "css.html"
+    "pageUrl": "css.html",
+    "dataUrl": "data/css.json",
+    "accentColor": "#2965f1"
   },
   {
     "id": "bootstrap",
     "name": "Bootstrap 5",
     "description": "Components & utilities",
     "icon": "B5",
-    "pageUrl": "bootstrap.html"
+    "pageUrl": "bootstrap.html",
+    "dataUrl": "data/bootstrap.json",
+    "accentColor": "#7952b3"
   },
   {
     "id": "javascript",
     "name": "JavaScript",
     "description": "ES6+ language concepts",
     "icon": "JS",
-    "pageUrl": "javascript.html"
+    "pageUrl": "javascript.html",
+    "dataUrl": "data/javascript.json",
+    "accentColor": "#b28a00"
   },
   {
     "id": "angular",
     "name": "Angular",
     "description": "Components & architecture",
     "icon": "A",
-    "pageUrl": "angular.html"
+    "pageUrl": "angular.html",
+    "dataUrl": "data/angular.json",
+    "accentColor": "#dd0031"
   },
   {
     "id": "react",
     "name": "React",
     "description": "Hooks & UI patterns",
     "icon": "⚛",
-    "pageUrl": "react.html"
+    "pageUrl": "react.html",
+    "dataUrl": "data/react.json",
+    "accentColor": "#149eca"
   },
   {
     "id": "nextjs",
     "name": "Next.js",
     "description": "App Router & rendering",
     "icon": "N",
-    "pageUrl": "nextjs.html"
+    "pageUrl": "nextjs.html",
+    "dataUrl": "data/nextjs.json",
+    "accentColor": "#777777"
   },
   {
     "id": "rxjs",
     "name": "RxJS",
     "description": "Operators & observables",
     "icon": "Rx",
-    "pageUrl": "rxjs.html"
+    "pageUrl": "rxjs.html",
+    "dataUrl": "data/rxjs.json",
+    "accentColor": "#d81b60"
   },
   {
     "id": "sass",
     "name": "Sass / SCSS",
     "description": "Variables, mixins & nesting",
     "icon": "S",
-    "pageUrl": "sass.html"
+    "pageUrl": "sass.html",
+    "dataUrl": "data/sass.json",
+    "accentColor": "#cc6699"
   },
   {
     "id": "es6",
     "name": "ES6",
     "description": "Modern JavaScript features",
     "icon": "ES6",
-    "pageUrl": "es6.html"
+    "pageUrl": "es6.html",
+    "dataUrl": "data/es6.json",
+    "accentColor": "#b28a00"
   },
   {
     "id": "javascript-examples",
     "name": "JavaScript Examples",
     "description": "Practical coding problems",
     "icon": "JS",
-    "pageUrl": "javascript-examples.html"
+    "pageUrl": "javascript-examples.html",
+    "dataUrl": "data/javascript-examples.json",
+    "accentColor": "#b28a00"
   },
   {
     "id": "nodejs",
     "name": "Node.js",
     "description": "Server-side JavaScript",
     "icon": "N",
-    "pageUrl": "nodejs.html"
+    "pageUrl": "nodejs.html",
+    "dataUrl": "data/nodejs.json",
+    "accentColor": "#43853d"
   },
   {
     "id": "mongodb",
     "name": "MongoDB",
     "description": "Document database & queries",
     "icon": "M",
-    "pageUrl": "mongodb.html"
+    "pageUrl": "mongodb.html",
+    "dataUrl": "data/mongodb.json",
+    "accentColor": "#00a35c"
   },
   {
     "id": "hr",
     "name": "HR Interview",
     "description": "Behavioral & career questions",
     "icon": "HR",
-    "pageUrl": "hr.html"
+    "pageUrl": "hr.html",
+    "dataUrl": "data/hr.json",
+    "accentColor": "#8b5cf6"
   },
   {
     "id": "angular-example",
     "name": "Angular Example",
     "description": "Angular coding examples",
     "icon": "A+",
-    "pageUrl": "angular-example.html"
+    "pageUrl": "angular-example.html",
+    "dataUrl": "data/angular-example.json",
+    "accentColor": "#dd0031"
   },
   {
     "id": "reactjs-example",
     "name": "ReactJS Example",
     "description": "React coding examples",
     "icon": "R+",
-    "pageUrl": "reactjs-example.html"
+    "pageUrl": "reactjs-example.html",
+    "dataUrl": "data/reactjs-example.json",
+    "accentColor": "#149eca"
   },
   {
     "id": "tailwind",
     "name": "Tailwind CSS",
     "description": "Utility-first CSS framework",
     "icon": "TW",
-    "pageUrl": "tailwind.html"
+    "pageUrl": "tailwind.html",
+    "dataUrl": "data/tailwind.json",
+    "accentColor": "#38bdf8"
+  },
+  {
+    "id": "typescript",
+    "name": "TypeScript",
+    "description": "Types & JavaScript tooling",
+    "icon": "TS",
+    "pageUrl": "technology.html?technology=typescript",
+    "dataUrl": "data/typescript.json",
+    "accentColor": "#3178c6"
+  },
+  {
+    "id": "vue",
+    "name": "Vue.js",
+    "description": "Reactive UI components",
+    "icon": "V",
+    "pageUrl": "technology.html?technology=vue",
+    "dataUrl": "data/vue.json",
+    "accentColor": "#42b883"
   }
 ]

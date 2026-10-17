@@ -26,12 +26,15 @@ export function validateTechnologies(data) {
         if (!technology || typeof technology !== "object") {
             throw new Error(`Technology entry ${index + 1} is invalid.`);
         }
-        const { id, name, description, icon, pageUrl } = technology;
-        if (![id, name, description, icon, pageUrl].every(value => typeof value === "string" && value.trim())) {
+        const { id, name, description, icon, pageUrl, dataUrl } = technology;
+        if (![id, name, description, icon, pageUrl, dataUrl].every(value => typeof value === "string" && value.trim())) {
             throw new Error(`Technology entry ${index + 1} is missing required metadata.`);
         }
-        if (!/^[a-z0-9-]+$/.test(id) || ids.has(id)) {
+        if (!/^[a-z0-9-]+$/.test(id) || ids.has(id) || !/^data\/[a-z0-9-]+\.json$/.test(dataUrl)) {
             throw new Error(`Technology ID "${id}" is invalid or duplicated.`);
+        }
+        if (technology.accentColor !== undefined && !/^#[0-9a-f]{6}$/i.test(technology.accentColor)) {
+            throw new Error(`Technology "${id}" has an invalid accent color.`);
         }
         ids.add(id);
     });
@@ -50,15 +53,21 @@ export function validateQuestionData(data) {
         }
         ids.add(question.id);
         for (const field of questionFields) {
-            if (typeof question[field] !== "string") {
+            if (question[field] !== undefined && typeof question[field] !== "string") {
                 throw new Error(`Question ${question.id} must have a string "${field}" value.`);
             }
         }
-        if (!question.question.trim() || !question.answer.trim() || !question.answerMarathi.trim()) {
+        if (!question.question?.trim() || !question.answer?.trim() || !question.answerMarathi?.trim()) {
             throw new Error(`Question ${question.id} is missing a question or answer.`);
         }
         if (question.category !== undefined && typeof question.category !== "string") {
             throw new Error(`Question ${question.id} has an invalid category.`);
+        }
+        for (const field of ["tags", "keywords", "keyPoints"]) {
+            if (question[field] !== undefined && (!Array.isArray(question[field])
+                || question[field].some(value => typeof value !== "string"))) {
+                throw new Error(`Question ${question.id} has invalid "${field}" metadata.`);
+            }
         }
     });
     return data;
@@ -73,9 +82,9 @@ export function renderQuestion(question, index, total) {
 
     const codeCard = document.getElementById("codeCard");
     codeCard.classList.toggle("hidden", !question.codeExample);
-    document.getElementById("codeExample").textContent = question.codeExample;
-    document.getElementById("englishCodeExplanation").textContent = question.codeExplanation;
-    document.getElementById("marathiCodeExplanation").textContent = question.codeExplanationMarathi;
+    document.getElementById("codeExample").textContent = question.codeExample || "";
+    document.getElementById("englishCodeExplanation").textContent = question.codeExplanation || "";
+    document.getElementById("marathiCodeExplanation").textContent = question.codeExplanationMarathi || "";
     document.getElementById("englishCodeExplanation").classList.toggle("hidden", !question.codeExplanation);
     document.getElementById("marathiCodeExplanation").classList.toggle("hidden", !question.codeExplanationMarathi);
 
@@ -96,7 +105,8 @@ export function renderQuestionNavigation(questions, activeIndex, onSelect) {
     previous.className = "q-page-btn";
     previous.textContent = "← Prev";
     previous.setAttribute("aria-label", "Previous set of questions");
-    previous.disabled = pageStart === 0;
+    previous.disabled = pageStart === 0 || questions.length <= pageSize;
+    previous.classList.toggle("hidden", questions.length <= pageSize);
     previous.addEventListener("click", () => onSelect(Math.max(0, pageStart - pageSize)));
     list.append(previous);
 
@@ -116,7 +126,8 @@ export function renderQuestionNavigation(questions, activeIndex, onSelect) {
     next.className = "q-page-btn";
     next.textContent = "Next →";
     next.setAttribute("aria-label", "Next set of questions");
-    next.disabled = pageEnd === questions.length;
+    next.disabled = pageEnd === questions.length || questions.length <= pageSize;
+    next.classList.toggle("hidden", questions.length <= pageSize);
     next.addEventListener("click", () => onSelect(pageEnd));
     list.append(next);
 }

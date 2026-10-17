@@ -40,7 +40,8 @@ function renderTechnologyCards(technologies, questionCounts, filter = "") {
 
     if (!filtered.length) {
         const empty = document.createElement("div");
-        empty.className = "empty col-12";
+        empty.className = "empty";
+        empty.style.gridColumn = "1 / -1";
         empty.textContent = "No technology matches your search.";
         grid.append(empty);
         return;
@@ -48,9 +49,9 @@ function renderTechnologyCards(technologies, questionCounts, filter = "") {
 
     filtered.forEach(technology => {
         const card = document.createElement("a");
-        card.className = "tech-card col";
+        card.className = "tech-card";
         card.href = technology.pageUrl;
-        card.dataset.tech = technology.id;
+        card.style.setProperty("--tech-accent", technology.accentColor || "var(--text)");
         card.setAttribute("aria-label", `Open ${technology.name} questions`);
 
         const icon = document.createElement("span");
@@ -90,7 +91,7 @@ async function initDashboard() {
         const technologies = validateTechnologies(await loadJsonData("data/technologies.json"));
         const questionCounts = Object.fromEntries(await Promise.all(technologies.map(async technology => {
             try {
-                const data = validateQuestionData(await loadJsonData(`data/${technology.id}.json`));
+                const data = validateQuestionData(await loadJsonData(technology.dataUrl));
                 return [technology.id, data.questions.length];
             } catch (error) {
                 console.error(`Unable to load question count for ${technology.id}.`, error);
@@ -110,15 +111,195 @@ async function initDashboard() {
     }
 }
 
-function showQuestion(index) {
+function showQuestion(index, { updateHash = true, focusQuestion = false } = {}) {
     const questions = questionData.questions;
     if (!questions.length || index < 0 || index >= questions.length) return;
     currentIndex = index;
     const question = questions[currentIndex];
     renderQuestion(question, currentIndex, questions.length);
+    if (updateHash) {
+        history.replaceState(null, "", `#question-${encodeURIComponent(question.id)}`);
+    }
+    if (focusQuestion) {
+        const title = $("questionTitle");
+        title.focus({ preventScroll: true });
+        title.classList.remove("search-highlight");
+        title.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
+        requestAnimationFrame(() => title.classList.add("search-highlight"));
+    }
     renderQuestionNavigation(questions, currentIndex, selectedIndex => {
         stopSpeech();
         showQuestion(selectedIndex);
+    });
+}
+
+function normalizeSearch(value) {
+    return value.trim().toLocaleLowerCase().replace(/\s+/g, " ");
+}
+
+function indexFromLocationHash(questions) {
+    const questionId = decodeURIComponent(location.hash.slice(1)).replace(/^question-/, "");
+    return questions.findIndex(question => String(question.id) === questionId);
+}
+
+function initQuestionSearch(questions) {
+    const practiceBody = document.querySelector(".practice-body");
+    const search = document.createElement("section");
+    search.className = "question-search";
+    search.setAttribute("aria-label", "Search interview questions");
+
+    const label = document.createElement("label");
+    label.className = "question-search-label";
+    label.htmlFor = "questionSearch";
+    label.textContent = "Find a question";
+
+    const controls = document.createElement("div");
+    controls.className = "question-search-controls";
+    const input = document.createElement("input");
+    input.className = "search question-search-input";
+    input.id = "questionSearch";
+    input.type = "search";
+    input.placeholder = "Search English, Marathi, number, category or keyword";
+    input.autocomplete = "off";
+    input.setAttribute("role", "combobox");
+    input.setAttribute("aria-autocomplete", "list");
+    input.setAttribute("aria-haspopup", "listbox");
+    input.setAttribute("aria-expanded", "false");
+    input.setAttribute("aria-controls", "questionSearchResults");
+
+    const clear = document.createElement("button");
+    clear.className = "btn question-search-clear hidden";
+    clear.type = "button";
+    clear.textContent = "Clear";
+    clear.setAttribute("aria-label", "Clear question search");
+
+    controls.append(input, clear);
+    const status = document.createElement("div");
+    status.className = "question-search-status";
+    status.id = "questionSearchStatus";
+    status.setAttribute("role", "status");
+    status.setAttribute("aria-live", "polite");
+
+    const results = document.createElement("div");
+    results.className = "question-search-results hidden";
+    results.id = "questionSearchResults";
+    results.setAttribute("role", "listbox");
+    results.setAttribute("aria-label", "Matching questions");
+
+    const noResults = document.createElement("p");
+    noResults.className = "question-search-empty hidden";
+    noResults.setAttribute("role", "status");
+    noResults.textContent = "Try another keyword, question number, or Marathi search.";
+
+    search.append(label, controls, status, results, noResults);
+    practiceBody.insertBefore(search, $("practiceContent"));
+
+    const searchable = questions.map((question, index) => ({
+        question,
+        index,
+        text: normalizeSearch([
+            `question ${index + 1}`,
+            question.id,
+            question.question,
+            question.questionMarathi,
+            question.category,
+            question.topicTitle,
+            question.title,
+            ...(question.tags || []),
+            ...(question.keywords || []),
+            ...(question.keyPoints || []).filter(value => typeof value === "string")
+        ].filter(Boolean).join(" "))
+    }));
+
+    const closeResults = () => {
+        results.classList.add("hidden");
+        input.setAttribute("aria-expanded", "false");
+    };
+
+    const selectResult = index => {
+        stopSpeech();
+        input.value = "";
+        clear.classList.add("hidden");
+        status.textContent = "";
+        closeResults();
+        showQuestion(index, { focusQuestion: true });
+    };
+
+    const renderResults = () => {
+        const term = normalizeSearch(input.value);
+        clear.classList.toggle("hidden", !term);
+        results.replaceChildren();
+        if (!term) {
+            status.textContent = "";
+            closeResults();
+            return;
+        }
+
+        const matches = searchable.filter(item => item.text.includes(term));
+        status.textContent = matches.length
+            ? `${matches.length} matching ${matches.length === 1 ? "question" : "questions"}`
+            : "No questions match your search.";
+        input.setAttribute("aria-expanded", String(matches.length > 0));
+        results.classList.toggle("hidden", matches.length === 0);
+        noResults.classList.toggle("hidden", matches.length > 0);
+
+        matches.forEach(({ question, index }) => {
+            const option = document.createElement("button");
+            option.type = "button";
+            option.className = "question-search-result";
+            option.setAttribute("role", "option");
+            option.setAttribute("aria-label", `Question ${index + 1}: ${question.question}`);
+            const number = document.createElement("span");
+            number.className = "question-search-number";
+            number.textContent = String(index + 1);
+            const title = document.createElement("span");
+            title.className = "question-search-result-title";
+            title.textContent = question.question;
+            const marathi = document.createElement("small");
+            marathi.lang = "mr";
+            marathi.textContent = question.questionMarathi || "";
+            option.append(number, title, marathi);
+            option.addEventListener("click", () => selectResult(index));
+            results.append(option);
+        });
+
+    };
+
+    input.addEventListener("input", renderResults);
+    input.addEventListener("keydown", event => {
+        if (event.key === "ArrowDown" && !results.classList.contains("hidden")) {
+            const first = results.querySelector(".question-search-result");
+            if (first) {
+                event.preventDefault();
+                first.focus();
+            }
+        } else if (event.key === "Escape") {
+            input.value = "";
+            renderResults();
+        } else if (event.key === "Enter") {
+            const first = results.querySelector(".question-search-result");
+            if (first) {
+                event.preventDefault();
+                first.click();
+            }
+        }
+    });
+    results.addEventListener("keydown", event => {
+        const options = [...results.querySelectorAll(".question-search-result")];
+        const activeIndex = options.indexOf(document.activeElement);
+        if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+            event.preventDefault();
+            const direction = event.key === "ArrowDown" ? 1 : -1;
+            options[(activeIndex + direction + options.length) % options.length]?.focus();
+        } else if (event.key === "Escape") {
+            closeResults();
+            input.focus();
+        }
+    });
+    clear.addEventListener("click", () => {
+        input.value = "";
+        input.focus();
+        renderResults();
     });
 }
 
@@ -212,7 +393,7 @@ function readAll() {
             setSpeechStatus("All questions completed. Great work!");
             return;
         }
-        showQuestion(index);
+        showQuestion(index, { updateHash: false });
         const question = questions[index++];
         const prompt = language === "mr-IN" && question.questionMarathi
             ? question.questionMarathi
@@ -282,10 +463,15 @@ async function initQuestionPage(technologyId) {
     const error = $("errorState");
     const empty = $("emptyState");
     try {
-        questionData = validateQuestionData(await loadJsonData(`data/${technologyId}.json`));
-        const questionTitle = questionData.technology === "HR Interview"
-            ? "HR Interview Questions"
-            : `${questionData.technology} Interview Questions`;
+        const technologies = validateTechnologies(await loadJsonData("data/technologies.json"));
+        const technology = technologyId
+            ? technologies.find(entry => entry.id === technologyId)
+            : technologies.find(entry => new URL(entry.pageUrl, location.href).pathname === location.pathname);
+        if (!technology) {
+            throw new Error(technologyId ? `Unknown technology "${technologyId}".` : "No technology was selected.");
+        }
+        questionData = validateQuestionData(await loadJsonData(technology.dataUrl));
+        const questionTitle = `${questionData.technology} Interview Questions`;
         document.title = `${questionTitle} · Interview Prep Studio`;
         $("practiceTitle").textContent = questionTitle;
         loading.classList.add("hidden");
@@ -294,18 +480,78 @@ async function initQuestionPage(technologyId) {
             return;
         }
         $("practiceContent").classList.remove("hidden");
+        $("questionTitle").tabIndex = -1;
+        initQuestionSearch(questionData.questions);
         initQuestionControls();
-        showQuestion(0);
+        const initialIndex = indexFromLocationHash(questionData.questions);
+        showQuestion(initialIndex >= 0 ? initialIndex : 0, { updateHash: initialIndex < 0 });
+        window.addEventListener("hashchange", () => {
+            const hashIndex = indexFromLocationHash(questionData.questions);
+            if (hashIndex >= 0 && hashIndex !== currentIndex) {
+                stopSpeech();
+                showQuestion(hashIndex, { updateHash: false, focusQuestion: true });
+            }
+        });
     } catch (loadError) {
         console.error(`Unable to load ${technologyId} question data.`, loadError);
         loading.classList.add("hidden");
-        showError(error, "Questions could not be loaded. Check your connection and refresh the page.");
+        if (loadError.message.startsWith("Unknown technology") || loadError.message === "No technology was selected.") {
+            showError(error, "This technology could not be found. Return to the dashboard and choose a technology.");
+        } else {
+            showError(error, "Questions could not be loaded. Check your connection or the technology JSON, then refresh.");
+        }
     }
+}
+
+function initPwa() {
+    if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("./sw.js", { scope: "./", updateViaCache: "none" })
+            .catch(error => console.error("Unable to register the offline application worker.", error));
+    }
+
+    let installEvent;
+    window.addEventListener("beforeinstallprompt", event => {
+        event.preventDefault();
+        installEvent = event;
+        const actions = document.querySelector(".top-actions");
+        if (!actions || $("installApp")) return;
+        const button = document.createElement("button");
+        button.className = "icon-btn install-btn";
+        button.id = "installApp";
+        button.type = "button";
+        const label = document.createElement("span");
+        label.className = "install-label";
+        label.textContent = "Install";
+        button.append(label);
+        button.setAttribute("aria-label", "Install Interview Prep Studio");
+        button.addEventListener("click", async () => {
+            if (!installEvent) return;
+            try {
+                await installEvent.prompt();
+                await installEvent.userChoice;
+            } catch (error) {
+                console.error("The application install prompt could not be completed.", error);
+            } finally {
+                installEvent = null;
+                button.remove();
+            }
+        });
+        actions.prepend(button);
+    });
+    window.addEventListener("appinstalled", () => {
+        installEvent = null;
+        $("installApp")?.remove();
+    });
+    window.addEventListener("offline", () =>
+        showToast("You are offline. Cached pages and questions remain available.")
+    );
+    window.addEventListener("online", () => showToast("You are back online."));
 }
 
 $("themeToggle").addEventListener("click", setTheme);
 if (appRoot.dataset.page === "dashboard") {
     initDashboard();
 } else if (appRoot.dataset.page === "questions") {
-    initQuestionPage(appRoot.dataset.technology);
+    initQuestionPage(new URLSearchParams(location.search).get("technology"));
 }
+initPwa();
