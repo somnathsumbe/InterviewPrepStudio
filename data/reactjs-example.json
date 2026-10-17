@@ -1,0 +1,60 @@
+{
+  "technology": "ReactJS Example",
+  "questions": [
+    {
+      "id": 1,
+      "category": "STATE",
+      "question": "How do you build a counter using React state?",
+      "questionMarathi": "React state वापरून counter कसा तयार कराल?",
+      "answer": "Use the useState hook to keep the count in component state. Use the functional setter form when the next value depends on the previous state, which remains correct when updates are queued.",
+      "answerMarathi": "Count component state मध्ये ठेवण्यासाठी useState hook वापरा. पुढची value मागील state वर अवलंबून असेल तेव्हा functional setter वापरा; updates queue झाल्या तरी त्यामुळे योग्य result मिळतो.",
+      "codeExample": "import { useState } from 'react';\n\nfunction Counter() {\n  const [count, setCount] = useState(0);\n  return (\n    <div>\n      <button onClick={() => setCount(value => value - 1)}>-</button>\n      <span>{count}</span>\n      <button onClick={() => setCount(value => value + 1)}>+</button>\n    </div>\n  );\n}",
+      "codeExplanation": "The setter schedules a render with the new count; the functional form receives the latest previous value.",
+      "codeExplanationMarathi": "Setter नवीन count सह render schedule करतो; functional form ला मागील नवीनतम value मिळते."
+    },
+    {
+      "id": 2,
+      "category": "FORMS",
+      "question": "How do you create a controlled input in React?",
+      "questionMarathi": "React मध्ये controlled input कसा तयार कराल?",
+      "answer": "Store the input value in React state, pass that state as the input value, and update it in onChange. This keeps the displayed value synchronized with component state and allows validation or formatting.",
+      "answerMarathi": "Input ची value React state मध्ये ठेवा, ती value input ला द्या आणि onChange मध्ये state update करा. त्यामुळे दिसणारी value component state शी जुळते आणि validation किंवा formatting करता येते.",
+      "codeExample": "function NameField() {\n  const [name, setName] = useState('');\n  return (\n    <label>\n      Name\n      <input value={name} onChange={event => setName(event.target.value)} />\n    </label>\n  );\n}",
+      "codeExplanation": "React state is the source of truth for the input's current value.",
+      "codeExplanationMarathi": "Input ची सध्याची value ठरवण्यासाठी React state हा मुख्य source असतो."
+    },
+    {
+      "id": 3,
+      "category": "LIST RENDERING",
+      "question": "How do you render and filter a list of items in React?",
+      "questionMarathi": "React मध्ये items ची list दाखवून filter कशी कराल?",
+      "answer": "Derive the filtered collection during rendering from the original data and current search term. Use a stable key from each item when mapping the result to elements. Avoid storing a duplicate filtered list in state unless there is a specific reason.",
+      "answerMarathi": "Original data आणि सध्याचा search term वापरून render वेळी filtered collection तयार करा. Result चे elements बनवताना प्रत्येक item ची स्थिर key वापरा. विशेष कारण नसल्यास filtered list ची duplicate state ठेवू नका.",
+      "codeExample": "function ProductList({ products }) {\n  const [query, setQuery] = useState('');\n  const visible = products.filter(product =>\n    product.name.toLowerCase().includes(query.toLowerCase())\n  );\n\n  return (\n    <>\n      <input value={query} onChange={event => setQuery(event.target.value)} />\n      {visible.map(product => <p key={product.id}>{product.name}</p>)}\n    </>\n  );\n}",
+      "codeExplanation": "The list is derived from query and products on each render, and product.id provides stable identity.",
+      "codeExplanationMarathi": "प्रत्येक render वेळी query आणि products वरून list तयार होते; product.id स्थिर ओळख देतो."
+    },
+    {
+      "id": 4,
+      "category": "EFFECTS",
+      "question": "How do you fetch data in an effect and avoid updating an unmounted component?",
+      "questionMarathi": "Effect मध्ये data fetch करून unmount झालेल्या component ची state update होऊ नये याची काळजी कशी घ्याल?",
+      "answer": "Start the request in an effect and cancel it during cleanup with AbortController. Check the response status and handle errors. Cleanup also runs before the effect re-runs, so a stale request does not replace newer results.",
+      "answerMarathi": "Effect मध्ये request सुरू करा आणि cleanup मध्ये AbortController ने ती cancel करा. Response status तपासा आणि errors हाताळा. Effect पुन्हा चालण्यापूर्वी cleanup होते, त्यामुळे जुनी request नवीन result ची जागा घेत नाही.",
+      "codeExample": "useEffect(() => {\n  const controller = new AbortController();\n\n  fetch('/api/profile', { signal: controller.signal })\n    .then(response => {\n      if (!response.ok) throw new Error('Request failed');\n      return response.json();\n    })\n    .then(setProfile)\n    .catch(error => {\n      if (error.name !== 'AbortError') setError(error.message);\n    });\n\n  return () => controller.abort();\n}, []);",
+      "codeExplanation": "Aborting in cleanup stops an obsolete request when the component unmounts or the effect is replaced.",
+      "codeExplanationMarathi": "Component unmount झाल्यावर किंवा effect बदलल्यावर cleanup मधील abort जुनी request थांबवतो."
+    },
+    {
+      "id": 5,
+      "category": "COMPONENT DESIGN",
+      "question": "How do you lift shared state up between sibling React components?",
+      "questionMarathi": "React मधील sibling components मध्ये सामायिक state वरच्या component मध्ये कशी नेता?",
+      "answer": "Move the shared state to the closest common parent, then pass the current value and event callbacks to each child through props. This gives the parent one source of truth while children remain focused on rendering and user interaction.",
+      "answerMarathi": "सामायिक state सर्वात जवळच्या common parent मध्ये हलवा आणि सध्याची value व event callbacks props द्वारे प्रत्येक child ला द्या. त्यामुळे parent कडे एकच source of truth राहतो आणि children rendering व user interaction वर लक्ष देतात.",
+      "codeExample": "function Parent() {\n  const [selected, setSelected] = useState('');\n  return (\n    <>\n      <OptionList selected={selected} onSelect={setSelected} />\n      <SelectionSummary value={selected} />\n    </>\n  );\n}",
+      "codeExplanation": "Both children receive the same parent-managed value, and the list updates it through the callback.",
+      "codeExplanationMarathi": "दोन्ही children ना parent ने manage केलेली समान value मिळते आणि list callback द्वारे ती update करते."
+    }
+  ]
+}

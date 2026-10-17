@@ -1,0 +1,60 @@
+{
+  "technology": "Angular Example",
+  "questions": [
+    {
+      "id": 1,
+      "category": "SIGNALS",
+      "question": "How do you create a counter with Angular signals?",
+      "questionMarathi": "Angular signals वापरून counter कसा तयार कराल?",
+      "answer": "Create a writable signal with an initial value and update it through set() or update(). Reading the signal in a template tracks the value and updates the view when it changes.",
+      "answerMarathi": "प्रारंभिक value देऊन writable signal तयार करा आणि set() किंवा update() ने ती बदला. Template मध्ये signal वाचल्यावर Angular बदल track करतो आणि value बदलल्यास view update करतो.",
+      "codeExample": "import { Component, signal } from '@angular/core';\n\n@Component({\n  selector: 'app-counter',\n  standalone: true,\n  template: `\n    <button (click)=\"count.update(value => value - 1)\">-</button>\n    <span>{{ count() }}</span>\n    <button (click)=\"count.update(value => value + 1)\">+</button>\n  `\n})\nexport class CounterComponent {\n  count = signal(0);\n}",
+      "codeExplanation": "The signal stores the count, and update() derives the next value from the previous value.",
+      "codeExplanationMarathi": "Signal मध्ये count साठवला जातो आणि update() मागील value वरून पुढची value तयार करतो."
+    },
+    {
+      "id": 2,
+      "category": "TEMPLATES",
+      "question": "How can you render a list with Angular's @for block?",
+      "questionMarathi": "Angular च्या @for block ने list कशी दाखवाल?",
+      "answer": "Use @for to repeat a template for each item and track each item by a stable unique key. Tracking helps Angular reuse DOM nodes efficiently when the collection changes.",
+      "answerMarathi": "प्रत्येक item साठी template पुन्हा दाखवण्यासाठी @for वापरा आणि स्थिर unique key ने items track करा. Collection बदलल्यावर tracking मुळे Angular DOM nodes कार्यक्षमतेने पुन्हा वापरतो.",
+      "codeExample": "@Component({\n  selector: 'app-task-list',\n  standalone: true,\n  template: `\n    <ul>\n      @for (task of tasks; track task.id) {\n        <li>{{ task.title }}</li>\n      } @empty {\n        <li>No tasks yet.</li>\n      }\n    </ul>\n  `\n})\nexport class TaskListComponent {\n  tasks = [{ id: 1, title: 'Review pull request' }];\n}",
+      "codeExplanation": "track task.id gives each row a stable identity; @empty displays content when the collection is empty.",
+      "codeExplanationMarathi": "track task.id प्रत्येक row ला स्थिर ओळख देतो; collection रिकामी असल्यास @empty मजकूर दाखवतो."
+    },
+    {
+      "id": 3,
+      "category": "FORMS",
+      "question": "How do you validate a required field with Angular reactive forms?",
+      "questionMarathi": "Angular reactive forms मध्ये आवश्यक field कसा validate कराल?",
+      "answer": "Create a FormControl with Validators.required, bind it to an input with formControl, and show feedback when the control is invalid and has been touched. This keeps validation rules in the component model.",
+      "answerMarathi": "Validators.required सह FormControl तयार करा, formControl ने तो input शी जोडा आणि control invalid व touched झाल्यावर सूचना दाखवा. त्यामुळे validation rules component model मध्ये राहतात.",
+      "codeExample": "import { Component } from '@angular/core';\nimport { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';\n\n@Component({\n  selector: 'app-profile-form',\n  standalone: true,\n  imports: [ReactiveFormsModule],\n  template: `\n    <label for=\"name\">Name</label>\n    <input id=\"name\" [formControl]=\"name\">\n    @if (name.invalid && name.touched) {\n      <small>Name is required.</small>\n    }\n  `\n})\nexport class ProfileFormComponent {\n  name = new FormControl('', { nonNullable: true, validators: [Validators.required] });\n}",
+      "codeExplanation": "The validator updates the control status, and the template displays an error after the user touches the field.",
+      "codeExplanationMarathi": "Validator control ची स्थिती update करतो आणि वापरकर्त्याने field वापरल्यानंतर template error दाखवतो."
+    },
+    {
+      "id": 4,
+      "category": "HTTP",
+      "question": "How do you load data using Angular HttpClient?",
+      "questionMarathi": "Angular HttpClient वापरून data कसा load कराल?",
+      "answer": "Inject HttpClient into a service or component and call a typed method such as get<T>(). HttpClient returns an Observable; subscribe to it or bind it through the async pipe. Handle failures explicitly and provide HttpClient through the application configuration.",
+      "answerMarathi": "Service किंवा component मध्ये HttpClient inject करून get<T>() सारखी typed method call करा. HttpClient Observable return करतो; त्याला subscribe करा किंवा async pipe ने bind करा. Errors स्पष्टपणे हाताळा आणि application configuration मध्ये HttpClient provide करा.",
+      "codeExample": "import { Component, inject } from '@angular/core';\nimport { HttpClient } from '@angular/common/http';\n\n@Component({\n  selector: 'app-users',\n  standalone: true,\n  template: `\n    @for (user of users; track user.id) {\n      <p>{{ user.name }}</p>\n    }\n  `\n})\nexport class UsersComponent {\n  private http = inject(HttpClient);\n  users: User[] = [];\n\n  ngOnInit() {\n    this.http.get<User[]>('/api/users').subscribe({\n      next: users => this.users = users,\n      error: error => console.error('Unable to load users', error)\n    });\n  }\n}\n\ntype User = { id: number; name: string };",
+      "codeExplanation": "The response is typed as User[], and the error callback handles a failed request.",
+      "codeExplanationMarathi": "Response ला User[] type दिला आहे आणि request अयशस्वी झाल्यास error callback तो हाताळतो."
+    },
+    {
+      "id": 5,
+      "category": "COMPUTED STATE",
+      "question": "How can you derive a value from signals without storing duplicate state?",
+      "questionMarathi": "Duplicate state न ठेवता signals मधून derived value कशी तयार कराल?",
+      "answer": "Use computed() for a read-only value derived from other signals. Angular recalculates the computed value when one of its dependencies changes, keeping the derived state consistent without manually synchronizing another variable.",
+      "answerMarathi": "इतर signals मधून read-only value तयार करण्यासाठी computed() वापरा. Dependency बदलल्यावर Angular computed value पुन्हा काढतो; त्यामुळे दुसरा variable हाताने synchronize न करताही derived state सुसंगत राहते.",
+      "codeExample": "import { computed, signal } from '@angular/core';\n\nconst price = signal(25);\nconst quantity = signal(3);\nconst total = computed(() => price() * quantity());\n\nconsole.log(total()); // 75",
+      "codeExplanation": "total is derived from price and quantity and updates automatically when either signal changes.",
+      "codeExplanationMarathi": "total ही price आणि quantity वरून तयार होते आणि यापैकी signal बदलल्यावर आपोआप update होते."
+    }
+  ]
+}

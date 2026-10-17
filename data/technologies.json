@@ -96,5 +96,19 @@
     "description": "Behavioral & career questions",
     "icon": "HR",
     "pageUrl": "hr.html"
+  },
+  {
+    "id": "angular-example",
+    "name": "Angular Example",
+    "description": "Angular coding examples",
+    "icon": "A+",
+    "pageUrl": "angular-example.html"
+  },
+  {
+    "id": "reactjs-example",
+    "name": "ReactJS Example",
+    "description": "React coding examples",
+    "icon": "R+",
+    "pageUrl": "reactjs-example.html"
   }
 ]
