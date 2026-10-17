@@ -1,60 +1,171 @@
+
 {
   "technology": "HTML",
   "questions": [
     {
       "id": 1,
-      "category": "SEMANTICS",
-      "question": "What is semantic HTML, and why is it important?",
-      "questionMarathi": "Semantic HTML म्हणजे काय आणि ते महत्त्वाचे का आहे?",
-      "answer": "Semantic HTML uses elements whose names describe their purpose, such as main, nav, article, and button. It gives browsers and assistive technologies useful structure, improves accessibility, and makes markup easier to understand and maintain.",
-      "answerMarathi": "Semantic HTML मध्ये main, nav, article आणि button यांसारखे उद्देश स्पष्ट करणारे elements वापरतात. त्यामुळे browser आणि assistive technologies ना पानाची रचना समजते, accessibility सुधारते आणि markup वाचणे व maintain करणे सोपे होते.",
-      "codeExample": "<main>\n  <article>\n    <h1>Interview tips</h1>\n    <p>Practice a little every day.</p>\n  </article>\n</main>",
-      "codeExplanation": "main identifies the primary page content and article represents a self-contained item.",
-      "codeExplanationMarathi": "main पानाचा मुख्य content दाखवतो आणि article स्वतंत्रपणे समजणारा content भाग दर्शवतो."
+      "category": "HTML4 VS HTML5",
+      "question": "What is the difference between HTML4 and HTML5?",
+      "questionMarathi": "HTML4 आणि HTML5 मध्ये काय फरक आहे?",
+      "answer": "HTML4 is an older version of HTML with limited native multimedia and semantic features. HTML5 introduced semantic elements such as header, nav, section, article, and footer, native audio and video support, canvas graphics, improved form input types, and APIs such as Geolocation and Web Workers. HTML5 also supports modern responsive web development. However, responsive design depends on CSS and viewport configuration, not HTML5 alone.",
+      "answerMarathi": "HTML4 ही HTML ची जुनी आवृत्ती आहे. त्यामध्ये native multimedia आणि semantic features मर्यादित होते. HTML5 मध्ये header, nav, section, article आणि footer यांसारखे semantic elements, audio आणि video support, canvas graphics, नवीन form input types आणि Geolocation व Web Workers यांसारख्या APIs उपलब्ध झाल्या. आधुनिक responsive web development साठी HTML5 उपयुक्त आहे. मात्र responsive design साठी CSS आणि viewport configuration देखील आवश्यक असतात.",
+      "codeExample": "<!DOCTYPE html>\n<header>Website Header</header>\n<nav>Navigation</nav>\n<main>\n  <section>\n    <article>Article Content</article>\n  </section>\n</main>\n<footer>Website Footer</footer>",
+      "codeExplanation": "HTML5 uses a simple doctype and semantic elements to describe the purpose of different content sections.",
+      "codeExplanationMarathi": "HTML5 मध्ये doctype सोपा आहे आणि semantic elements मुळे webpage मधील वेगवेगळ्या sections चा उद्देश स्पष्ट होतो."
     },
     {
       "id": 2,
-      "category": "ACCESSIBILITY",
-      "question": "How do you make an image accessible?",
-      "questionMarathi": "Image accessible कशी बनवाल?",
-      "answer": "Provide concise, meaningful alt text when an image conveys information. Use an empty alt attribute for decorative images so screen readers can skip them. Avoid putting essential text only inside an image.",
-      "answerMarathi": "Image मधून महत्त्वाची माहिती मिळत असल्यास संक्षिप्त आणि अर्थपूर्ण alt text द्या. सजावटीच्या images साठी रिकामा alt attribute द्या, म्हणजे screen reader ती वगळू शकतो. आवश्यक मजकूर फक्त image मध्ये ठेवू नका.",
-      "codeExample": "<img src=\"team.jpg\" alt=\"Engineers reviewing a design together\">\n<img src=\"divider.svg\" alt=\"\">",
-      "codeExplanation": "The first alt describes useful content; the empty alt marks the divider as decorative.",
-      "codeExplanationMarathi": "पहिला alt उपयुक्त माहिती सांगतो; रिकामा alt divider सजावटीचा आहे हे दर्शवतो."
+      "category": "RESPONSIVE DESIGN",
+      "question": "What is the viewport meta tag and why is it used?",
+      "questionMarathi": "Viewport meta tag म्हणजे काय आणि त्याचा उपयोग का केला जातो?",
+      "answer": "The viewport meta tag tells the browser how to set the webpage's layout viewport on mobile devices. The width=device-width setting matches the viewport width to the device width, while initial-scale=1.0 sets the initial zoom level. It is important for creating responsive layouts that display correctly on phones and tablets.",
+      "answerMarathi": "Viewport meta tag browser ला mobile device वर webpage चा layout viewport कसा ठेवायचा हे सांगतो. width=device-width मुळे viewport ची रुंदी device च्या रुंदीशी जुळते आणि initial-scale=1.0 मुळे सुरुवातीचा zoom level निश्चित होतो. Mobile आणि tablet वर webpage योग्य प्रकारे दिसण्यासाठी हा tag महत्त्वाचा आहे.",
+      "codeExample": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+      "codeExplanation": "Add this meta tag inside the head element of an HTML document.",
+      "codeExplanationMarathi": "हा meta tag HTML document मधील head element च्या आत लिहावा."
     },
     {
       "id": 3,
-      "category": "FORMS",
-      "question": "Why should every form control have a properly associated label?",
-      "questionMarathi": "प्रत्येक form control ला योग्य label जोडणे का आवश्यक आहे?",
-      "answer": "A label gives the control an accessible name and makes its clickable area larger. Explicitly connect the label's for value to the control's id so screen readers can announce the field purpose.",
-      "answerMarathi": "Label मुळे control ला accessible नाव मिळते आणि क्लिक करण्याची जागा मोठी होते. Screen reader ला field चा उद्देश सांगता यावा म्हणून label चा for आणि control चा id जुळवा.",
-      "codeExample": "<label for=\"email\">Email address</label>\n<input id=\"email\" name=\"email\" type=\"email\" autocomplete=\"email\">",
-      "codeExplanation": "The matching for and id values associate the visible label with the input.",
-      "codeExplanationMarathi": "for आणि id ची जुळणारी values दिसणारा label आणि input यांना जोडतात."
+      "category": "HTML5 APIS",
+      "question": "What is the Geolocation API?",
+      "questionMarathi": "Geolocation API म्हणजे काय?",
+      "answer": "The Geolocation API allows a website to request the user's geographical position, such as latitude and longitude. The user must grant permission, and the feature generally requires HTTPS. The browser may obtain location information from available device and network sources.",
+      "answerMarathi": "Geolocation API च्या मदतीने website वापरकर्त्याचे latitude आणि longitude यांसारखे भौगोलिक location मिळवण्यासाठी विनंती करू शकते. यासाठी वापरकर्त्याची permission आवश्यक असते आणि सामान्यतः HTTPS connection लागते. Browser उपलब्ध device आणि network sources वापरून location मिळवू शकतो.",
+      "codeExample": "navigator.geolocation.getCurrentPosition(\n  (position) => {\n    console.log(position.coords.latitude);\n    console.log(position.coords.longitude);\n  },\n  (error) => {\n    console.error(error.message);\n  }\n);",
+      "codeExplanation": "The success callback receives the position. The error callback handles permission denial or location errors.",
+      "codeExplanationMarathi": "Success callback मध्ये position मिळते. वापरकर्त्याने permission नाकारल्यास किंवा location मिळवताना error आल्यास error callback चालतो."
     },
     {
       "id": 4,
-      "category": "BROWSER APIs",
-      "question": "What is the difference between localStorage and sessionStorage?",
-      "questionMarathi": "localStorage आणि sessionStorage यांच्यात काय फरक आहे?",
-      "answer": "Both Web Storage APIs store string key-value pairs for the current origin. localStorage persists across browser sessions until cleared, while sessionStorage is scoped to a page session and is cleared when that tab or session ends. Neither should store secrets.",
-      "answerMarathi": "दोन्ही Web Storage APIs सध्याच्या origin साठी string key-value pairs साठवतात. localStorage browser sessions नंतरही clear करेपर्यंत टिकते; sessionStorage त्या page session पुरते असते आणि tab किंवा session संपल्यावर काढले जाते. कोणत्याही storage मध्ये secrets ठेवू नयेत.",
-      "codeExample": "localStorage.setItem('theme', 'dark');\nconst theme = localStorage.getItem('theme');\n\nsessionStorage.setItem('draft-step', '2');",
-      "codeExplanation": "Use localStorage for longer-lived preferences and sessionStorage for temporary tab-specific state.",
-      "codeExplanationMarathi": "दीर्घकाळच्या preferences साठी localStorage आणि tab पुरत्या तात्पुरत्या state साठी sessionStorage वापरा."
+      "category": "HTML5 APIS",
+      "question": "What is Drag and Drop in HTML5?",
+      "questionMarathi": "HTML5 मधील Drag and Drop म्हणजे काय?",
+      "answer": "HTML Drag and Drop allows users to drag an element and drop it into a permitted target area. The draggable attribute enables dragging, while dragstart, dragover, and drop events help manage the interaction. The drop handler normally calls preventDefault during dragover to allow dropping.",
+      "answerMarathi": "HTML Drag and Drop मुळे वापरकर्ता एखादा element धरून दुसऱ्या योग्य जागी सोडू शकतो. draggable attribute मुळे element drag करता येतो. dragstart, dragover आणि drop events वापरून ही प्रक्रिया नियंत्रित करता येते. Drop स्वीकारण्यासाठी dragover event मध्ये सामान्यतः preventDefault() वापरतात.",
+      "codeExample": "<div id=\"dragItem\" draggable=\"true\">Drag me</div>\n<div id=\"dropZone\">Drop here</div>\n\n<script>\nconst item = document.getElementById('dragItem');\nconst zone = document.getElementById('dropZone');\n\nitem.addEventListener('dragstart', (event) => {\n  event.dataTransfer.setData('text/plain', item.id);\n});\n\nzone.addEventListener('dragover', (event) => {\n  event.preventDefault();\n});\n\nzone.addEventListener('drop', (event) => {\n  event.preventDefault();\n  const id = event.dataTransfer.getData('text/plain');\n  zone.appendChild(document.getElementById(id));\n});\n</script>",
+      "codeExplanation": "The element is draggable, and the drop zone accepts the element when the user drops it.",
+      "codeExplanationMarathi": "Element draggable आहे आणि वापरकर्त्याने तो drop zone मध्ये सोडल्यावर तो त्या जागेत हलवला जातो."
     },
     {
       "id": 5,
+      "category": "HTML5 APIS",
+      "question": "What are Web Workers?",
+      "questionMarathi": "Web Workers म्हणजे काय?",
+      "answer": "Web Workers run JavaScript in a background thread separate from the main UI thread. They are useful for computationally intensive tasks that could otherwise make the interface unresponsive. Workers communicate with the main thread through messages, but they cannot directly manipulate the DOM.",
+      "answerMarathi": "Web Workers JavaScript code मुख्य UI thread पासून वेगळ्या background thread मध्ये चालवतात. त्यामुळे मोठ्या प्रमाणातील calculations मुळे webpage चा interface अडकण्याची शक्यता कमी होते. Worker आणि main thread यांच्यात messages द्वारे communication होते; मात्र Worker थेट DOM manipulate करू शकत नाही.",
+      "codeExample": "// worker.js\nself.onmessage = (event) => {\n  self.postMessage(event.data * 2);\n};\n\n// main.js\nconst worker = new Worker('worker.js');\nworker.onmessage = (event) => {\n  console.log(event.data); // 20\n};\nworker.postMessage(10);",
+      "codeExplanation": "The main thread sends 10 to the worker. The worker doubles it and sends back 20. Keep the worker code in a separate worker.js file.",
+      "codeExplanationMarathi": "Main thread Worker कडे 10 पाठवतो. Worker त्याचा दुप्पट करून 20 परत पाठवतो. Worker चा code स्वतंत्र worker.js file मध्ये ठेवा."
+    },
+    {
+      "id": 6,
+      "category": "HTML5 APIS",
+      "question": "What are WebSockets?",
+      "questionMarathi": "WebSockets म्हणजे काय?",
+      "answer": "WebSockets provide a persistent, two-way communication channel between a client and a server over a single connection. Once connected, both sides can send messages without creating a separate HTTP request for every update. They are useful for chat applications, live notifications, and real-time dashboards.",
+      "answerMarathi": "WebSockets client आणि server यांच्यात एकाच connection वर सतत चालणारे two-way communication उपलब्ध करून देतात. Connection तयार झाल्यानंतर प्रत्येक update साठी स्वतंत्र HTTP request करण्याची गरज नसते. Chat applications, live notifications आणि real-time dashboards साठी WebSockets उपयुक्त आहेत.",
+      "codeExample": "const socket = new WebSocket('wss://example.com/socket');\n\nsocket.addEventListener('open', () => {\n  socket.send('Hello Server');\n});\n\nsocket.addEventListener('message', (event) => {\n  console.log('Server message:', event.data);\n});",
+      "codeExplanation": "The browser connects to a WebSocket server, sends a message when connected, and listens for incoming messages. Replace the example URL with a real WebSocket endpoint.",
+      "codeExplanationMarathi": "Browser WebSocket server शी connect होतो, connection झाल्यावर message पाठवतो आणि server कडून येणारे messages ऐकतो. उदाहरणातील URL ऐवजी प्रत्यक्ष WebSocket endpoint वापरा."
+    },
+    {
+      "id": 7,
+      "category": "SEMANTIC HTML",
+      "question": "What are semantic elements in HTML?",
+      "questionMarathi": "HTML मधील Semantic Elements म्हणजे काय?",
+      "answer": "Semantic elements clearly describe the purpose of the content they contain. Examples include header for introductory content, nav for navigation links, main for the primary content, article for independent content, section for a thematic group, aside for related content, and footer for footer information. They improve document structure and can help accessibility and SEO when used correctly.",
+      "answerMarathi": "Semantic elements मध्ये असलेल्या content चा उद्देश स्पष्ट करतात. उदाहरणार्थ, header introductory content साठी, nav navigation links साठी, main मुख्य content साठी, article स्वतंत्र content साठी, section संबंधित content च्या group साठी, aside पूरक content साठी आणि footer शेवटच्या माहितीसाठी वापरतात. योग्य वापरामुळे document structure स्पष्ट होते आणि accessibility व SEO सुधारण्यास मदत होऊ शकते.",
+      "codeExample": "<header>Site Header</header>\n<nav><a href=\"/\">Home</a></nav>\n<main>\n  <article>\n    <h1>HTML Semantics</h1>\n    <p>Article content</p>\n  </article>\n</main>\n<footer>Copyright Information</footer>",
+      "codeExplanation": "Each semantic element describes a meaningful role in the page structure instead of using generic containers for everything.",
+      "codeExplanationMarathi": "प्रत्येक semantic element webpage मधील content ची भूमिका स्पष्ट करतो. प्रत्येक गोष्टीसाठी generic container वापरण्याऐवजी योग्य element निवडला जातो."
+    },
+    {
+      "id": 8,
+      "category": "HTML FORMS",
+      "question": "What are the new form input types introduced in HTML5?",
+      "questionMarathi": "HTML5 मध्ये कोणते नवीन form input types उपलब्ध झाले?",
+      "answer": "HTML5 introduced input types such as email, url, number, range, date, time, color, tel, and search. These types provide more appropriate controls and built-in browser validation for certain values. They improve usability, but server-side validation is still necessary for reliable and secure applications.",
+      "answerMarathi": "HTML5 मध्ये email, url, number, range, date, time, color, tel आणि search यांसारखे input types उपलब्ध झाले. हे योग्य प्रकारचे input controls आणि काही values साठी browser-based validation देतात. त्यामुळे user experience सुधारतो; मात्र सुरक्षित आणि विश्वासार्ह application साठी server-side validation देखील आवश्यक आहे.",
+      "codeExample": "<input type=\"email\" placeholder=\"Enter email\" required>\n<input type=\"url\" placeholder=\"Enter website URL\">\n<input type=\"number\" min=\"1\" max=\"10\">\n<input type=\"range\" min=\"0\" max=\"100\">\n<input type=\"date\">\n<input type=\"time\">\n<input type=\"color\">\n<input type=\"tel\" placeholder=\"Phone number\">\n<input type=\"search\" placeholder=\"Search...\">",
+      "codeExplanation": "Each input type provides a control suited to the expected data, and some types support native validation.",
+      "codeExplanationMarathi": "प्रत्येक input type अपेक्षित data नुसार योग्य control देतो. काही input types मध्ये browser चे native validation देखील उपलब्ध असते."
+    },
+    {
+      "id": 9,
+      "category": "GRAPHICS",
+      "question": "What is the difference between canvas and SVG?",
+      "questionMarathi": "Canvas आणि SVG मध्ये काय फरक आहे?",
+      "answer": "Canvas draws graphics onto a pixel-based surface, usually through JavaScript. It is useful for games, image processing, and scenes with many frequently changing pixels. SVG describes vector graphics using elements and paths, so shapes remain sharp when scaled and can be styled or interacted with individually. The better choice depends on the type and complexity of the graphics.",
+      "answerMarathi": "Canvas मध्ये सामान्यतः JavaScript वापरून pixel-based surface वर graphics काढले जातात. Games, image processing आणि सतत बदलणाऱ्या graphics साठी Canvas उपयुक्त आहे. SVG मध्ये elements आणि paths वापरून vector graphics तयार केले जातात. त्यामुळे आकार मोठा किंवा लहान केला तरी graphics स्पष्ट राहतात आणि प्रत्येक shape स्वतंत्रपणे style किंवा interact करता येतो. कोणता पर्याय योग्य आहे हे graphics च्या प्रकारावर आणि complexity वर अवलंबून असते.",
+      "codeExample": "<canvas id=\"myCanvas\" width=\"200\" height=\"100\"></canvas>\n\n<script>\nconst canvas = document.getElementById('myCanvas');\nconst ctx = canvas.getContext('2d');\nctx.fillStyle = 'blue';\nctx.fillRect(10, 10, 100, 50);\n</script>\n\n<svg width=\"200\" height=\"100\" viewBox=\"0 0 200 100\">\n  <rect x=\"10\" y=\"10\" width=\"100\" height=\"50\" fill=\"blue\" />\n</svg>",
+      "codeExplanation": "Canvas draws a rectangle through JavaScript. SVG represents a rectangle as a vector element in the document.",
+      "codeExplanationMarathi": "Canvas मध्ये JavaScript वापरून rectangle काढला आहे. SVG मध्ये rectangle हा document मधील vector element म्हणून दर्शवला आहे."
+    },
+    {
+      "id": 10,
+      "category": "META TAGS",
+      "question": "What is the meta tag in HTML?",
+      "questionMarathi": "HTML मधील meta tag म्हणजे काय?",
+      "answer": "The meta element provides metadata about an HTML document. It is placed inside the head element and can define the character encoding, viewport settings, and a page description. Metadata is not usually displayed as page content, but it helps browsers and other services interpret information about the page.",
+      "answerMarathi": "Meta element HTML document बद्दलची metadata म्हणजे अतिरिक्त माहिती देतो. तो head element मध्ये लिहिला जातो आणि character encoding, viewport settings तसेच page description निश्चित करण्यासाठी वापरला जातो. ही माहिती सामान्यतः webpage च्या content मध्ये दिसत नाही; परंतु browser आणि इतर services ना page बद्दलची माहिती समजण्यास मदत करते.",
+      "codeExample": "<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <meta name=\"description\" content=\"Learn HTML interview questions\">\n  <title>HTML Interview Preparation</title>\n</head>",
+      "codeExplanation": "The charset declaration specifies character encoding, the viewport tag helps mobile layout, and the description provides a summary of the page.",
+      "codeExplanationMarathi": "charset declaration character encoding निश्चित करते, viewport tag mobile layout साठी मदत करतो आणि description page चा संक्षिप्त परिचय देते."
+    },
+    {
+      "id": 11,
+      "category": "OFFLINE STORAGE",
+      "question": "How can an HTML web application work offline?",
+      "questionMarathi": "HTML web application offline कशी चालू शकते?",
+      "answer": "Modern web applications can support offline use through Service Workers and the Cache API. A service worker can cache selected assets and responses so the application can load when the network is unavailable. Application Cache, which used the manifest attribute, is deprecated and should not be used for new projects. Offline support must be designed and tested explicitly.",
+      "answerMarathi": "आधुनिक web applications मध्ये Service Workers आणि Cache API वापरून offline support देता येतो. Service Worker आवश्यक assets आणि responses cache करू शकतो, त्यामुळे network उपलब्ध नसतानाही application काही प्रमाणात चालू शकते. manifest attribute वापरणारे जुने Application Cache तंत्र deprecated झाले आहे; नवीन projects मध्ये ते वापरू नये. Offline functionality साठी योग्य planning आणि testing आवश्यक आहे.",
+      "codeExample": "// Register a service worker from your main JavaScript file\nif ('serviceWorker' in navigator) {\n  navigator.serviceWorker.register('/service-worker.js')\n    .then(() => console.log('Service Worker registered'))\n    .catch((error) => console.error(error));\n}",
+      "codeExplanation": "This registers a service worker. The service-worker.js file must separately implement the caching and offline strategy. Service workers generally require HTTPS, except for localhost development.",
+      "codeExplanationMarathi": "हा code Service Worker register करतो. Caching आणि offline strategy साठी service-worker.js मध्ये स्वतंत्र code लिहावा लागतो. Service Workers साठी सामान्यतः HTTPS आवश्यक आहे; localhost development हा अपवाद आहे."
+    },
+    {
+      "id": 12,
+      "category": "HTML AND CSS",
+      "question": "What is the difference between the hidden attribute and display: none?",
+      "questionMarathi": "HTML मधील hidden attribute आणि CSS मधील display: none यांत काय फरक आहे?",
+      "answer": "The hidden attribute is an HTML global attribute that indicates that an element should not currently be presented. CSS display: none hides an element and removes it from the layout. In ordinary cases, both make the element invisible and remove its layout space. Neither should be assumed to keep the element focusable or available to screen readers. CSS rules can also override the visual effect of the hidden attribute.",
+      "answerMarathi": "hidden हे HTML मधील global attribute आहे आणि element सध्या दाखवू नये असे दर्शवते. CSS मधील display: none element लपवते आणि layout मधील त्याची जागाही काढून टाकते. सामान्य परिस्थितीत दोन्हीमुळे element दिसत नाही आणि layout मध्ये जागा राहत नाही. यांपैकी कोणताही पर्याय वापरल्यावर element focusable राहील किंवा screen reader ला उपलब्ध असेल असे गृहीत धरू नये. CSS rules मुळे hidden attribute चा visual effect override देखील होऊ शकतो.",
+      "codeExample": "<p hidden>This content is hidden.</p>\n<p style=\"display: none;\">This content is also hidden.</p>",
+      "codeExplanation": "Both paragraphs are normally not displayed and do not occupy layout space.",
+      "codeExplanationMarathi": "दोन्ही paragraphs सामान्यतः दिसत नाहीत आणि layout मध्ये जागा घेत नाहीत."
+    },
+    {
+      "id": 13,
+      "category": "CSS POSITIONING",
+      "question": "Explain the difference between relative, absolute, fixed, and sticky positioning.",
+      "questionMarathi": "CSS मधील relative, absolute, fixed आणि sticky positioning मध्ये काय फरक आहे?",
+      "answer": "Relative keeps an element in the normal flow and offsets it from its original position. Absolute removes the element from normal flow and positions it relative to its nearest positioned ancestor, or the initial containing block when no such ancestor exists. Fixed positions an element relative to the viewport in typical cases, so it stays in place during scrolling. Sticky behaves like normal flow positioning until a scroll threshold is reached, then sticks within its containing scroll area.",
+      "answerMarathi": "Relative positioning मध्ये element normal flow मध्ये राहतो; top, left यांसारख्या properties मुळे तो मूळ जागेपासून हलतो. Absolute positioning मध्ये element normal flow मधून बाहेर पडतो आणि nearest positioned ancestor च्या संदर्भात position होतो; असा ancestor नसेल तर initial containing block वापरला जातो. Fixed positioning मध्ये element सामान्यतः viewport च्या संदर्भात स्थिर राहतो. Sticky positioning मध्ये element सुरुवातीला normal flow मध्ये असतो आणि scroll threshold गाठल्यावर संबंधित scroll area च्या मर्यादेत चिकटून राहतो.",
+      "codeExample": ".relative { position: relative; top: 10px; }\n.absolute { position: absolute; top: 10px; left: 10px; }\n.fixed { position: fixed; top: 0; right: 0; }\n.sticky { position: sticky; top: 0; }",
+      "codeExplanation": "Absolute positioning often depends on a positioned ancestor. Sticky positioning also depends on the scrolling container and can be affected by overflow settings.",
+      "codeExplanationMarathi": "Absolute positioning साठी positioned ancestor महत्त्वाचा असतो. Sticky positioning वर scrolling container आणि overflow settings यांचाही परिणाम होऊ शकतो."
+    },
+    {
+      "id": 14,
       "category": "PERFORMANCE",
-      "question": "What do defer and async do on a script element?",
-      "questionMarathi": "Script element मधील defer आणि async काय करतात?",
-      "answer": "Both allow an external script to download without blocking HTML parsing. defer executes scripts after parsing in document order. async executes as soon as each script is ready, so execution order is not guaranteed. Use defer for scripts that depend on the document or each other.",
-      "answerMarathi": "दोन्ही external script download करताना HTML parsing थांबवत नाहीत. defer parsing पूर्ण झाल्यावर scripts document क्रमाने चालवतो. async script तयार होताच चालवतो, त्यामुळे क्रमाची हमी नसते. Document किंवा एकमेकांवर अवलंबून असलेल्या scripts साठी defer वापरा.",
-      "codeExample": "<script src=\"app.js\" defer></script>\n<script src=\"analytics.js\" async></script>",
-      "codeExplanation": "The application script runs after parsing; analytics can run whenever its download finishes.",
-      "codeExplanationMarathi": "Application script parsing नंतर चालतो; analytics download पूर्ण झाल्यावर कधीही चालू शकतो."
+      "question": "How do you optimize HTML page performance?",
+      "questionMarathi": "HTML webpage ची performance कशी सुधारता?",
+      "answer": "I optimize page performance by keeping the DOM structure efficient, minifying and compressing HTML, CSS, and JavaScript, optimizing images, and lazy-loading off-screen images when appropriate. I reduce unnecessary scripts, use caching, and load non-critical resources efficiently. I also measure performance using browser developer tools and real performance metrics instead of relying only on assumptions.",
+      "answerMarathi": "मी DOM structure कार्यक्षम ठेवून, HTML, CSS आणि JavaScript minify व compress करून, images optimize करून आणि गरजेनुसार screen च्या बाहेरील images lazy-load करून page performance सुधारतो. अनावश्यक scripts कमी करतो, caching वापरतो आणि तातडीने आवश्यक नसलेले resources योग्य पद्धतीने load करतो. तसेच केवळ अंदाजावर अवलंबून न राहता browser developer tools आणि प्रत्यक्ष performance metrics वापरून सुधारणा तपासतो.",
+      "codeExample": "<img src=\"hero.webp\" alt=\"Main banner\" width=\"1200\" height=\"600\">\n<img src=\"gallery.webp\" alt=\"Gallery image\" loading=\"lazy\" width=\"600\" height=\"400\">",
+      "codeExplanation": "Explicit image dimensions help reserve layout space. Lazy loading can defer off-screen images, while critical above-the-fold images should generally load promptly.",
+      "codeExplanationMarathi": "Image dimensions दिल्याने layout साठी जागा आधी राखता येते. Lazy loading मुळे screen च्या बाहेरील images नंतर load होऊ शकतात; मात्र सुरुवातीला दिसणाऱ्या महत्त्वाच्या images लवकर load व्हायला हव्यात."
+    },
+    {
+      "id": 15,
+      "category": "JAVASCRIPT LOADING",
+      "question": "What is the difference between async and defer in script tags?",
+      "questionMarathi": "Script tag मधील async आणि defer मध्ये काय फरक आहे?",
+      "answer": "Both async and defer allow an external classic script to download while HTML parsing continues. An async script executes as soon as it is available and may interrupt HTML parsing; execution order between multiple async scripts is not guaranteed. A defer script executes after HTML parsing is complete and preserves document order relative to other deferred classic scripts. Use defer when scripts depend on the parsed DOM or on a specific execution order, and async for independent scripts.",
+      "answerMarathi": "async आणि defer या दोन्ही attributes मुळे external classic script download होत असताना HTML parsing सुरू राहू शकते. async script download पूर्ण होताच execute होते आणि त्यामुळे HTML parsing काही वेळ थांबू शकते. अनेक async scripts चा execution order निश्चित नसतो. defer script HTML parsing पूर्ण झाल्यानंतर execute होते आणि इतर deferred classic scripts सोबत document order राखते. DOM तयार झाल्यावर चालणाऱ्या किंवा विशिष्ट क्रम आवश्यक असलेल्या scripts साठी defer, तर स्वतंत्र scripts साठी async वापरता येते.",
+      "codeExample": "<script async src=\"analytics.js\"></script>\n<script defer src=\"app.js\"></script>",
+      "codeExplanation": "The async script runs when downloaded. The defer script waits until HTML parsing finishes and preserves order relative to other deferred classic scripts.",
+      "codeExplanationMarathi": "async script download झाल्यावर लगेच execute होते. defer script HTML parsing पूर्ण होईपर्यंत थांबते आणि इतर deferred classic scripts सोबत क्रम राखते."
     }
   ]
 }
