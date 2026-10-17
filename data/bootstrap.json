@@ -3,58 +3,113 @@
   "questions": [
     {
       "id": 1,
-      "category": "GRID",
-      "question": "How does the Bootstrap 5 grid system work?",
-      "questionMarathi": "Bootstrap 5 grid system कसे काम करते?",
-      "answer": "Bootstrap's grid uses containers, rows, and columns built with responsive breakpoints and flexbox. Columns share a 12-unit row by default. Responsive column classes let layouts adapt at selected viewport sizes.",
-      "answerMarathi": "Bootstrap grid मध्ये responsive breakpoints आणि flexbox वापरून containers, rows आणि columns तयार होतात. एका row मध्ये साधारणपणे 12 units असतात. वेगवेगळ्या viewport आकारांसाठी responsive column classes वापरता येतात.",
-      "codeExample": "<div class=\"container-fluid\">\n  <div class=\"row g-3\">\n    <div class=\"col-12 col-md-6 col-xl-4\">Card</div>\n    <div class=\"col-12 col-md-6 col-xl-4\">Card</div>\n  </div>\n</div>",
-      "codeExplanation": "Each column is full width on small screens, half width at md, and one third width at xl.",
-      "codeExplanationMarathi": "लहान screens वर प्रत्येक column पूर्ण width घेतो, md पासून अर्धी आणि xl पासून एक-तृतीयांश width घेतो."
+      "category": "BOOTSTRAP BASICS",
+      "question": "What is Bootstrap 5 and why is it used?",
+      "questionMarathi": "Bootstrap 5 म्हणजे काय आणि त्याचा वापर का केला जातो?",
+      "answer": "Bootstrap 5 is a mobile-first front-end CSS framework used to build responsive websites quickly. It provides a responsive grid system, prebuilt components, utility classes, and JavaScript plugins.",
+      "answerMarathi": "Bootstrap 5 हे Mobile-First Front-End CSS Framework आहे. याचा वापर Responsive Websites जलद तयार करण्यासाठी होतो. यामध्ये Responsive Grid System, तयार Components, Utility Classes आणि JavaScript Plugins उपलब्ध आहेत.",
+      "codeExample": "<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css\" rel=\"stylesheet\">\n\n<div class=\"container py-4\">\n  <button class=\"btn btn-primary\">Click Me</button>\n</div>",
+      "codeExplanation": "The Bootstrap CSS file provides ready-to-use styles for the container, spacing, and button.",
+      "codeExplanationMarathi": "Bootstrap CSS File मुळे Container, Spacing आणि Button साठी तयार Styles मिळतात. त्यामुळे प्रत्येक Style स्वतः लिहिण्याची गरज कमी होते."
     },
     {
       "id": 2,
-      "category": "UTILITIES",
-      "question": "What are Bootstrap utility classes, and when should you use them?",
-      "questionMarathi": "Bootstrap utility classes म्हणजे काय आणि त्या कधी वापराव्यात?",
-      "answer": "Utilities are single-purpose classes for common properties such as spacing, display, color, and alignment. They speed up consistent layout work, but repeated complex combinations may be clearer as a component class.",
-      "answerMarathi": "Spacing, display, color आणि alignment यांसारख्या सामान्य properties साठी utility classes एकाच उद्देशाचे classes असतात. त्या सुसंगत layout लवकर तयार करतात; मात्र वारंवार वापरल्या जाणाऱ्या गुंतागुंतीच्या combinations साठी component class अधिक स्पष्ट असू शकतो.",
-      "codeExample": "<div class=\"d-flex align-items-center gap-3 p-3\">\n  <span class=\"text-body-secondary\">Status</span>\n  <strong class=\"ms-auto\">Active</strong>\n</div>",
-      "codeExplanation": "These utilities create a flex row with alignment, spacing, padding, muted text, and an auto left margin.",
-      "codeExplanationMarathi": "या utilities flex row, alignment, spacing, padding, muted text आणि auto left margin तयार करतात."
+      "category": "BOOTSTRAP 4 VS 5",
+      "question": "What are the major differences between Bootstrap 4 and Bootstrap 5?",
+      "questionMarathi": "Bootstrap 4 आणि Bootstrap 5 यांमध्ये कोणते प्रमुख फरक आहेत?",
+      "answer": "Bootstrap 5 removed its dependency on jQuery and uses vanilla JavaScript for its JavaScript plugins. It introduced the xxl breakpoint, improved RTL support, added a Utility API, and enhanced form controls. Bootstrap 5 also supports newer browser capabilities and layout utilities.",
+      "answerMarathi": "Bootstrap 5 मध्ये jQuery Dependency काढून Vanilla JavaScript वापरले आहे. यामध्ये xxl Breakpoint, सुधारित RTL Support, Utility API आणि अधिक चांगले Form Controls दिले आहेत. तसेच आधुनिक Browser Features आणि Layout Utilities साठी Support सुधारला आहे.",
+      "codeExample": "/* Bootstrap 4 */\n<div class=\"ml-3\">Content</div>\n\n/* Bootstrap 5 */\n<div class=\"ms-3\">Content</div>",
+      "codeExplanation": "Bootstrap 5 uses logical spacing utilities such as ms-3 (margin-start), which work better with left-to-right and right-to-left layouts.",
+      "codeExplanationMarathi": "Bootstrap 5 मध्ये ms-3 सारख्या Logical Spacing Classes वापरतात. त्यामुळे LTR आणि RTL दोन्ही Layouts मध्ये योग्य Spacing देता येते."
     },
     {
       "id": 3,
-      "category": "COMPONENTS",
-      "question": "How do you make a Bootstrap navigation bar responsive?",
-      "questionMarathi": "Bootstrap navigation bar responsive कसा बनवाल?",
-      "answer": "Use navbar-expand at the breakpoint where the full navigation should appear, a navbar-toggler button, and a collapsible container with matching IDs. The Bootstrap JavaScript bundle is required for the collapse interaction.",
-      "answerMarathi": "पूर्ण navigation कोणत्या breakpoint पासून दिसावी त्यासाठी navbar-expand वापरा, navbar-toggler button द्या आणि जुळणाऱ्या IDs सह collapsible container ठेवा. Collapse interaction साठी Bootstrap JavaScript bundle आवश्यक आहे.",
-      "codeExample": "<nav class=\"navbar navbar-expand-lg\">\n  <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\"\n    data-bs-target=\"#mainNav\" aria-controls=\"mainNav\" aria-expanded=\"false\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse\" id=\"mainNav\">...</div>\n</nav>",
-      "codeExplanation": "The menu collapses below the lg breakpoint and the toggler controls the matching target.",
-      "codeExplanationMarathi": "lg breakpoint खाली menu collapse होतो आणि toggler जुळणाऱ्या target ला नियंत्रित करतो."
+      "category": "GRID SYSTEM",
+      "question": "Explain the Bootstrap 5 Grid System.",
+      "questionMarathi": "Bootstrap 5 Grid System समजावून सांगा.",
+      "answer": "Bootstrap 5 uses a responsive 12-column grid system. Layouts are built using containers, rows, and columns. Responsive column classes allow the layout to change at different breakpoints.",
+      "answerMarathi": "Bootstrap 5 मध्ये Responsive 12-Column Grid System वापरले जाते. Layout तयार करण्यासाठी Container, Row आणि Column वापरतात. वेगवेगळ्या Breakpoints नुसार Column Classes बदलून Responsive Layout तयार करता येतो.",
+      "codeExample": "<div class=\"container\">\n  <div class=\"row\">\n    <div class=\"col-md-6\">Column 1</div>\n    <div class=\"col-md-6\">Column 2</div>\n  </div>\n</div>",
+      "codeExplanation": "From the md breakpoint upward, each column occupies half of the row. Below md, the columns stack vertically by default.",
+      "codeExplanationMarathi": "md Breakpoint पासून प्रत्येक Column Row ची अर्धी जागा घेतो. md पेक्षा लहान Screen वर Columns Default ने एकाखाली एक दिसतात."
     },
     {
       "id": 4,
-      "category": "FORMS",
-      "question": "How should validation feedback be marked up in a Bootstrap form?",
-      "questionMarathi": "Bootstrap form मध्ये validation feedback कसे दाखवावे?",
-      "answer": "Associate labels with controls, apply is-invalid or is-valid to the control, and show feedback with invalid-feedback or valid-feedback. Also provide accessible descriptions and do not rely on color alone to communicate an error.",
-      "answerMarathi": "Labels controls शी जोडा, control ला is-invalid किंवा is-valid द्या आणि invalid-feedback किंवा valid-feedback ने सूचना दाखवा. Accessible descriptions द्या आणि error समजावण्यासाठी फक्त रंगावर अवलंबून राहू नका.",
-      "codeExample": "<label for=\"email\" class=\"form-label\">Email</label>\n<input id=\"email\" class=\"form-control is-invalid\" aria-describedby=\"emailError\">\n<div id=\"emailError\" class=\"invalid-feedback\">Enter a valid email address.</div>",
-      "codeExplanation": "aria-describedby connects the input to its visible error message.",
-      "codeExplanationMarathi": "aria-describedby input ला दिसणाऱ्या error message शी जोडते."
+      "category": "BREAKPOINTS",
+      "question": "What are the breakpoints in Bootstrap 5?",
+      "questionMarathi": "Bootstrap 5 मधील Breakpoints कोणते आहेत?",
+      "answer": "Bootstrap 5.3 has six default responsive breakpoints: xs, sm, md, lg, xl, and xxl. Their minimum viewport widths are 0px, 576px, 768px, 992px, 1200px, and 1400px respectively.",
+      "answerMarathi": "Bootstrap 5.3 मध्ये xs, sm, md, lg, xl आणि xxl असे सहा Default Responsive Breakpoints आहेत. त्यांची Minimum Viewport Width अनुक्रमे 0px, 576px, 768px, 992px, 1200px आणि 1400px आहे.",
+      "codeExample": "/* Small devices and above */\n<div class=\"col-sm-6\">Content</div>\n\n/* Medium devices and above */\n<div class=\"col-md-4\">Content</div>\n\n/* Extra-extra-large devices and above */\n<div class=\"col-xxl-3\">Content</div>",
+      "codeExplanation": "Breakpoint classes apply at the specified minimum viewport width and continue to apply at larger widths unless overridden.",
+      "codeExplanationMarathi": "Breakpoint Class दिलेल्या Minimum Viewport Width पासून लागू होते. नंतरच्या मोठ्या Screen Sizes वर दुसरी Class त्याला Override करत नसेल तर ती लागू राहते."
     },
     {
       "id": 5,
-      "category": "CUSTOMIZATION",
-      "question": "What are Bootstrap breakpoints, and how should you choose one?",
-      "questionMarathi": "Bootstrap breakpoints म्हणजे काय आणि कोणता निवडावा?",
-      "answer": "Breakpoints are viewport widths where responsive styles change. Bootstrap provides standard responsive tiers such as sm, md, lg, xl, and xxl. Choose a breakpoint when the content no longer fits comfortably, rather than for a named device.",
-      "answerMarathi": "Responsive styles ज्या viewport width वर बदलतात त्या मर्यादा म्हणजे breakpoints. Bootstrap मध्ये sm, md, lg, xl आणि xxl असे tiers आहेत. विशिष्ट device साठी नव्हे, तर content आरामात बसत नाही तेव्हा breakpoint निवडा.",
-      "codeExample": "<div class=\"d-none d-md-block\">\n  Visible from the md breakpoint upward\n</div>",
-      "codeExplanation": "The element is hidden below md and displayed as a block at md and wider sizes.",
-      "codeExplanationMarathi": "md खाली element लपतो आणि md किंवा त्यापेक्षा मोठ्या आकारात block म्हणून दिसतो."
+      "category": "RESPONSIVE LAYOUT",
+      "question": "How do you create a responsive layout using Bootstrap 5?",
+      "questionMarathi": "Bootstrap 5 वापरून Responsive Layout कसा तयार कराल?",
+      "answer": "Use container, row, and responsive column classes to create a layout that adapts to screen size. Classes such as col-12, col-sm-6, col-md-4, and col-lg-3 control how many columns fit into each row at different breakpoints.",
+      "answerMarathi": "Screen Size नुसार बदलणारा Layout तयार करण्यासाठी container, row आणि Responsive Column Classes वापरतात. col-12, col-sm-6, col-md-4 आणि col-lg-3 यांसारख्या Classes मुळे वेगवेगळ्या Breakpoints वर एका Row मध्ये किती Columns दिसतील हे ठरवता येते.",
+      "codeExample": "<div class=\"container\">\n  <div class=\"row g-3\">\n    <div class=\"col-12 col-sm-6 col-md-4 col-lg-3\">Box 1</div>\n    <div class=\"col-12 col-sm-6 col-md-4 col-lg-3\">Box 2</div>\n    <div class=\"col-12 col-sm-6 col-md-4 col-lg-3\">Box 3</div>\n    <div class=\"col-12 col-sm-6 col-md-4 col-lg-3\">Box 4</div>\n  </div>\n</div>",
+      "codeExplanation": "The layout shows one column per row by default, two from sm, three from md, and four from lg. The g-3 class adds gutters between grid items.",
+      "codeExplanationMarathi": "Default ने एका Row मध्ये एक Box दिसतो. sm पासून दोन, md पासून तीन आणि lg पासून चार Box दिसतात. g-3 मुळे Grid Items मध्ये Gap मिळतो."
+    },
+    {
+      "id": 6,
+      "category": "MEDIA QUERIES",
+      "question": "How do you write custom media queries with Bootstrap 5?",
+      "questionMarathi": "Bootstrap 5 मध्ये Custom Media Queries कशा लिहितात?",
+      "answer": "Bootstrap provides predefined responsive breakpoints and responsive utility classes. When a custom style is needed, standard CSS media queries can be used. The query conditions should match the intended viewport range.",
+      "answerMarathi": "Bootstrap मध्ये Predefined Responsive Breakpoints आणि Responsive Utility Classes उपलब्ध आहेत. Custom Styling आवश्यक असल्यास Standard CSS Media Queries वापरता येतात. Media Query ची Condition अपेक्षित Viewport Range शी जुळणारी असावी.",
+      "codeExample": "/* Tablet-sized screens and below */\n@media (max-width: 991.98px) {\n  .custom-container {\n    background-color: lightgreen;\n  }\n}\n\n/* Extra-small screens */\n@media (max-width: 575.98px) {\n  .custom-container {\n    background-color: lightcoral;\n  }\n}",
+      "codeExplanation": "The first rule applies up to 991.98px. The second applies up to 575.98px, where both rules match; the later rule wins for the same property and specificity.",
+      "codeExplanationMarathi": "पहिला Rule 991.98px पर्यंत आणि दुसरा Rule 575.98px पर्यंत लागू होतो. लहान Screen वर दोन्ही Rules लागू होतात; समान Specificity असल्यास नंतर लिहिलेला Rule प्राधान्याने लागू होतो."
+    },
+    {
+      "id": 7,
+      "category": "FLEXBOX ALIGNMENT",
+      "question": "How do you center a div using Bootstrap 5?",
+      "questionMarathi": "Bootstrap 5 वापरून Div ला Center कसे कराल?",
+      "answer": "Bootstrap 5 provides Flexbox utility classes such as d-flex, justify-content-center, and align-items-center. These can center a child horizontally and vertically within a parent that has sufficient height.",
+      "answerMarathi": "Bootstrap 5 मध्ये d-flex, justify-content-center आणि align-items-center यांसारख्या Flexbox Utility Classes उपलब्ध आहेत. Parent ला पुरेशी Height दिल्यास या Classes वापरून Child Element ला Horizontal आणि Vertical Center करता येते.",
+      "codeExample": "<div class=\"d-flex justify-content-center align-items-center min-vh-100\">\n  <div class=\"p-3 bg-primary text-white\">\n    Centered Box\n  </div>\n</div>",
+      "codeExplanation": "d-flex enables Flexbox, justify-content-center centers horizontally, align-items-center centers vertically, and min-vh-100 gives the parent at least the viewport height.",
+      "codeExplanationMarathi": "d-flex मुळे Flexbox सुरू होते. justify-content-center Horizontal Center करते, align-items-center Vertical Center करते आणि min-vh-100 मुळे Parent ची किमान Height Viewport इतकी होते."
+    },
+    {
+      "id": 8,
+      "category": "UTILITY CLASSES",
+      "question": "What are Bootstrap 5 Utility Classes?",
+      "questionMarathi": "Bootstrap 5 Utility Classes म्हणजे काय?",
+      "answer": "Utility classes are small, predefined CSS classes that apply common styles directly in HTML. They cover spacing, display, flexbox, typography, colors, borders, sizing, and many other properties.",
+      "answerMarathi": "Utility Classes म्हणजे HTML मध्ये थेट वापरता येणाऱ्या छोट्या Predefined CSS Classes. त्यांच्याद्वारे Spacing, Display, Flexbox, Typography, Colors, Borders आणि Sizing यांसारख्या Styles पटकन लागू करता येतात.",
+      "codeExample": "<div class=\"d-flex justify-content-between align-items-center p-3 bg-light\">\n  <h5 class=\"mb-0 fw-bold\">Dashboard</h5>\n  <button class=\"btn btn-primary\">Open</button>\n</div>",
+      "codeExplanation": "These classes handle layout, spacing, background color, text weight, and button styling without requiring custom CSS for each property.",
+      "codeExplanationMarathi": "या Classes मुळे Layout, Spacing, Background Color, Text Weight आणि Button Styling लागू होते. प्रत्येक Property साठी वेगळे Custom CSS लिहावे लागत नाही."
+    },
+    {
+      "id": 9,
+      "category": "CONTAINERS",
+      "question": "What is the difference between .container and .container-fluid?",
+      "questionMarathi": ".container आणि .container-fluid यांमध्ये काय फरक आहे?",
+      "answer": "The .container class uses responsive maximum widths at Bootstrap breakpoints and is centered horizontally. The .container-fluid class occupies 100% of the available width at every breakpoint.",
+      "answerMarathi": ".container ही Class Bootstrap Breakpoints नुसार Responsive Maximum Width वापरते आणि सामान्यतः Horizontally Center असते. .container-fluid ही Class प्रत्येक Breakpoint वर उपलब्ध Width च्या 100% जागा घेते.",
+      "codeExample": "<div class=\"container bg-light p-3 mb-3\">\n  Responsive fixed-max-width container\n</div>\n\n<div class=\"container-fluid bg-primary text-white p-3\">\n  Full-width container\n</div>",
+      "codeExplanation": "Use .container for content that should have a maximum width on larger screens and .container-fluid for full-width sections.",
+      "codeExplanationMarathi": "मोठ्या Screen वर Content ला Maximum Width हवी असल्यास .container वापरा. पूर्ण Screen Width वापरायची असल्यास .container-fluid वापरा."
+    },
+    {
+      "id": 10,
+      "category": "GRID STRUCTURE",
+      "question": "What is the difference between .row and .col in Bootstrap 5?",
+      "questionMarathi": "Bootstrap 5 मधील .row आणि .col यांमध्ये काय फरक आहे?",
+      "answer": "The .row class creates a horizontal grid row and manages column gutters using negative margins and related layout rules. The .col class defines a flexible grid column inside a row. Columns are used to place and size content within the grid.",
+      "answerMarathi": ".row ही Class Horizontal Grid Row तयार करते आणि Gutter Spacing व्यवस्थापित करते. .col ही Class Row च्या आत Flexible Grid Column तयार करते. Grid मध्ये Content कुठे ठेवायचे आणि किती जागा द्यायची हे Columns द्वारे नियंत्रित करता येते.",
+      "codeExample": "<div class=\"container\">\n  <div class=\"row g-3\">\n    <div class=\"col\">Column 1</div>\n    <div class=\"col\">Column 2</div>\n  </div>\n</div>",
+      "codeExplanation": "The row groups the columns, and the two .col elements share the available row width equally. The g-3 class adds spacing between them.",
+      "codeExplanationMarathi": ".row दोन्ही Columns एकत्र ठेवते. दोन्ही .col Elements उपलब्ध Row Width समान प्रमाणात विभागून घेतात. g-3 मुळे त्यांच्यामध्ये Spacing मिळते."
     }
   ]
 }

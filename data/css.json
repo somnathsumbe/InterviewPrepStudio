@@ -3,58 +3,102 @@
   "questions": [
     {
       "id": 1,
-      "category": "LAYOUT",
-      "question": "How do Flexbox and CSS Grid differ?",
-      "questionMarathi": "Flexbox आणि CSS Grid यांच्यात काय फरक आहे?",
-      "answer": "Flexbox is primarily one-dimensional and arranges items along a row or column. Grid is two-dimensional and controls rows and columns together. Choose based on the layout: Flexbox for a component's linear alignment and Grid for page or card layouts.",
-      "answerMarathi": "Flexbox प्रामुख्याने एक-dimensional आहे आणि items एका row किंवा column मध्ये मांडतो. Grid rows आणि columns एकत्र नियंत्रित करणारे two-dimensional layout आहे. एका दिशेतील component alignment साठी Flexbox आणि page किंवा card layout साठी Grid निवडा.",
-      "codeExample": ".toolbar { display: flex; gap: 1rem; }\n\n.dashboard { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }",
-      "codeExplanation": "The toolbar lays items in a row; the dashboard defines a two-dimensional column layout.",
-      "codeExplanationMarathi": "Toolbar मधील items एका row मध्ये येतात; dashboard मध्ये columns असलेली two-dimensional रचना आहे."
+      "category": "BOX MODEL",
+      "question": "What are the four parts of the CSS Box Model?",
+      "questionMarathi": "CSS Box Model चे चार भाग कोणते आहेत?",
+      "answer": "The CSS Box Model consists of Content, Padding, Border, and Margin. Content contains the actual text or image. Padding is the space between content and border. Border surrounds the padding and content. Margin is the space outside the border.",
+      "answerMarathi": "CSS Box Model मध्ये Content, Padding, Border आणि Margin हे चार भाग असतात. Content मध्ये प्रत्यक्ष मजकूर किंवा image असते. Padding म्हणजे Content आणि Border यांच्यातील जागा. Border हा Content आणि Padding भोवती असतो. Margin म्हणजे Border च्या बाहेरील जागा.",
+      "codeExample": ".box {\n  width: 200px;\n  padding: 20px;\n  border: 5px solid green;\n  margin: 30px;\n  background-color: lightblue;\n}",
+      "codeExplanation": "With the default content-box sizing, the total width excluding margins is 200 + 40 + 10 = 250px.",
+      "codeExplanationMarathi": "Default content-box मध्ये एकूण width 200 + 40 + 10 = 250px होते. Margin धरल्यास बाहेरील एकूण रुंदी 310px होते."
     },
     {
       "id": 2,
-      "category": "BOX MODEL",
-      "question": "What does box-sizing: border-box change?",
-      "questionMarathi": "box-sizing: border-box मुळे काय बदलते?",
-      "answer": "With content-box, declared width excludes padding and borders. With border-box, declared width includes content, padding, and borders, which makes sizing more predictable in responsive layouts.",
-      "answerMarathi": "content-box मध्ये दिलेल्या width मध्ये padding आणि borders समाविष्ट नसतात. border-box मध्ये content, padding आणि borders हे सर्व दिलेल्या width मध्ये येतात; त्यामुळे responsive layout मधील sizing अधिक अंदाजे होते.",
-      "codeExample": "*, *::before, *::after {\n  box-sizing: border-box;\n}\n\n.card { width: 20rem; padding: 1rem; border: 1px solid; }",
-      "codeExplanation": "The card's total outer width remains 20rem, including its padding and border.",
-      "codeExplanationMarathi": "Padding आणि border धरून card ची एकूण बाहेरील width 20rem राहते."
+      "category": "BOX SIZING",
+      "question": "What is the difference between content-box and border-box?",
+      "questionMarathi": "content-box आणि border-box यांमध्ये काय फरक आहे?",
+      "answer": "content-box is the default box-sizing value. The declared width and height apply only to the content. With border-box, the declared width and height include content, padding, and border. Margins remain outside the declared size.",
+      "answerMarathi": "content-box हे default value आहे. यामध्ये दिलेली width आणि height फक्त Content साठी असते. border-box मध्ये width आणि height मध्ये Content, Padding आणि Border समाविष्ट असतात. Margin मात्र बाहेर राहतो.",
+      "codeExample": ".box1 {\n  width: 200px;\n  padding: 20px;\n  border: 5px solid black;\n  box-sizing: content-box;\n}\n\n.box2 {\n  width: 200px;\n  padding: 20px;\n  border: 5px solid black;\n  box-sizing: border-box;\n}",
+      "codeExplanation": "The first box has a 250px outer width excluding margins. The second box has a 200px outer width excluding margins.",
+      "codeExplanationMarathi": "पहिल्या Box ची एकूण रुंदी Margin वगळून 250px होते. दुसऱ्या Box ची रुंदी Margin वगळून 200px राहते."
     },
     {
       "id": 3,
-      "category": "SPECIFICITY",
-      "question": "How does CSS specificity determine which rule wins?",
-      "questionMarathi": "कोणता CSS rule लागू होईल हे specificity कसे ठरवते?",
-      "answer": "When declarations conflict, the cascade considers origin and importance, layer, specificity, and source order. Specificity compares selector components; IDs generally outweigh classes, which outweigh element selectors. Prefer simple selectors and avoid relying on !important.",
-      "answerMarathi": "Declarations मध्ये conflict असल्यास cascade origin आणि importance, layer, specificity आणि source order पाहते. Specificity मध्ये ID selectors साधारणपणे classes पेक्षा आणि classes elements पेक्षा अधिक प्रभावी असतात. साधे selectors वापरा आणि !important वर अवलंबून राहू नका.",
-      "codeExample": ".card p { color: navy; }\n#summary p { color: darkgreen; }",
-      "codeExplanation": "The ID selector has greater specificity for the paragraph inside the matching element.",
-      "codeExplanationMarathi": "जुळणाऱ्या element मधील paragraph साठी ID selector ची specificity जास्त असते."
+      "category": "CSS VARIABLES",
+      "question": "What are CSS Variables?",
+      "questionMarathi": "CSS Variables म्हणजे काय?",
+      "answer": "CSS Variables are reusable custom properties that store values such as colors, spacing, and font sizes. They are declared using a name beginning with two hyphens and accessed using var().",
+      "answerMarathi": "CSS Variables म्हणजे Color, Spacing आणि Font Size यांसारख्या Values पुन्हा वापरण्यासाठी तयार केलेल्या Custom Properties. त्यांची सुरुवात दोन hyphens ने होते आणि var() वापरून त्यांची Value मिळवता येते.",
+      "codeExample": ":root {\n  --main-color: blue;\n}\n\nh1 {\n  color: var(--main-color);\n}\n\n/* Update using JavaScript */\ndocument.documentElement.style.setProperty('--main-color', 'red');",
+      "codeExplanation": "The variable is globally available through :root and can be updated using JavaScript.",
+      "codeExplanationMarathi": ":root मध्ये Variable घोषित केल्यामुळे तो संपूर्ण पेजवर वापरता येतो. JavaScript वापरून त्याची Value बदलता येते."
     },
     {
       "id": 4,
-      "category": "RESPONSIVE DESIGN",
-      "question": "How do media queries support responsive design?",
-      "questionMarathi": "Media queries responsive design साठी कशी मदत करतात?",
-      "answer": "Media queries conditionally apply styles based on viewport or user preferences. Use fluid layouts by default and add breakpoints when content needs a layout change, rather than targeting specific device models.",
-      "answerMarathi": "Viewport किंवा वापरकर्त्याच्या preferences नुसार media queries वेगळे styles लागू करतात. Default म्हणून fluid layouts ठेवा आणि विशिष्ट device model नुसार नव्हे, तर content ला layout बदल आवश्यक असेल तेव्हा breakpoint जोडा.",
-      "codeExample": ".cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }\n\n@media (max-width: 700px) {\n  .cards { grid-template-columns: 1fr; }\n}",
-      "codeExplanation": "The grid switches to one column when the available viewport becomes narrow.",
-      "codeExplanationMarathi": "Viewport अरुंद झाल्यावर grid एका column मध्ये बदलतो."
+      "category": "ALIGNMENT",
+      "question": "How do you center a div horizontally and vertically?",
+      "questionMarathi": "Div ला Horizontal आणि Vertical Center कसे कराल?",
+      "answer": "Flexbox and Grid are modern methods for centering an element. Flexbox uses justify-content and align-items, while Grid can use place-items: center. The parent must have sufficient height for vertical centering to be visible.",
+      "answerMarathi": "Element ला Horizontal आणि Vertical Center करण्यासाठी Flexbox किंवा Grid वापरता येतात. Flexbox मध्ये justify-content आणि align-items वापरतात. Grid मध्ये place-items: center वापरता येते. Vertical Center दिसण्यासाठी Parent ची पुरेशी Height असणे आवश्यक आहे.",
+      "codeExample": "/* Flexbox */\n.parent {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  min-height: 300px;\n}\n\n/* Grid */\n.parent {\n  display: grid;\n  place-items: center;\n  min-height: 300px;\n}",
+      "codeExplanation": "Flexbox centers the child along both axes. Grid's place-items property centers it horizontally and vertically.",
+      "codeExplanationMarathi": "Flexbox मध्ये justify-content आणि align-items वापरून दोन्ही दिशांनी Center करता येते. Grid मध्ये place-items: center हेच काम सोप्या पद्धतीने करते."
     },
     {
       "id": 5,
-      "category": "ACCESSIBILITY",
-      "question": "How do you provide a visible keyboard focus indicator?",
-      "questionMarathi": "Keyboard focus indicator स्पष्टपणे कसा दाखवाल?",
-      "answer": "Use :focus-visible to show a clear outline when users navigate with a keyboard. Do not remove the browser outline without providing an equally visible replacement. Check contrast and ensure focused controls are not hidden behind sticky elements.",
-      "answerMarathi": "वापरकर्ता keyboard ने navigation करतो तेव्हा स्पष्ट outline दाखवण्यासाठी :focus-visible वापरा. दुसरा तितकाच स्पष्ट पर्याय न देता browser outline काढू नका. Contrast तपासा आणि focused controls sticky elements मागे लपणार नाहीत याची खात्री करा.",
-      "codeExample": "button:focus-visible,\na:focus-visible {\n  outline: 3px solid #2563eb;\n  outline-offset: 3px;\n}",
-      "codeExplanation": "The outline remains visible around a focused link or button without changing its layout.",
-      "codeExplanationMarathi": "Focused link किंवा button भोवती outline दिसते आणि layout बदलत नाही."
+      "category": "SPECIFICITY",
+      "question": "What is CSS Specificity?",
+      "questionMarathi": "CSS Specificity म्हणजे काय?",
+      "answer": "CSS Specificity is the priority system browsers use to decide which selector's declaration applies when rules conflict. Inline styles generally outrank ID selectors, followed by classes, attributes and pseudo-classes, then element selectors. The cascade also considers origin, importance, and layers.",
+      "answerMarathi": "CSS Specificity ही conflicting CSS rules पैकी कोणता Rule लागू होईल हे ठरवणारी Priority System आहे. साधारणपणे Inline Style ला ID पेक्षा, ID ला Class पेक्षा आणि Class ला Element Selector पेक्षा जास्त Specificity असते. अंतिम निर्णय घेताना Cascade, Importance आणि Layers यांचाही विचार होतो.",
+      "codeExample": "#title {\n  color: red;\n}\n\n.heading {\n  color: blue;\n}\n\nh1 {\n  color: green;\n}",
+      "codeExplanation": "For the same element and otherwise equal cascade conditions, the ID selector has greater specificity than the class and element selectors.",
+      "codeExplanationMarathi": "समान परिस्थितीत ID Selector ची Specificity Class आणि Element Selector पेक्षा जास्त असते. त्यामुळे #title ला लागू होणारा Rule प्राधान्याने लागू होतो."
+    },
+    {
+      "id": 6,
+      "category": "CSS UNITS",
+      "question": "What is the difference between px, em, rem, and percentage units?",
+      "questionMarathi": "px, em, rem आणि % यांमध्ये काय फरक आहे?",
+      "answer": "px is a CSS absolute length unit. em is relative to the element's computed font size for properties such as font-size, and often to the element's own font size for other properties. rem is relative to the root element's font size. Percentage values are relative to a property-specific reference, often a containing block.",
+      "answerMarathi": "px हे CSS मधील Absolute Length Unit आहे. font-size साठी em हे संबंधित Element च्या Computed Font Size वर अवलंबून असते. rem हे Root Element च्या Font Size वर अवलंबून असते. Percentage (%) कोणत्या Property साठी वापरले आहे त्यानुसार संबंधित Parent किंवा Containing Block च्या मापावर अवलंबून असते.",
+      "codeExample": "html {\n  font-size: 16px;\n}\n\n.parent {\n  font-size: 20px;\n  width: 400px;\n}\n\n.child {\n  font-size: 1.5em; /* 30px */\n  width: 50%;       /* 200px */\n  margin-top: 2rem; /* 32px */\n}",
+      "codeExplanation": "Here, 1.5em produces 30px, 50% of the 400px containing width is 200px, and 2rem produces 32px.",
+      "codeExplanationMarathi": "या उदाहरणात 1.5em म्हणजे 30px, 400px च्या 50% म्हणजे 200px आणि 2rem म्हणजे 32px."
+    },
+    {
+      "id": 7,
+      "category": "LAYOUT",
+      "question": "What is the difference between Flexbox and Grid?",
+      "questionMarathi": "Flexbox आणि Grid यांमध्ये काय फरक आहे?",
+      "answer": "Flexbox is primarily a one-dimensional layout system for arranging items in a row or column. CSS Grid is a two-dimensional layout system for arranging items across rows and columns.",
+      "answerMarathi": "Flexbox हे मुख्यतः One-Dimensional Layout System आहे. ते Row किंवा Column मध्ये Items Arrange करण्यासाठी वापरतात. CSS Grid हे Two-Dimensional Layout System आहे आणि Rows व Columns दोन्ही नियंत्रित करण्यासाठी वापरतात.",
+      "codeExample": "/* Flexbox */\n.container {\n  display: flex;\n  gap: 16px;\n  flex-wrap: wrap;\n}\n\n/* Grid */\n.grid {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 16px;\n}",
+      "codeExplanation": "Use Flexbox for one-direction alignment and Grid for structured row-and-column layouts.",
+      "codeExplanationMarathi": "एका दिशेतील Alignment साठी Flexbox आणि Rows व Columns असलेल्या Layout साठी Grid वापरणे उपयुक्त ठरते."
+    },
+    {
+      "id": 8,
+      "category": "VISIBILITY",
+      "question": "What is the difference between visibility: hidden and display: none?",
+      "questionMarathi": "visibility: hidden आणि display: none यांमध्ये काय फरक आहे?",
+      "answer": "visibility: hidden hides an element while preserving its layout space. display: none removes the element from the layout flow, so it occupies no layout space.",
+      "answerMarathi": "visibility: hidden वापरल्यास Element दिसत नाही, पण Layout मध्ये त्याची जागा कायम राहते. display: none वापरल्यास Element Layout मधून काढला जातो आणि त्याची जागा राहत नाही.",
+      "codeExample": ".hidden-space {\n  visibility: hidden;\n}\n\n.removed-space {\n  display: none;\n}",
+      "codeExplanation": "The first element reserves space; the second does not.",
+      "codeExplanationMarathi": "पहिला Element जागा राखून ठेवतो, तर दुसरा Element जागा राखून ठेवत नाही."
+    },
+    {
+      "id": 9,
+      "category": "RESPONSIVE DESIGN",
+      "question": "How do you create a responsive design using CSS?",
+      "questionMarathi": "CSS वापरून Responsive Design कसे तयार कराल?",
+      "answer": "Responsive design adapts a layout to different screen sizes. Common techniques include flexible widths, relative units, Flexbox or Grid, media queries, and responsive images using max-width: 100% and height: auto.",
+      "answerMarathi": "Responsive Design मध्ये Screen Size नुसार Layout बदलतो. यासाठी Flexible Width, Relative Units, Flexbox किंवा Grid, Media Queries आणि max-width: 100%; height: auto; वापरून Responsive Images तयार करता येतात.",
+      "codeExample": ".container {\n  width: 80%;\n  margin-inline: auto;\n}\n\nimg {\n  max-width: 100%;\n  height: auto;\n}\n\n@media (max-width: 768px) {\n  .container {\n    width: 100%;\n  }\n}",
+      "codeExplanation": "The container becomes full width on smaller screens, while images scale within their available space.",
+      "codeExplanationMarathi": "लहान Screen वर Container ची Width 100% होते आणि Images उपलब्ध जागेनुसार आकार बदलतात."
     }
   ]
 }
