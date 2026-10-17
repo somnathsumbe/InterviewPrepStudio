@@ -431,9 +431,26 @@ button {
 
 .question-list {
     display: flex;
+    align-items: center;
     gap: 6px;
     flex-wrap: wrap;
     margin-top: 17px;
+}
+
+.q-page-btn {
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    border-radius: 8px;
+    min-height: 32px;
+    padding: 0 10px;
+    font-size: 12px;
+}
+
+.q-page-btn:disabled {
+    color: var(--muted);
+    cursor: not-allowed;
+    opacity: 0.55;
 }
 
 .q-dot {

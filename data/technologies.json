@@ -110,5 +110,12 @@
     "description": "React coding examples",
     "icon": "R+",
     "pageUrl": "reactjs-example.html"
+  },
+  {
+    "id": "tailwind",
+    "name": "Tailwind CSS",
+    "description": "Utility-first CSS framework",
+    "icon": "TW",
+    "pageUrl": "tailwind.html"
   }
 ]

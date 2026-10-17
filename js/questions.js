@@ -87,7 +87,20 @@ export function renderQuestion(question, index, total) {
 export function renderQuestionNavigation(questions, activeIndex, onSelect) {
     const list = document.getElementById("questionDots");
     list.replaceChildren();
-    questions.forEach((question, index) => {
+    const pageSize = 10;
+    const pageStart = Math.floor(activeIndex / pageSize) * pageSize;
+    const pageEnd = Math.min(pageStart + pageSize, questions.length);
+
+    const previous = document.createElement("button");
+    previous.type = "button";
+    previous.className = "q-page-btn";
+    previous.textContent = "← Prev";
+    previous.setAttribute("aria-label", "Previous set of questions");
+    previous.disabled = pageStart === 0;
+    previous.addEventListener("click", () => onSelect(Math.max(0, pageStart - pageSize)));
+    list.append(previous);
+
+    for (let index = pageStart; index < pageEnd; index++) {
         const button = document.createElement("button");
         button.type = "button";
         button.className = `q-dot${index === activeIndex ? " active" : ""}`;
@@ -96,5 +109,14 @@ export function renderQuestionNavigation(questions, activeIndex, onSelect) {
         if (index === activeIndex) button.setAttribute("aria-current", "step");
         button.addEventListener("click", () => onSelect(index));
         list.append(button);
-    });
+    }
+
+    const next = document.createElement("button");
+    next.type = "button";
+    next.className = "q-page-btn";
+    next.textContent = "Next →";
+    next.setAttribute("aria-label", "Next set of questions");
+    next.disabled = pageEnd === questions.length;
+    next.addEventListener("click", () => onSelect(pageEnd));
+    list.append(next);
 }
