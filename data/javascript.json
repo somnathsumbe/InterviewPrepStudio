@@ -1,542 +1,489 @@
-
 {
-  "technology": "JavaScript ES6 & Advanced JavaScript",
-  "topics": [
+  "technology": "JavaScript",
+  "questions": [
     {
       "id": 1,
-      "title": "var, let and const",
+      "question": "What is the difference between var, let and const?",
+      "questionMarathi": "var, let आणि const मध्ये काय फरक आहे?",
+      "answer": "var is function-scoped and can be redeclared. let is block-scoped and can be reassigned but cannot be redeclared in the same scope. const is block-scoped and cannot be reassigned or redeclared in the same scope.",
+      "answerMarathi": "var हे function-scoped असते आणि पुन्हा declare करता येते. let हे block-scoped असते; त्याची value update करता येते, पण त्याच scope मध्ये पुन्हा declare करता येत नाही. const हे block-scoped असते आणि त्याची binding पुन्हा assign करता येत नाही.",
+      "codeExample": "var name = \"Somnath\";\nvar name = \"Sumbe\";\nconsole.log(name); // Sumbe\n\nlet age = 25;\nage = 30;\nconsole.log(age); // 30\n\nconst city = \"Pune\";\nconsole.log(city); // Pune",
+      "keyPoints": [
+        "var: function scope",
+        "let: block scope, reassignment allowed",
+        "const: block scope, reassignment not allowed"
+      ],
       "category": "ES6 Basics",
-      "questions": [
-        {
-          "id": 1,
-          "question": "What is the difference between var, let and const?",
-          "questionMarathi": "var, let आणि const मध्ये काय फरक आहे?",
-          "answer": "var is function-scoped and can be redeclared. let is block-scoped and can be reassigned but cannot be redeclared in the same scope. const is block-scoped and cannot be reassigned or redeclared in the same scope.",
-          "answerMarathi": "var हे function-scoped असते आणि पुन्हा declare करता येते. let हे block-scoped असते; त्याची value update करता येते, पण त्याच scope मध्ये पुन्हा declare करता येत नाही. const हे block-scoped असते आणि त्याची binding पुन्हा assign करता येत नाही.",
-          "codeExample": "var name = \"Somnath\";\nvar name = \"Sumbe\";\nconsole.log(name); // Sumbe\n\nlet age = 25;\nage = 30;\nconsole.log(age); // 30\n\nconst city = \"Pune\";\nconsole.log(city); // Pune",
-          "keyPoints": [
-            "var: function scope",
-            "let: block scope, reassignment allowed",
-            "const: block scope, reassignment not allowed"
-          ]
-        }
-      ]
+      "topicTitle": "var, let and const",
+      "topicId": 1,
+      "codeExplanation": "Key points: var: function scope ? let: block scope, reassignment allowed ? const: block scope, reassignment not allowed",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 2,
-      "title": "Template Literals",
+      "question": "What are template literals in JavaScript?",
+      "questionMarathi": "JavaScript मध्ये template literals म्हणजे काय?",
+      "answer": "Template literals use backticks to create strings. They support variable interpolation using ${} and multiline strings.",
+      "answerMarathi": "Template literals मध्ये backticks वापरतात. ${} वापरून string मध्ये variables किंवा expressions समाविष्ट करता येतात आणि multiline strings लिहिता येतात.",
+      "codeExample": "let name = \"Somnath\";\nlet city = \"Pune\";\nconsole.log(`My name is ${name} and I live in ${city}.`);\n\nlet a = 5;\nlet b = 10;\nconsole.log(`Sum = ${a + b}`); // Sum = 15",
+      "keyPoints": [
+        "Backticks वापरतात",
+        "${} मध्ये variable किंवा expression लिहिता येते",
+        "Multiline strings समर्थित आहेत"
+      ],
       "category": "ES6 Basics",
-      "questions": [
-        {
-          "id": 2,
-          "question": "What are template literals in JavaScript?",
-          "questionMarathi": "JavaScript मध्ये template literals म्हणजे काय?",
-          "answer": "Template literals use backticks to create strings. They support variable interpolation using ${} and multiline strings.",
-          "answerMarathi": "Template literals मध्ये backticks वापरतात. ${} वापरून string मध्ये variables किंवा expressions समाविष्ट करता येतात आणि multiline strings लिहिता येतात.",
-          "codeExample": "let name = \"Somnath\";\nlet city = \"Pune\";\nconsole.log(`My name is ${name} and I live in ${city}.`);\n\nlet a = 5;\nlet b = 10;\nconsole.log(`Sum = ${a + b}`); // Sum = 15",
-          "keyPoints": [
-            "Backticks वापरतात",
-            "${} मध्ये variable किंवा expression लिहिता येते",
-            "Multiline strings समर्थित आहेत"
-          ]
-        }
-      ]
+      "topicTitle": "Template Literals",
+      "topicId": 2,
+      "codeExplanation": "Key points: Backticks वापरतात ? ${} मध्ये variable किंवा expression लिहिता येते ? Multiline strings समर्थित आहेत",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 3,
-      "title": "New String Methods",
+      "question": "What are the new string methods introduced in ES6?",
+      "questionMarathi": "ES6 मध्ये कोणत्या नवीन string methods वापरता येतात?",
+      "answer": "ES6 introduced useful string methods such as startsWith(), endsWith(), includes() and repeat().",
+      "answerMarathi": "startsWith() string ची सुरुवात तपासते, endsWith() शेवट तपासते, includes() दिलेला मजकूर आहे का ते तपासते आणि repeat() string अनेक वेळा तयार करते.",
+      "codeExample": "let str = \"JavaScript ES6\";\nconsole.log(str.startsWith(\"Java\")); // true\nconsole.log(str.endsWith(\"ES6\")); // true\nconsole.log(str.includes(\"Script\")); // true\nconsole.log(\"Hello! \".repeat(3)); // Hello! Hello! Hello!",
+      "keyPoints": [
+        "startsWith(): सुरुवात तपासते",
+        "endsWith(): शेवट तपासते",
+        "includes(): मजकूर शोधते",
+        "repeat(): string repeat करते"
+      ],
       "category": "ES6 Basics",
-      "questions": [
-        {
-          "id": 3,
-          "question": "What are the new string methods introduced in ES6?",
-          "questionMarathi": "ES6 मध्ये कोणत्या नवीन string methods वापरता येतात?",
-          "answer": "ES6 introduced useful string methods such as startsWith(), endsWith(), includes() and repeat().",
-          "answerMarathi": "startsWith() string ची सुरुवात तपासते, endsWith() शेवट तपासते, includes() दिलेला मजकूर आहे का ते तपासते आणि repeat() string अनेक वेळा तयार करते.",
-          "codeExample": "let str = \"JavaScript ES6\";\nconsole.log(str.startsWith(\"Java\")); // true\nconsole.log(str.endsWith(\"ES6\")); // true\nconsole.log(str.includes(\"Script\")); // true\nconsole.log(\"Hello! \".repeat(3)); // Hello! Hello! Hello!",
-          "keyPoints": [
-            "startsWith(): सुरुवात तपासते",
-            "endsWith(): शेवट तपासते",
-            "includes(): मजकूर शोधते",
-            "repeat(): string repeat करते"
-          ]
-        }
-      ]
+      "topicTitle": "New String Methods",
+      "topicId": 3,
+      "codeExplanation": "Key points: startsWith(): सुरुवात तपासते ? endsWith(): शेवट तपासते ? includes(): मजकूर शोधते ? repeat(): string repeat करते",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 4,
-      "title": "Arrow Functions",
+      "question": "What is an arrow function in JavaScript?",
+      "questionMarathi": "JavaScript मध्ये arrow function म्हणजे काय?",
+      "answer": "An arrow function is a concise function syntax introduced in ES6. It uses the => operator and inherits this from its surrounding lexical scope.",
+      "answerMarathi": "Arrow function ही function लिहिण्याची छोटी syntax आहे. यात => वापरतात. Arrow function स्वतःचे this तयार करत नाही; ते बाहेरील lexical scope मधून this घेते.",
+      "codeExample": "function add(a, b) {\n  return a + b;\n}\n\nconst sum = (a, b) => a + b;\nconst square = x => x * x;\nconst sayHi = () => \"Hi Everyone!\";\n\nconsole.log(sum(5, 10)); // 15\nconsole.log(square(5)); // 25",
+      "keyPoints": [
+        "Short syntax",
+        "Single expression साठी implicit return",
+        "स्वतःचे this नसते",
+        "Constructor म्हणून वापरता येत नाही"
+      ],
       "category": "ES6 Functions",
-      "questions": [
-        {
-          "id": 4,
-          "question": "What is an arrow function in JavaScript?",
-          "questionMarathi": "JavaScript मध्ये arrow function म्हणजे काय?",
-          "answer": "An arrow function is a concise function syntax introduced in ES6. It uses the => operator and inherits this from its surrounding lexical scope.",
-          "answerMarathi": "Arrow function ही function लिहिण्याची छोटी syntax आहे. यात => वापरतात. Arrow function स्वतःचे this तयार करत नाही; ते बाहेरील lexical scope मधून this घेते.",
-          "codeExample": "function add(a, b) {\n  return a + b;\n}\n\nconst sum = (a, b) => a + b;\nconst square = x => x * x;\nconst sayHi = () => \"Hi Everyone!\";\n\nconsole.log(sum(5, 10)); // 15\nconsole.log(square(5)); // 25",
-          "keyPoints": [
-            "Short syntax",
-            "Single expression साठी implicit return",
-            "स्वतःचे this नसते",
-            "Constructor म्हणून वापरता येत नाही"
-          ]
-        }
-      ]
+      "topicTitle": "Arrow Functions",
+      "topicId": 4,
+      "codeExplanation": "Key points: Short syntax ? Single expression साठी implicit return ? स्वतःचे this नसते ? Constructor म्हणून वापरता येत नाही",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 5,
-      "title": "Array Destructuring",
+      "question": "What is array destructuring in JavaScript?",
+      "questionMarathi": "JavaScript मध्ये array destructuring म्हणजे काय?",
+      "answer": "Array destructuring extracts array elements into variables using array-pattern syntax.",
+      "answerMarathi": "Array destructuring वापरून array मधील elements वेगवेगळ्या variables मध्ये सहज assign करता येतात. Elements skip करणे, default values देणे आणि values swap करणेही शक्य आहे.",
+      "codeExample": "let numbers = [10, 20, 30];\nlet [x, y, z] = numbers;\nconsole.log(x, y, z); // 10 20 30\n\nlet a = 5;\nlet b = 10;\n[a, b] = [b, a];\nconsole.log(a, b); // 10 5\n\nlet [first, , third] = [1, 2, 3];\nconsole.log(first, third); // 1 3",
+      "keyPoints": [
+        "Array pattern वापरतो",
+        "Elements skip करू शकतो",
+        "Default values देऊ शकतो",
+        "Variables swap करू शकतो"
+      ],
       "category": "ES6 Features",
-      "questions": [
-        {
-          "id": 5,
-          "question": "What is array destructuring in JavaScript?",
-          "questionMarathi": "JavaScript मध्ये array destructuring म्हणजे काय?",
-          "answer": "Array destructuring extracts array elements into variables using array-pattern syntax.",
-          "answerMarathi": "Array destructuring वापरून array मधील elements वेगवेगळ्या variables मध्ये सहज assign करता येतात. Elements skip करणे, default values देणे आणि values swap करणेही शक्य आहे.",
-          "codeExample": "let numbers = [10, 20, 30];\nlet [x, y, z] = numbers;\nconsole.log(x, y, z); // 10 20 30\n\nlet a = 5;\nlet b = 10;\n[a, b] = [b, a];\nconsole.log(a, b); // 10 5\n\nlet [first, , third] = [1, 2, 3];\nconsole.log(first, third); // 1 3",
-          "keyPoints": [
-            "Array pattern वापरतो",
-            "Elements skip करू शकतो",
-            "Default values देऊ शकतो",
-            "Variables swap करू शकतो"
-          ]
-        }
-      ]
+      "topicTitle": "Array Destructuring",
+      "topicId": 5,
+      "codeExplanation": "Key points: Array pattern वापरतो ? Elements skip करू शकतो ? Default values देऊ शकतो ? Variables swap करू शकतो",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 6,
-      "title": "Object Destructuring",
+      "question": "What is object destructuring in JavaScript?",
+      "questionMarathi": "JavaScript मध्ये object destructuring म्हणजे काय?",
+      "answer": "Object destructuring extracts object properties into variables using matching property names.",
+      "answerMarathi": "Object destructuring वापरून object मधील properties variables मध्ये assign करता येतात. Variable चे नाव बदलता येते, default value देता येते आणि nested properties देखील destructure करता येतात.",
+      "codeExample": "const person = {\n  name: \"Somnath\",\n  age: 30,\n  city: \"Pune\"\n};\n\nconst { name, age } = person;\nconst { city: location } = person;\nconsole.log(name, age, location);\n\nconst { country = \"India\" } = person;\nconsole.log(country); // India",
+      "keyPoints": [
+        "Property names वापरून values मिळवतो",
+        "Alias वापरता येतो",
+        "Default values समर्थित आहेत",
+        "Nested destructuring शक्य आहे"
+      ],
       "category": "ES6 Features",
-      "questions": [
-        {
-          "id": 6,
-          "question": "What is object destructuring in JavaScript?",
-          "questionMarathi": "JavaScript मध्ये object destructuring म्हणजे काय?",
-          "answer": "Object destructuring extracts object properties into variables using matching property names.",
-          "answerMarathi": "Object destructuring वापरून object मधील properties variables मध्ये assign करता येतात. Variable चे नाव बदलता येते, default value देता येते आणि nested properties देखील destructure करता येतात.",
-          "codeExample": "const person = {\n  name: \"Somnath\",\n  age: 30,\n  city: \"Pune\"\n};\n\nconst { name, age } = person;\nconst { city: location } = person;\nconsole.log(name, age, location);\n\nconst { country = \"India\" } = person;\nconsole.log(country); // India",
-          "keyPoints": [
-            "Property names वापरून values मिळवतो",
-            "Alias वापरता येतो",
-            "Default values समर्थित आहेत",
-            "Nested destructuring शक्य आहे"
-          ]
-        }
-      ]
+      "topicTitle": "Object Destructuring",
+      "topicId": 6,
+      "codeExplanation": "Key points: Property names वापरून values मिळवतो ? Alias वापरता येतो ? Default values समर्थित आहेत ? Nested destructuring शक्य आहे",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 7,
-      "title": "Default Parameters",
+      "question": "What are default parameters in JavaScript?",
+      "questionMarathi": "JavaScript मध्ये default parameters म्हणजे काय?",
+      "answer": "Default parameters provide fallback values when an argument is omitted or explicitly passed as undefined.",
+      "answerMarathi": "Function call करताना argument दिला नाही किंवा undefined दिले, तर default parameter value वापरली जाते. मात्र null दिल्यास default value वापरली जात नाही.",
+      "codeExample": "function greet(name = \"Guest\") {\n  return `Hello, ${name}!`;\n}\n\nconsole.log(greet(\"Somnath\")); // Hello, Somnath!\nconsole.log(greet()); // Hello, Guest!\n\nfunction multiply(a = 1, b = 1) {\n  return a * b;\n}\nconsole.log(multiply(5)); // 5",
+      "keyPoints": [
+        "Arguments नसल्यास default value वापरली जाते",
+        "undefined साठी default लागू होते",
+        "null साठी default लागू होत नाही"
+      ],
       "category": "ES6 Functions",
-      "questions": [
-        {
-          "id": 7,
-          "question": "What are default parameters in JavaScript?",
-          "questionMarathi": "JavaScript मध्ये default parameters म्हणजे काय?",
-          "answer": "Default parameters provide fallback values when an argument is omitted or explicitly passed as undefined.",
-          "answerMarathi": "Function call करताना argument दिला नाही किंवा undefined दिले, तर default parameter value वापरली जाते. मात्र null दिल्यास default value वापरली जात नाही.",
-          "codeExample": "function greet(name = \"Guest\") {\n  return `Hello, ${name}!`;\n}\n\nconsole.log(greet(\"Somnath\")); // Hello, Somnath!\nconsole.log(greet()); // Hello, Guest!\n\nfunction multiply(a = 1, b = 1) {\n  return a * b;\n}\nconsole.log(multiply(5)); // 5",
-          "keyPoints": [
-            "Arguments नसल्यास default value वापरली जाते",
-            "undefined साठी default लागू होते",
-            "null साठी default लागू होत नाही"
-          ]
-        }
-      ]
+      "topicTitle": "Default Parameters",
+      "topicId": 7,
+      "codeExplanation": "Key points: Arguments नसल्यास default value वापरली जाते ? undefined साठी default लागू होते ? null साठी default लागू होत नाही",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 8,
-      "title": "Rest Parameters",
+      "question": "What are rest parameters in JavaScript?",
+      "questionMarathi": "JavaScript मध्ये rest parameters म्हणजे काय?",
+      "answer": "Rest parameters use ... to collect remaining function arguments into a real array.",
+      "answerMarathi": "Rest parameter मध्ये ... वापरून उरलेले function arguments एका array मध्ये collect केले जातात. त्यामुळे कितीही arguments हाताळता येतात.",
+      "codeExample": "function sum(...numbers) {\n  return numbers.reduce((total, n) => total + n, 0);\n}\n\nconsole.log(sum(1, 2, 3)); // 6\nconsole.log(sum(4, 5, 6, 7)); // 22\n\nfunction greet(message, ...names) {\n  names.forEach(name => console.log(`${message}, ${name}!`));\n}\ngreet(\"Hello\", \"Somnath\", \"Shivansh\");",
+      "keyPoints": [
+        "Rest arguments array मध्ये collect करतो",
+        "Function parameter list मध्ये वापरतो",
+        "Rest parameter शेवटी असला पाहिजे"
+      ],
       "category": "ES6 Functions",
-      "questions": [
-        {
-          "id": 8,
-          "question": "What are rest parameters in JavaScript?",
-          "questionMarathi": "JavaScript मध्ये rest parameters म्हणजे काय?",
-          "answer": "Rest parameters use ... to collect remaining function arguments into a real array.",
-          "answerMarathi": "Rest parameter मध्ये ... वापरून उरलेले function arguments एका array मध्ये collect केले जातात. त्यामुळे कितीही arguments हाताळता येतात.",
-          "codeExample": "function sum(...numbers) {\n  return numbers.reduce((total, n) => total + n, 0);\n}\n\nconsole.log(sum(1, 2, 3)); // 6\nconsole.log(sum(4, 5, 6, 7)); // 22\n\nfunction greet(message, ...names) {\n  names.forEach(name => console.log(`${message}, ${name}!`));\n}\ngreet(\"Hello\", \"Somnath\", \"Shivansh\");",
-          "keyPoints": [
-            "Rest arguments array मध्ये collect करतो",
-            "Function parameter list मध्ये वापरतो",
-            "Rest parameter शेवटी असला पाहिजे"
-          ]
-        }
-      ]
+      "topicTitle": "Rest Parameters",
+      "topicId": 8,
+      "codeExplanation": "Key points: Rest arguments array मध्ये collect करतो ? Function parameter list मध्ये वापरतो ? Rest parameter शेवटी असला पाहिजे",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 9,
-      "title": "Spread Operator",
+      "question": "What is the spread operator in JavaScript?",
+      "questionMarathi": "JavaScript मध्ये spread operator म्हणजे काय?",
+      "answer": "The spread syntax expands iterable elements or enumerable object properties into another array, object or function call.",
+      "answerMarathi": "Spread operator मध्ये ... वापरून array मधील elements किंवा object मधील properties दुसऱ्या array, object किंवा function call मध्ये expand करता येतात.",
+      "codeExample": "const first = [1, 2, 3];\nconst second = [4, 5, 6];\nconst combined = [...first, ...second];\nconsole.log(combined); // [1, 2, 3, 4, 5, 6]\n\nconst person = { name: \"Somnath\", age: 30 };\nconst updated = { ...person, city: \"Pune\" };\nconsole.log(updated);\n\nfunction add(a, b, c) {\n  return a + b + c;\n}\nconsole.log(add(...[10, 20, 30])); // 60",
+      "keyPoints": [
+        "Array merge आणि shallow copy",
+        "Object merge आणि shallow copy",
+        "Function arguments expand करतो",
+        "Rest collect करतो; spread expand करतो"
+      ],
       "category": "ES6 Features",
-      "questions": [
-        {
-          "id": 9,
-          "question": "What is the spread operator in JavaScript?",
-          "questionMarathi": "JavaScript मध्ये spread operator म्हणजे काय?",
-          "answer": "The spread syntax expands iterable elements or enumerable object properties into another array, object or function call.",
-          "answerMarathi": "Spread operator मध्ये ... वापरून array मधील elements किंवा object मधील properties दुसऱ्या array, object किंवा function call मध्ये expand करता येतात.",
-          "codeExample": "const first = [1, 2, 3];\nconst second = [4, 5, 6];\nconst combined = [...first, ...second];\nconsole.log(combined); // [1, 2, 3, 4, 5, 6]\n\nconst person = { name: \"Somnath\", age: 30 };\nconst updated = { ...person, city: \"Pune\" };\nconsole.log(updated);\n\nfunction add(a, b, c) {\n  return a + b + c;\n}\nconsole.log(add(...[10, 20, 30])); // 60",
-          "keyPoints": [
-            "Array merge आणि shallow copy",
-            "Object merge आणि shallow copy",
-            "Function arguments expand करतो",
-            "Rest collect करतो; spread expand करतो"
-          ]
-        }
-      ]
+      "topicTitle": "Spread Operator",
+      "topicId": 9,
+      "codeExplanation": "Key points: Array merge आणि shallow copy ? Object merge आणि shallow copy ? Function arguments expand करतो ? Rest collect करतो; spread expand करतो",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 10,
-      "title": "Async and Await",
+      "question": "What are async and await in JavaScript?",
+      "questionMarathi": "JavaScript मध्ये async आणि await म्हणजे काय?",
+      "answer": "async and await provide syntax for working with promises in a more readable way. An async function always returns a promise, and await pauses that async function until the awaited promise settles.",
+      "answerMarathi": "async आणि await वापरून Promise आधारित asynchronous code वाचायला सोपा लिहिता येतो. async function नेहमी Promise return करते. await संबंधित Promise settle होईपर्यंत त्या async function ची execution थांबवते; संपूर्ण JavaScript thread थांबत नाही.",
+      "codeExample": "function fetchData() {\n  return new Promise(resolve => {\n    setTimeout(() => resolve(\"Data loaded\"), 1000);\n  });\n}\n\nasync function getData() {\n  console.log(\"Fetching...\");\n  const data = await fetchData();\n  console.log(data);\n}\n\ngetData();",
+      "keyPoints": [
+        "async function Promise return करते",
+        "await Promise result ची वाट पाहते",
+        "try/catch वापरून errors handle करता येतात"
+      ],
       "category": "Asynchronous JavaScript",
-      "questions": [
-        {
-          "id": 10,
-          "question": "What are async and await in JavaScript?",
-          "questionMarathi": "JavaScript मध्ये async आणि await म्हणजे काय?",
-          "answer": "async and await provide syntax for working with promises in a more readable way. An async function always returns a promise, and await pauses that async function until the awaited promise settles.",
-          "answerMarathi": "async आणि await वापरून Promise आधारित asynchronous code वाचायला सोपा लिहिता येतो. async function नेहमी Promise return करते. await संबंधित Promise settle होईपर्यंत त्या async function ची execution थांबवते; संपूर्ण JavaScript thread थांबत नाही.",
-          "codeExample": "function fetchData() {\n  return new Promise(resolve => {\n    setTimeout(() => resolve(\"Data loaded\"), 1000);\n  });\n}\n\nasync function getData() {\n  console.log(\"Fetching...\");\n  const data = await fetchData();\n  console.log(data);\n}\n\ngetData();",
-          "keyPoints": [
-            "async function Promise return करते",
-            "await Promise result ची वाट पाहते",
-            "try/catch वापरून errors handle करता येतात"
-          ]
-        }
-      ]
+      "topicTitle": "Async and Await",
+      "topicId": 10,
+      "codeExplanation": "Key points: async function Promise return करते ? await Promise result ची वाट पाहते ? try/catch वापरून errors handle करता येतात",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 11,
-      "title": "Error Handling",
+      "question": "What is error handling in JavaScript?",
+      "questionMarathi": "JavaScript मध्ये error handling म्हणजे काय?",
+      "answer": "Error handling uses constructs such as try, catch, finally and throw to manage runtime errors.",
+      "answerMarathi": "Runtime error हाताळण्यासाठी try, catch, finally आणि throw वापरतात. try मध्ये संभाव्य error असणारा code लिहितात, catch मध्ये error handle करतात आणि finally block साधारणपणे success किंवा error दोन्ही परिस्थितींमध्ये execute होतो.",
+      "codeExample": "function divide(a, b) {\n  try {\n    if (b === 0) {\n      throw new Error(\"Cannot divide by zero\");\n    }\n    return a / b;\n  } catch (error) {\n    console.log(\"Error:\", error.message);\n    return null;\n  } finally {\n    console.log(\"Operation complete\");\n  }\n}\n\nconsole.log(divide(10, 2)); // 5\ndivide(10, 0);",
+      "keyPoints": [
+        "try: संभाव्य error असणारा code",
+        "catch: error handle करतो",
+        "throw: error निर्माण करतो",
+        "finally: cleanup साठी वापरतो"
+      ],
       "category": "JavaScript Fundamentals",
-      "questions": [
-        {
-          "id": 11,
-          "question": "What is error handling in JavaScript?",
-          "questionMarathi": "JavaScript मध्ये error handling म्हणजे काय?",
-          "answer": "Error handling uses constructs such as try, catch, finally and throw to manage runtime errors.",
-          "answerMarathi": "Runtime error हाताळण्यासाठी try, catch, finally आणि throw वापरतात. try मध्ये संभाव्य error असणारा code लिहितात, catch मध्ये error handle करतात आणि finally block साधारणपणे success किंवा error दोन्ही परिस्थितींमध्ये execute होतो.",
-          "codeExample": "function divide(a, b) {\n  try {\n    if (b === 0) {\n      throw new Error(\"Cannot divide by zero\");\n    }\n    return a / b;\n  } catch (error) {\n    console.log(\"Error:\", error.message);\n    return null;\n  } finally {\n    console.log(\"Operation complete\");\n  }\n}\n\nconsole.log(divide(10, 2)); // 5\ndivide(10, 0);",
-          "keyPoints": [
-            "try: संभाव्य error असणारा code",
-            "catch: error handle करतो",
-            "throw: error निर्माण करतो",
-            "finally: cleanup साठी वापरतो"
-          ]
-        }
-      ]
+      "topicTitle": "Error Handling",
+      "topicId": 11,
+      "codeExplanation": "Key points: try: संभाव्य error असणारा code ? catch: error handle करतो ? throw: error निर्माण करतो ? finally: cleanup साठी वापरतो",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 12,
-      "title": "Error Handling with Async Fetch",
+      "question": "How do you handle errors when using async/await with fetch?",
+      "questionMarathi": "fetch आणि async/await वापरताना errors कसे handle कराल?",
+      "answer": "Use try/catch for network or parsing errors and check response.ok to detect unsuccessful HTTP responses.",
+      "answerMarathi": "API call करताना try/catch वापरून network आणि parsing errors handle करता येतात. fetch ला HTTP 404 किंवा 500 मिळाले तरी Promise सहसा reject होत नाही, म्हणून response.ok तपासणे आवश्यक आहे.",
+      "codeExample": "async function fetchData(url) {\n  try {\n    const response = await fetch(url);\n    if (!response.ok) {\n      throw new Error(`HTTP error: ${response.status}`);\n    }\n    const data = await response.json();\n    console.log(data);\n  } catch (error) {\n    console.error(\"Fetch failed:\", error.message);\n  } finally {\n    console.log(\"Fetch attempt finished\");\n  }\n}\n\nfetchData(\"https://jsonplaceholder.typicode.com/todos/1\");",
+      "keyPoints": [
+        "try/catch network errors handle करतो",
+        "response.ok HTTP status तपासते",
+        "response.json() asynchronous असते",
+        "finally cleanup किंवा status logging साठी वापरता येतो"
+      ],
       "category": "Asynchronous JavaScript",
-      "questions": [
-        {
-          "id": 12,
-          "question": "How do you handle errors when using async/await with fetch?",
-          "questionMarathi": "fetch आणि async/await वापरताना errors कसे handle कराल?",
-          "answer": "Use try/catch for network or parsing errors and check response.ok to detect unsuccessful HTTP responses.",
-          "answerMarathi": "API call करताना try/catch वापरून network आणि parsing errors handle करता येतात. fetch ला HTTP 404 किंवा 500 मिळाले तरी Promise सहसा reject होत नाही, म्हणून response.ok तपासणे आवश्यक आहे.",
-          "codeExample": "async function fetchData(url) {\n  try {\n    const response = await fetch(url);\n    if (!response.ok) {\n      throw new Error(`HTTP error: ${response.status}`);\n    }\n    const data = await response.json();\n    console.log(data);\n  } catch (error) {\n    console.error(\"Fetch failed:\", error.message);\n  } finally {\n    console.log(\"Fetch attempt finished\");\n  }\n}\n\nfetchData(\"https://jsonplaceholder.typicode.com/todos/1\");",
-          "keyPoints": [
-            "try/catch network errors handle करतो",
-            "response.ok HTTP status तपासते",
-            "response.json() asynchronous असते",
-            "finally cleanup किंवा status logging साठी वापरता येतो"
-          ]
-        }
-      ]
+      "topicTitle": "Error Handling with Async Fetch",
+      "topicId": 12,
+      "codeExplanation": "Key points: try/catch network errors handle करतो ? response.ok HTTP status तपासते ? response.json() asynchronous असते ? finally cleanup किंवा status logging साठी वापरता येतो",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 13,
-      "title": "Session Storage",
+      "question": "What is sessionStorage in JavaScript?",
+      "questionMarathi": "JavaScript मध्ये sessionStorage म्हणजे काय?",
+      "answer": "sessionStorage stores string key-value pairs for a particular origin and browser tab session. Its data normally remains across reloads and is cleared when that tab session ends.",
+      "answerMarathi": "sessionStorage मध्ये browser मध्ये string स्वरूपात key-value data साठवता येतो. Page refresh केल्यानंतर data राहतो. सामान्यतः संबंधित tab session संपल्यावर data हटतो.",
+      "codeExample": "sessionStorage.setItem(\"name\", \"Somnath\");\nsessionStorage.setItem(\"age\", \"30\");\n\nconsole.log(sessionStorage.getItem(\"name\")); // Somnath\nsessionStorage.removeItem(\"age\");\n// sessionStorage.clear();",
+      "keyPoints": [
+        "setItem(): data साठवतो",
+        "getItem(): data वाचतो",
+        "removeItem(): एक key हटवतो",
+        "clear(): त्या storage मधील सर्व keys हटवतो",
+        "Storage limit browser नुसार बदलते"
+      ],
       "category": "Browser Storage",
-      "questions": [
-        {
-          "id": 13,
-          "question": "What is sessionStorage in JavaScript?",
-          "questionMarathi": "JavaScript मध्ये sessionStorage म्हणजे काय?",
-          "answer": "sessionStorage stores string key-value pairs for a particular origin and browser tab session. Its data normally remains across reloads and is cleared when that tab session ends.",
-          "answerMarathi": "sessionStorage मध्ये browser मध्ये string स्वरूपात key-value data साठवता येतो. Page refresh केल्यानंतर data राहतो. सामान्यतः संबंधित tab session संपल्यावर data हटतो.",
-          "codeExample": "sessionStorage.setItem(\"name\", \"Somnath\");\nsessionStorage.setItem(\"age\", \"30\");\n\nconsole.log(sessionStorage.getItem(\"name\")); // Somnath\nsessionStorage.removeItem(\"age\");\n// sessionStorage.clear();",
-          "keyPoints": [
-            "setItem(): data साठवतो",
-            "getItem(): data वाचतो",
-            "removeItem(): एक key हटवतो",
-            "clear(): त्या storage मधील सर्व keys हटवतो",
-            "Storage limit browser नुसार बदलते"
-          ]
-        }
-      ]
+      "topicTitle": "Session Storage",
+      "topicId": 13,
+      "codeExplanation": "Key points: setItem(): data साठवतो ? getItem(): data वाचतो ? removeItem(): एक key हटवतो ? clear(): त्या storage मधील सर्व keys हटवतो ? Storage limit browser नुसार बदलते",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 14,
-      "title": "Local Storage",
+      "question": "What is localStorage in JavaScript?",
+      "questionMarathi": "JavaScript मध्ये localStorage म्हणजे काय?",
+      "answer": "localStorage stores string key-value pairs for an origin and usually persists after browser restarts until the data is removed.",
+      "answerMarathi": "localStorage वापरून browser मध्ये data साठवता येतो. Page refresh किंवा browser पुन्हा उघडल्यानंतरही data राहतो, जोपर्यंत तो remove केला जात नाही. Data string स्वरूपात साठवला जातो.",
+      "codeExample": "localStorage.setItem(\"name\", \"Somnath\");\nlocalStorage.setItem(\"age\", \"30\");\n\nconsole.log(localStorage.getItem(\"name\")); // Somnath\n\nconst person = { name: \"Somnath\", city: \"Pune\" };\nlocalStorage.setItem(\"person\", JSON.stringify(person));\nconst savedPerson = JSON.parse(localStorage.getItem(\"person\"));\nconsole.log(savedPerson.city); // Pune",
+      "keyPoints": [
+        "Browser restart नंतरही data टिकतो",
+        "Same-origin नियम लागू होतात",
+        "Objects साठी JSON.stringify() आणि JSON.parse() वापरता येतात",
+        "Sensitive authentication secrets साठवण्यासाठी काळजी आवश्यक आहे"
+      ],
       "category": "Browser Storage",
-      "questions": [
-        {
-          "id": 14,
-          "question": "What is localStorage in JavaScript?",
-          "questionMarathi": "JavaScript मध्ये localStorage म्हणजे काय?",
-          "answer": "localStorage stores string key-value pairs for an origin and usually persists after browser restarts until the data is removed.",
-          "answerMarathi": "localStorage वापरून browser मध्ये data साठवता येतो. Page refresh किंवा browser पुन्हा उघडल्यानंतरही data राहतो, जोपर्यंत तो remove केला जात नाही. Data string स्वरूपात साठवला जातो.",
-          "codeExample": "localStorage.setItem(\"name\", \"Somnath\");\nlocalStorage.setItem(\"age\", \"30\");\n\nconsole.log(localStorage.getItem(\"name\")); // Somnath\n\nconst person = { name: \"Somnath\", city: \"Pune\" };\nlocalStorage.setItem(\"person\", JSON.stringify(person));\nconst savedPerson = JSON.parse(localStorage.getItem(\"person\"));\nconsole.log(savedPerson.city); // Pune",
-          "keyPoints": [
-            "Browser restart नंतरही data टिकतो",
-            "Same-origin नियम लागू होतात",
-            "Objects साठी JSON.stringify() आणि JSON.parse() वापरता येतात",
-            "Sensitive authentication secrets साठवण्यासाठी काळजी आवश्यक आहे"
-          ]
-        }
-      ]
+      "topicTitle": "Local Storage",
+      "topicId": 14,
+      "codeExplanation": "Key points: Browser restart नंतरही data टिकतो ? Same-origin नियम लागू होतात ? Objects साठी JSON.stringify() आणि JSON.parse() वापरता येतात ? Sensitive authentication secrets साठवण्यासाठी काळजी आवश्यक आहे",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 15,
-      "title": "Session Storage vs Local Storage",
+      "question": "What is the difference between sessionStorage and localStorage?",
+      "questionMarathi": "sessionStorage आणि localStorage मध्ये काय फरक आहे?",
+      "answer": "sessionStorage is scoped to a tab session, while localStorage normally persists until explicitly cleared.",
+      "answerMarathi": "sessionStorage साधारणपणे एका tab च्या session शी संबंधित असते. localStorage मधील data browser बंद करून पुन्हा उघडल्यावरही टिकतो. दोन्हीमध्ये string key-value pairs साठवले जातात.",
+      "codeExample": "sessionStorage.setItem(\"theme\", \"dark\");\nlocalStorage.setItem(\"language\", \"Marathi\");",
+      "keyPoints": [
+        "sessionStorage: tab session पर्यंत",
+        "localStorage: remove करेपर्यंत टिकतो",
+        "दोन्ही Same-Origin Policy पाळतात",
+        "दोन्हीमध्ये setItem, getItem, removeItem आणि clear उपलब्ध आहेत"
+      ],
       "category": "Browser Storage",
-      "questions": [
-        {
-          "id": 15,
-          "question": "What is the difference between sessionStorage and localStorage?",
-          "questionMarathi": "sessionStorage आणि localStorage मध्ये काय फरक आहे?",
-          "answer": "sessionStorage is scoped to a tab session, while localStorage normally persists until explicitly cleared.",
-          "answerMarathi": "sessionStorage साधारणपणे एका tab च्या session शी संबंधित असते. localStorage मधील data browser बंद करून पुन्हा उघडल्यावरही टिकतो. दोन्हीमध्ये string key-value pairs साठवले जातात.",
-          "codeExample": "sessionStorage.setItem(\"theme\", \"dark\");\nlocalStorage.setItem(\"language\", \"Marathi\");",
-          "keyPoints": [
-            "sessionStorage: tab session पर्यंत",
-            "localStorage: remove करेपर्यंत टिकतो",
-            "दोन्ही Same-Origin Policy पाळतात",
-            "दोन्हीमध्ये setItem, getItem, removeItem आणि clear उपलब्ध आहेत"
-          ]
-        }
-      ]
+      "topicTitle": "Session Storage vs Local Storage",
+      "topicId": 15,
+      "codeExplanation": "Key points: sessionStorage: tab session पर्यंत ? localStorage: remove करेपर्यंत टिकतो ? दोन्ही Same-Origin Policy पाळतात ? दोन्हीमध्ये setItem, getItem, removeItem आणि clear उपलब्ध आहेत",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 16,
-      "title": "Strict Mode",
+      "question": "What is strict mode in JavaScript?",
+      "questionMarathi": "JavaScript मध्ये strict mode म्हणजे काय?",
+      "answer": "Strict mode enables stricter parsing and error checking rules, helping developers catch certain mistakes.",
+      "answerMarathi": "\"use strict\" वापरल्याने JavaScript मध्ये काही अतिरिक्त नियम लागू होतात. उदाहरणार्थ, declare न केलेल्या variable ला value assign करणे error देते आणि duplicate function parameter names प्रतिबंधित होतात.",
+      "codeExample": "\"use strict\";\n\n// ReferenceError: x is not defined\nx = 10;\n\n// Correct declaration:\n// let x = 10;",
+      "keyPoints": [
+        "Undeclared variable assignment ला error येतो",
+        "काही silent failures errors बनतात",
+        "ES modules आणि class bodies आधीपासून strict mode मध्ये असतात"
+      ],
       "category": "JavaScript Fundamentals",
-      "questions": [
-        {
-          "id": 16,
-          "question": "What is strict mode in JavaScript?",
-          "questionMarathi": "JavaScript मध्ये strict mode म्हणजे काय?",
-          "answer": "Strict mode enables stricter parsing and error checking rules, helping developers catch certain mistakes.",
-          "answerMarathi": "\"use strict\" वापरल्याने JavaScript मध्ये काही अतिरिक्त नियम लागू होतात. उदाहरणार्थ, declare न केलेल्या variable ला value assign करणे error देते आणि duplicate function parameter names प्रतिबंधित होतात.",
-          "codeExample": "\"use strict\";\n\n// ReferenceError: x is not defined\nx = 10;\n\n// Correct declaration:\n// let x = 10;",
-          "keyPoints": [
-            "Undeclared variable assignment ला error येतो",
-            "काही silent failures errors बनतात",
-            "ES modules आणि class bodies आधीपासून strict mode मध्ये असतात"
-          ]
-        }
-      ]
+      "topicTitle": "Strict Mode",
+      "topicId": 16,
+      "codeExplanation": "Key points: Undeclared variable assignment ला error येतो ? काही silent failures errors बनतात ? ES modules आणि class bodies आधीपासून strict mode मध्ये असतात",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 17,
-      "title": "Array map() Method",
+      "question": "What is the map() method in JavaScript?",
+      "questionMarathi": "JavaScript मध्ये map() method म्हणजे काय?",
+      "answer": "map() creates a new array by applying a callback function to each element of the original array.",
+      "answerMarathi": "map() प्रत्येक array element वर callback function चालवून नवीन array तयार करते. ती मूळ array स्वतःहून बदलत नाही.",
+      "codeExample": "const numbers = [1, 2, 3, 4];\nconst squares = numbers.map(num => num * num);\nconsole.log(squares); // [1, 4, 9, 16]\n\nconst students = [\n  { name: \"Somnath\", marks: 90 },\n  { name: \"Shivansh\", marks: 85 }\n];\nconst names = students.map(student => student.name);\nconsole.log(names); // [\"Somnath\", \"Shivansh\"]",
+      "keyPoints": [
+        "नवीन array return करते",
+        "प्रत्येक element साठी callback चालतो",
+        "map() चा return value वापरणे महत्त्वाचे आहे"
+      ],
       "category": "Array Methods",
-      "questions": [
-        {
-          "id": 17,
-          "question": "What is the map() method in JavaScript?",
-          "questionMarathi": "JavaScript मध्ये map() method म्हणजे काय?",
-          "answer": "map() creates a new array by applying a callback function to each element of the original array.",
-          "answerMarathi": "map() प्रत्येक array element वर callback function चालवून नवीन array तयार करते. ती मूळ array स्वतःहून बदलत नाही.",
-          "codeExample": "const numbers = [1, 2, 3, 4];\nconst squares = numbers.map(num => num * num);\nconsole.log(squares); // [1, 4, 9, 16]\n\nconst students = [\n  { name: \"Somnath\", marks: 90 },\n  { name: \"Shivansh\", marks: 85 }\n];\nconst names = students.map(student => student.name);\nconsole.log(names); // [\"Somnath\", \"Shivansh\"]",
-          "keyPoints": [
-            "नवीन array return करते",
-            "प्रत्येक element साठी callback चालतो",
-            "map() चा return value वापरणे महत्त्वाचे आहे"
-          ]
-        }
-      ]
+      "topicTitle": "Array map() Method",
+      "topicId": 17,
+      "codeExplanation": "Key points: नवीन array return करते ? प्रत्येक element साठी callback चालतो ? map() चा return value वापरणे महत्त्वाचे आहे",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 18,
-      "title": "JavaScript Modules",
+      "question": "What are JavaScript modules?",
+      "questionMarathi": "JavaScript modules म्हणजे काय?",
+      "answer": "Modules let developers organize code into separate files and share functionality using export and import.",
+      "answerMarathi": "Modules मुळे variables, functions आणि classes वेगवेगळ्या files मध्ये ठेवून export आणि import वापरून इतर files मध्ये वापरता येतात.",
+      "codeExample": "// math.js\nexport const pi = 3.14;\nexport function add(a, b) {\n  return a + b;\n}\n\n// app.js\nimport { pi, add } from \"./math.js\";\nconsole.log(pi); // 3.14\nconsole.log(add(2, 3)); // 5",
+      "keyPoints": [
+        "Named export: braces वापरून import",
+        "Default export: default binding import",
+        "Modules code maintainable बनवतात",
+        "Browser मध्ये ES modules साठी योग्य module loading आवश्यक आहे"
+      ],
       "category": "ES6 Modules",
-      "questions": [
-        {
-          "id": 18,
-          "question": "What are JavaScript modules?",
-          "questionMarathi": "JavaScript modules म्हणजे काय?",
-          "answer": "Modules let developers organize code into separate files and share functionality using export and import.",
-          "answerMarathi": "Modules मुळे variables, functions आणि classes वेगवेगळ्या files मध्ये ठेवून export आणि import वापरून इतर files मध्ये वापरता येतात.",
-          "codeExample": "// math.js\nexport const pi = 3.14;\nexport function add(a, b) {\n  return a + b;\n}\n\n// app.js\nimport { pi, add } from \"./math.js\";\nconsole.log(pi); // 3.14\nconsole.log(add(2, 3)); // 5",
-          "keyPoints": [
-            "Named export: braces वापरून import",
-            "Default export: default binding import",
-            "Modules code maintainable बनवतात",
-            "Browser मध्ये ES modules साठी योग्य module loading आवश्यक आहे"
-          ]
-        }
-      ]
+      "topicTitle": "JavaScript Modules",
+      "topicId": 18,
+      "codeExplanation": "Key points: Named export: braces वापरून import ? Default export: default binding import ? Modules code maintainable बनवतात ? Browser मध्ये ES modules साठी योग्य module loading आवश्यक आहे",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 19,
-      "title": "Timer Methods",
+      "question": "What are setTimeout(), setInterval(), clearTimeout() and clearInterval()?",
+      "questionMarathi": "setTimeout(), setInterval(), clearTimeout() आणि clearInterval() म्हणजे काय?",
+      "answer": "setTimeout schedules a callback once after a delay. setInterval schedules repeated callbacks. clearTimeout and clearInterval cancel their respective scheduled timers.",
+      "answerMarathi": "setTimeout() delay नंतर callback एकदा चालवते. setInterval() ठरावीक interval ने callback पुन्हा पुन्हा चालवते. clearTimeout() आणि clearInterval() timer cancel करतात.",
+      "codeExample": "setTimeout(() => {\n  console.log(\"Runs after 2 seconds\");\n}, 2000);\n\nlet count = 0;\nconst intervalId = setInterval(() => {\n  count++;\n  console.log(count);\n  if (count === 5) {\n    clearInterval(intervalId);\n  }\n}, 1000);",
+      "keyPoints": [
+        "Delay milliseconds मध्ये असतो",
+        "setTimeout(): one-time callback",
+        "setInterval(): repeated callback",
+        "Timers exact execution time ची हमी देत नाहीत"
+      ],
       "category": "JavaScript Fundamentals",
-      "questions": [
-        {
-          "id": 19,
-          "question": "What are setTimeout(), setInterval(), clearTimeout() and clearInterval()?",
-          "questionMarathi": "setTimeout(), setInterval(), clearTimeout() आणि clearInterval() म्हणजे काय?",
-          "answer": "setTimeout schedules a callback once after a delay. setInterval schedules repeated callbacks. clearTimeout and clearInterval cancel their respective scheduled timers.",
-          "answerMarathi": "setTimeout() delay नंतर callback एकदा चालवते. setInterval() ठरावीक interval ने callback पुन्हा पुन्हा चालवते. clearTimeout() आणि clearInterval() timer cancel करतात.",
-          "codeExample": "setTimeout(() => {\n  console.log(\"Runs after 2 seconds\");\n}, 2000);\n\nlet count = 0;\nconst intervalId = setInterval(() => {\n  count++;\n  console.log(count);\n  if (count === 5) {\n    clearInterval(intervalId);\n  }\n}, 1000);",
-          "keyPoints": [
-            "Delay milliseconds मध्ये असतो",
-            "setTimeout(): one-time callback",
-            "setInterval(): repeated callback",
-            "Timers exact execution time ची हमी देत नाहीत"
-          ]
-        }
-      ]
+      "topicTitle": "Timer Methods",
+      "topicId": 19,
+      "codeExplanation": "Key points: Delay milliseconds मध्ये असतो ? setTimeout(): one-time callback ? setInterval(): repeated callback ? Timers exact execution time ची हमी देत नाहीत",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 20,
-      "title": "Async vs Defer",
+      "question": "What is the difference between async and defer in script tags?",
+      "questionMarathi": "script tag मधील async आणि defer मध्ये काय फरक आहे?",
+      "answer": "Both allow external scripts to download without blocking HTML parsing during the download. async executes as soon as the script is ready, while defer executes after HTML parsing and preserves order among deferred classic scripts.",
+      "answerMarathi": "async आणि defer दोन्ही script download होत असताना HTML parsing सुरू ठेवू देतात. async script तयार होताच execute होऊ शकते आणि scripts चा क्रम निश्चित नसतो. defer script HTML parsing पूर्ण झाल्यावर execute होते आणि deferred classic scripts चा क्रम राखला जातो.",
+      "codeExample": "<script async src=\"analytics.js\"></script>\n<script defer src=\"app.js\"></script>",
+      "keyPoints": [
+        "async: download नंतर शक्य तितक्या लवकर execute",
+        "defer: HTML parsing पूर्ण झाल्यावर execute",
+        "defer classic scripts चा document order राखतो",
+        "दोन्ही attributes मुख्यतः external scripts साठी आहेत"
+      ],
       "category": "Browser Fundamentals",
-      "questions": [
-        {
-          "id": 20,
-          "question": "What is the difference between async and defer in script tags?",
-          "questionMarathi": "script tag मधील async आणि defer मध्ये काय फरक आहे?",
-          "answer": "Both allow external scripts to download without blocking HTML parsing during the download. async executes as soon as the script is ready, while defer executes after HTML parsing and preserves order among deferred classic scripts.",
-          "answerMarathi": "async आणि defer दोन्ही script download होत असताना HTML parsing सुरू ठेवू देतात. async script तयार होताच execute होऊ शकते आणि scripts चा क्रम निश्चित नसतो. defer script HTML parsing पूर्ण झाल्यावर execute होते आणि deferred classic scripts चा क्रम राखला जातो.",
-          "codeExample": "<script async src=\"analytics.js\"></script>\n<script defer src=\"app.js\"></script>",
-          "keyPoints": [
-            "async: download नंतर शक्य तितक्या लवकर execute",
-            "defer: HTML parsing पूर्ण झाल्यावर execute",
-            "defer classic scripts चा document order राखतो",
-            "दोन्ही attributes मुख्यतः external scripts साठी आहेत"
-          ]
-        }
-      ]
+      "topicTitle": "Async vs Defer",
+      "topicId": 20,
+      "codeExplanation": "Key points: async: download नंतर शक्य तितक्या लवकर execute ? defer: HTML parsing पूर्ण झाल्यावर execute ? defer classic scripts चा document order राखतो ? दोन्ही attributes मुख्यतः external scripts साठी आहेत",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 21,
-      "title": "Promises and Promise Methods",
+      "question": "What is a Promise in JavaScript?",
+      "questionMarathi": "JavaScript मध्ये Promise म्हणजे काय?",
+      "answer": "A Promise represents the eventual success or failure of an asynchronous operation. Its states are pending, fulfilled and rejected.",
+      "answerMarathi": "Promise हे asynchronous operation चा भविष्यात मिळणारा result किंवा error दर्शवते. त्याच्या अवस्था pending, fulfilled आणि rejected अशा असतात.",
+      "codeExample": "const promise = new Promise((resolve, reject) => {\n  const success = true;\n  if (success) {\n    resolve(\"Operation successful\");\n  } else {\n    reject(new Error(\"Operation failed\"));\n  }\n});\n\npromise\n  .then(result => console.log(result))\n  .catch(error => console.error(error.message))\n  .finally(() => console.log(\"Process complete\"));",
+      "keyPoints": [
+        "then(): fulfilled result handle करतो",
+        "catch(): rejection handle करतो",
+        "finally(): settlement नंतर चालतो",
+        "Promise asynchronous workflows साठी वापरतात"
+      ],
       "category": "Asynchronous JavaScript",
-      "questions": [
-        {
-          "id": 21,
-          "question": "What is a Promise in JavaScript?",
-          "questionMarathi": "JavaScript मध्ये Promise म्हणजे काय?",
-          "answer": "A Promise represents the eventual success or failure of an asynchronous operation. Its states are pending, fulfilled and rejected.",
-          "answerMarathi": "Promise हे asynchronous operation चा भविष्यात मिळणारा result किंवा error दर्शवते. त्याच्या अवस्था pending, fulfilled आणि rejected अशा असतात.",
-          "codeExample": "const promise = new Promise((resolve, reject) => {\n  const success = true;\n  if (success) {\n    resolve(\"Operation successful\");\n  } else {\n    reject(new Error(\"Operation failed\"));\n  }\n});\n\npromise\n  .then(result => console.log(result))\n  .catch(error => console.error(error.message))\n  .finally(() => console.log(\"Process complete\"));",
-          "keyPoints": [
-            "then(): fulfilled result handle करतो",
-            "catch(): rejection handle करतो",
-            "finally(): settlement नंतर चालतो",
-            "Promise asynchronous workflows साठी वापरतात"
-          ]
-        }
-      ]
+      "topicTitle": "Promises and Promise Methods",
+      "topicId": 21,
+      "codeExplanation": "Key points: then(): fulfilled result handle करतो ? catch(): rejection handle करतो ? finally(): settlement नंतर चालतो ? Promise asynchronous workflows साठी वापरतात",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 22,
-      "title": "Promise.all()",
+      "question": "What is Promise.all()?",
+      "questionMarathi": "Promise.all() म्हणजे काय?",
+      "answer": "Promise.all() fulfills when every input fulfills and rejects as soon as one input rejects.",
+      "answerMarathi": "Promise.all() दिलेले सर्व promises fulfill झाल्यावर results चा array देते. एक promise reject झाल्यास Promise.all() reject होते.",
+      "codeExample": "Promise.all([Promise.resolve(10), Promise.resolve(20)])\n  .then(results => console.log(results)) // [10, 20]\n  .catch(error => console.error(error));",
+      "keyPoints": [
+        "सर्व results यशस्वी हवेत तेव्हा वापरा",
+        "Results input order मध्ये मिळतात",
+        "एक rejection झाल्यास aggregate Promise reject होते"
+      ],
       "category": "Promise Methods",
-      "questions": [
-        {
-          "id": 22,
-          "question": "What is Promise.all()?",
-          "questionMarathi": "Promise.all() म्हणजे काय?",
-          "answer": "Promise.all() fulfills when every input fulfills and rejects as soon as one input rejects.",
-          "answerMarathi": "Promise.all() दिलेले सर्व promises fulfill झाल्यावर results चा array देते. एक promise reject झाल्यास Promise.all() reject होते.",
-          "codeExample": "Promise.all([Promise.resolve(10), Promise.resolve(20)])\n  .then(results => console.log(results)) // [10, 20]\n  .catch(error => console.error(error));",
-          "keyPoints": [
-            "सर्व results यशस्वी हवेत तेव्हा वापरा",
-            "Results input order मध्ये मिळतात",
-            "एक rejection झाल्यास aggregate Promise reject होते"
-          ]
-        }
-      ]
+      "topicTitle": "Promise.all()",
+      "topicId": 22,
+      "codeExplanation": "Key points: सर्व results यशस्वी हवेत तेव्हा वापरा ? Results input order मध्ये मिळतात ? एक rejection झाल्यास aggregate Promise reject होते",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 23,
-      "title": "Promise.race()",
+      "question": "What is Promise.race()?",
+      "questionMarathi": "Promise.race() म्हणजे काय?",
+      "answer": "Promise.race() settles with the outcome of the first input promise that settles, whether fulfilled or rejected.",
+      "answerMarathi": "Promise.race() मध्ये सर्वात आधी settle होणाऱ्या promise चा result किंवा error मिळतो. तो success किंवा failure दोन्ही असू शकतो.",
+      "codeExample": "const fast = new Promise(resolve => setTimeout(() => resolve(\"Fast\"), 100));\nconst slow = new Promise(resolve => setTimeout(() => resolve(\"Slow\"), 500));\n\nPromise.race([fast, slow]).then(result => console.log(result)); // Fast",
+      "keyPoints": [
+        "पहिला settled outcome मिळतो",
+        "Fulfillment किंवा rejection दोन्ही शक्य",
+        "Timeout race तयार करण्यासाठी वापरता येते"
+      ],
       "category": "Promise Methods",
-      "questions": [
-        {
-          "id": 23,
-          "question": "What is Promise.race()?",
-          "questionMarathi": "Promise.race() म्हणजे काय?",
-          "answer": "Promise.race() settles with the outcome of the first input promise that settles, whether fulfilled or rejected.",
-          "answerMarathi": "Promise.race() मध्ये सर्वात आधी settle होणाऱ्या promise चा result किंवा error मिळतो. तो success किंवा failure दोन्ही असू शकतो.",
-          "codeExample": "const fast = new Promise(resolve => setTimeout(() => resolve(\"Fast\"), 100));\nconst slow = new Promise(resolve => setTimeout(() => resolve(\"Slow\"), 500));\n\nPromise.race([fast, slow]).then(result => console.log(result)); // Fast",
-          "keyPoints": [
-            "पहिला settled outcome मिळतो",
-            "Fulfillment किंवा rejection दोन्ही शक्य",
-            "Timeout race तयार करण्यासाठी वापरता येते"
-          ]
-        }
-      ]
+      "topicTitle": "Promise.race()",
+      "topicId": 23,
+      "codeExplanation": "Key points: पहिला settled outcome मिळतो ? Fulfillment किंवा rejection दोन्ही शक्य ? Timeout race तयार करण्यासाठी वापरता येते",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 24,
-      "title": "Promise.allSettled()",
+      "question": "What is Promise.allSettled()?",
+      "questionMarathi": "Promise.allSettled() म्हणजे काय?",
+      "answer": "Promise.allSettled() waits until every input promise settles and returns an array describing each outcome.",
+      "answerMarathi": "Promise.allSettled() सर्व promises fulfill किंवा reject होईपर्यंत थांबते. त्यानंतर प्रत्येक promise चा status आणि result किंवा reason देते.",
+      "codeExample": "Promise.allSettled([\n  Promise.resolve(\"Success\"),\n  Promise.reject(new Error(\"Failed\"))\n]).then(results => console.log(results));",
+      "keyPoints": [
+        "सर्व promises settle होईपर्यंत थांबते",
+        "प्रत्येक result चा status मिळतो",
+        "काही promises fail झाले तरी सर्व outcomes मिळतात"
+      ],
       "category": "Promise Methods",
-      "questions": [
-        {
-          "id": 24,
-          "question": "What is Promise.allSettled()?",
-          "questionMarathi": "Promise.allSettled() म्हणजे काय?",
-          "answer": "Promise.allSettled() waits until every input promise settles and returns an array describing each outcome.",
-          "answerMarathi": "Promise.allSettled() सर्व promises fulfill किंवा reject होईपर्यंत थांबते. त्यानंतर प्रत्येक promise चा status आणि result किंवा reason देते.",
-          "codeExample": "Promise.allSettled([\n  Promise.resolve(\"Success\"),\n  Promise.reject(new Error(\"Failed\"))\n]).then(results => console.log(results));",
-          "keyPoints": [
-            "सर्व promises settle होईपर्यंत थांबते",
-            "प्रत्येक result चा status मिळतो",
-            "काही promises fail झाले तरी सर्व outcomes मिळतात"
-          ]
-        }
-      ]
+      "topicTitle": "Promise.allSettled()",
+      "topicId": 24,
+      "codeExplanation": "Key points: सर्व promises settle होईपर्यंत थांबते ? प्रत्येक result चा status मिळतो ? काही promises fail झाले तरी सर्व outcomes मिळतात",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 25,
-      "title": "Promise.any()",
+      "question": "What is Promise.any()?",
+      "questionMarathi": "Promise.any() म्हणजे काय?",
+      "answer": "Promise.any() fulfills with the first fulfilled input promise. It rejects with an AggregateError if all inputs reject.",
+      "answerMarathi": "Promise.any() मध्ये पहिल्यांदा fulfill होणाऱ्या promise चा result मिळतो. सर्व promises reject झाले तर AggregateError मिळतो.",
+      "codeExample": "Promise.any([\n  Promise.reject(\"First failed\"),\n  Promise.resolve(\"Second succeeded\")\n]).then(result => console.log(result))\n  .catch(error => console.error(error)); // Second succeeded",
+      "keyPoints": [
+        "पहिला successful result मिळवतो",
+        "पहिला settled result मिळवत नाही; ते Promise.race() चे काम आहे",
+        "सर्व promises reject झाल्यास AggregateError"
+      ],
       "category": "Promise Methods",
-      "questions": [
-        {
-          "id": 25,
-          "question": "What is Promise.any()?",
-          "questionMarathi": "Promise.any() म्हणजे काय?",
-          "answer": "Promise.any() fulfills with the first fulfilled input promise. It rejects with an AggregateError if all inputs reject.",
-          "answerMarathi": "Promise.any() मध्ये पहिल्यांदा fulfill होणाऱ्या promise चा result मिळतो. सर्व promises reject झाले तर AggregateError मिळतो.",
-          "codeExample": "Promise.any([\n  Promise.reject(\"First failed\"),\n  Promise.resolve(\"Second succeeded\")\n]).then(result => console.log(result))\n  .catch(error => console.error(error)); // Second succeeded",
-          "keyPoints": [
-            "पहिला successful result मिळवतो",
-            "पहिला settled result मिळवत नाही; ते Promise.race() चे काम आहे",
-            "सर्व promises reject झाल्यास AggregateError"
-          ]
-        }
-      ]
+      "topicTitle": "Promise.any()",
+      "topicId": 25,
+      "codeExplanation": "Key points: पहिला successful result मिळवतो ? पहिला settled result मिळवत नाही; ते Promise.race() चे काम आहे ? सर्व promises reject झाल्यास AggregateError",
+      "codeExplanationMarathi": ""
     },
     {
       "id": 26,
-      "title": "JavaScript Design Patterns",
+      "question": "What are design patterns in JavaScript?",
+      "questionMarathi": "JavaScript मध्ये design patterns म्हणजे काय?",
+      "answer": "Design patterns are reusable approaches to common software design problems. They help organize code and improve maintainability when applied appropriately.",
+      "answerMarathi": "Design patterns म्हणजे वारंवार येणाऱ्या software design problems साठी वापरता येणाऱ्या reusable पद्धती. योग्य वापर केल्यास code अधिक organized आणि maintainable होतो.",
+      "codeExample": "// Simple Factory example\nfunction createUser(name, role) {\n  return { name, role };\n}\n\nconst user = createUser(\"Somnath\", \"Developer\");\nconsole.log(user);",
+      "keyPoints": [
+        "Creational: objects कसे तयार करायचे",
+        "Structural: objects कसे जोडायचे",
+        "Behavioral: objects कसे communicate करतात",
+        "Factory, Singleton, Adapter, Observer आणि Strategy ही उदाहरणे आहेत"
+      ],
       "category": "Design Patterns",
-      "questions": [
-        {
-          "id": 26,
-          "question": "What are design patterns in JavaScript?",
-          "questionMarathi": "JavaScript मध्ये design patterns म्हणजे काय?",
-          "answer": "Design patterns are reusable approaches to common software design problems. They help organize code and improve maintainability when applied appropriately.",
-          "answerMarathi": "Design patterns म्हणजे वारंवार येणाऱ्या software design problems साठी वापरता येणाऱ्या reusable पद्धती. योग्य वापर केल्यास code अधिक organized आणि maintainable होतो.",
-          "codeExample": "// Simple Factory example\nfunction createUser(name, role) {\n  return { name, role };\n}\n\nconst user = createUser(\"Somnath\", \"Developer\");\nconsole.log(user);",
-          "keyPoints": [
-            "Creational: objects कसे तयार करायचे",
-            "Structural: objects कसे जोडायचे",
-            "Behavioral: objects कसे communicate करतात",
-            "Factory, Singleton, Adapter, Observer आणि Strategy ही उदाहरणे आहेत"
-          ]
-        }
-      ]
+      "topicTitle": "JavaScript Design Patterns",
+      "topicId": 26,
+      "codeExplanation": "Key points: Creational: objects कसे तयार करायचे ? Structural: objects कसे जोडायचे ? Behavioral: objects कसे communicate करतात ? Factory, Singleton, Adapter, Observer आणि Strategy ही उदाहरणे आहेत",
+      "codeExplanationMarathi": ""
     }
   ]
 }
