@@ -5,56 +5,56 @@
       "id": 1,
       "category": "CORE OPERATOR",
       "question": "What is the map() operator?",
-      "questionMarathi": "",
+      "questionMarathi": "map() operator काय करतो?",
       "answer": "The map() operator transforms each value emitted by an Observable by applying a function to it. It returns the transformed value without changing the original source value.",
       "answerMarathi": "map() operator Observable मधून emit होणाऱ्या प्रत्येक value वर function लागू करून नवीन value तयार करतो. तो original source value बदलत नाही; transformed value पुढे emit करतो.",
       "codeExample": "import { of, map } from 'rxjs';\n\nof(1, 2, 3).pipe(\n  map(value => value * 10)\n).subscribe(console.log);\n\n// Output: 10, 20, 30",
-      "codeExplanation": "",
-      "codeExplanationMarathi": ""
+      "codeExplanation": "map applies the projection function to each emitted value, so the subscriber receives 10, 20, and 30.",
+      "codeExplanationMarathi": "map प्रत्येक emit झालेल्या value वर function लागू करतो, त्यामुळे subscriber ला 10, 20 आणि 30 मिळतात."
     },
     {
       "id": 2,
       "category": "CORE CONCEPT",
       "question": "What is an Observable in RxJS?",
-      "questionMarathi": "",
+      "questionMarathi": "RxJS मधील Observable म्हणजे काय?",
       "answer": "An Observable is a stream of values that can arrive over time. It can emit values, report an error, or complete. You subscribe to an Observable to receive its notifications.",
       "answerMarathi": "Observable म्हणजे वेळेनुसार values emit करणारा stream. तो values देऊ शकतो, error देऊ शकतो किंवा complete होऊ शकतो. त्याचे notifications मिळवण्यासाठी subscribe() वापरतात.",
       "codeExample": "import { of } from 'rxjs';\n\nof(10, 20, 30).subscribe({\n  next: value => console.log(value),\n  complete: () => console.log('Done')\n});",
-      "codeExplanation": "",
-      "codeExplanationMarathi": ""
+      "codeExplanation": "of emits each supplied value in order and then completes the Observable.",
+      "codeExplanationMarathi": "of दिलेल्या प्रत्येक value क्रमाने emit करतो आणि नंतर Observable complete करतो."
     },
     {
       "id": 3,
       "category": "TRANSFORMATION",
       "question": "What is the switchMap() operator?",
-      "questionMarathi": "",
+      "questionMarathi": "switchMap() operator काय करतो?",
       "answer": "switchMap() maps each source value to an inner Observable and switches to the latest one. It unsubscribes from the previous inner Observable, making it useful for search requests where only the latest result matters.",
       "answerMarathi": "switchMap() प्रत्येक source value साठी inner Observable तयार करतो आणि नवीन value आल्यावर मागील inner Observable मधून unsubscribe करून नवीन stream वापरतो. Search autocomplete सारख्या ठिकाणी तो उपयुक्त आहे.",
       "codeExample": "searchTerms$.pipe(\n  debounceTime(300),\n  distinctUntilChanged(),\n  switchMap(term => searchApi(term))\n).subscribe(results => {\n  this.results = results;\n});",
-      "codeExplanation": "",
-      "codeExplanationMarathi": ""
+      "codeExplanation": "The operators delay and deduplicate search terms before switchMap starts the latest request.",
+      "codeExplanationMarathi": "switchMap नवीनतम request सुरू करण्यापूर्वी हे operators search terms साठी delay देतात आणि duplicate values काढतात."
     },
     {
       "id": 4,
       "category": "COMBINATION",
       "question": "What is the difference between mergeMap() and switchMap()?",
-      "questionMarathi": "",
+      "questionMarathi": "mergeMap() आणि switchMap() यांच्यात काय फरक आहे?",
       "answer": "mergeMap() subscribes to multiple inner Observables and allows them to run concurrently. switchMap() keeps only the latest inner Observable and unsubscribes from the previous one. Choose based on whether every request must finish or only the latest result matters.",
       "answerMarathi": "mergeMap() अनेक inner Observables एकाच वेळी चालू ठेवू शकतो. switchMap() नवीन inner Observable आल्यावर आधीच्या inner Observable मधून unsubscribe करतो. प्रत्येक request पूर्ण होणे आवश्यक आहे की फक्त नवीनतम result हवा आहे, यानुसार operator निवडा.",
       "codeExample": "source$.pipe(\n  mergeMap(value => saveEveryValue(value))\n);\n\nsource$.pipe(\n  switchMap(value => loadLatestValue(value))\n);",
-      "codeExplanation": "",
-      "codeExplanationMarathi": ""
+      "codeExplanation": "The first pipeline allows saves to run concurrently; the second switches to the latest load.",
+      "codeExplanationMarathi": "पहिल्या pipeline मध्ये saves एकाच वेळी चालतात; दुसऱ्यामध्ये नवीनतम load ठेवला जातो."
     },
     {
       "id": 5,
       "category": "ERROR HANDLING",
       "question": "What does catchError() do in RxJS?",
-      "questionMarathi": "",
+      "questionMarathi": "RxJS मध्ये catchError() काय करतो?",
       "answer": "catchError() intercepts an error from an Observable and lets you return another Observable, such as a fallback value or a replacement request. Place it where you want the error to be handled.",
       "answerMarathi": "catchError() Observable मधील error पकडतो आणि त्याऐवजी fallback value देणारा किंवा दुसरी request करणारा Observable return करू देतो. Error कुठे handle करायचा आहे त्यानुसार तो pipe() मध्ये योग्य ठिकाणी वापरा.",
       "codeExample": "import { catchError, of } from 'rxjs';\n\napiRequest$.pipe(\n  catchError(error => {\n    console.error(error);\n    return of([]); // fallback value\n  })\n).subscribe();",
-      "codeExplanation": "",
-      "codeExplanationMarathi": ""
+      "codeExplanation": "catchError replaces a failed request with an Observable that emits an empty array.",
+      "codeExplanationMarathi": "catchError अयशस्वी request ऐवजी रिकामा array emit करणारा Observable देतो."
     }
   ]
 }

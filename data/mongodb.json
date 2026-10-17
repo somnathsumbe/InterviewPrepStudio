@@ -1,0 +1,60 @@
+{
+  "technology": "MongoDB",
+  "questions": [
+    {
+      "id": 1,
+      "category": "DATA MODELING",
+      "question": "When should you embed documents versus reference other documents?",
+      "questionMarathi": "Documents embed कधी कराल आणि इतर documents reference कधी कराल?",
+      "answer": "Embed data that is small, bounded, and commonly read or updated with its parent. Reference data that is large, shared across many parents, independently queried, or unbounded. Choose based on access patterns, document growth, and consistency requirements.",
+      "answerMarathi": "लहान, मर्यादित आणि parent सोबत वारंवार वाचला किंवा update केला जाणारा data embed करा. मोठा, अनेक parents मध्ये shared, स्वतंत्रपणे query होणारा किंवा अमर्याद वाढणारा data reference करा. Access patterns, document growth आणि consistency requirements नुसार निर्णय घ्या.",
+      "codeExample": "{\n  \"_id\": \"order-42\",\n  \"customerId\": \"customer-7\",\n  \"items\": [\n    { \"sku\": \"book-1\", \"quantity\": 2 }\n  ]\n}",
+      "codeExplanation": "Order line items are embedded because they are bounded and usually read with the order; the customer is referenced.",
+      "codeExplanationMarathi": "Order मधील items मर्यादित असून order सोबत वाचले जातात म्हणून embed केले आहेत; customer ला reference केले आहे."
+    },
+    {
+      "id": 2,
+      "category": "INDEXING",
+      "question": "How do indexes improve MongoDB query performance, and what is the trade-off?",
+      "questionMarathi": "Indexes MongoDB query performance कशी सुधारतात आणि त्यातील trade-off काय आहे?",
+      "answer": "Indexes let MongoDB locate matching documents without scanning every document, especially for selective filters and sort patterns. Indexes consume disk and memory and add work to inserts, updates, and deletes. Create indexes based on measured query patterns and verify them with explain().",
+      "answerMarathi": "Indexes मुळे प्रत्येक document scan न करता matching documents शोधता येतात; selective filters आणि sort patterns साठी ते विशेष उपयुक्त आहेत. Indexes disk आणि memory वापरतात तसेच inserts, updates आणि deletes वर अतिरिक्त काम वाढवतात. प्रत्यक्ष query patterns नुसार indexes तयार करा आणि explain() ने तपासा.",
+      "codeExample": "db.orders.createIndex({ customerId: 1, createdAt: -1 });\ndb.orders.find({ customerId: 'customer-7' })\n  .sort({ createdAt: -1 })\n  .explain('executionStats');",
+      "codeExplanation": "The compound index supports filtering by customerId and sorting that customer's orders by newest date.",
+      "codeExplanationMarathi": "हा compound index customerId वर filter आणि त्या customer चे orders नवीन तारखेनुसार sort करण्यास मदत करतो."
+    },
+    {
+      "id": 3,
+      "category": "AGGREGATION",
+      "question": "How would you calculate sales totals per product with an aggregation pipeline?",
+      "questionMarathi": "Aggregation pipeline वापरून प्रत्येक product ची sales total कशी मोजाल?",
+      "answer": "Use aggregation stages to filter the relevant records, group them by product, calculate totals, and optionally sort the results. Put selective $match stages early so fewer documents flow through the rest of the pipeline.",
+      "answerMarathi": "Aggregation stages वापरून आवश्यक records filter करा, product नुसार group करा, totals मोजा आणि गरजेनुसार results sort करा. पुढील stages मध्ये कमी documents जावेत म्हणून selective $match सुरुवातीला ठेवा.",
+      "codeExample": "db.orderItems.aggregate([\n  { $match: { status: 'paid' } },\n  { $group: {\n      _id: '$productId',\n      unitsSold: { $sum: '$quantity' },\n      revenue: { $sum: { $multiply: ['$quantity', '$unitPrice'] } }\n  } },\n  { $sort: { revenue: -1 } }\n]);",
+      "codeExplanation": "$group calculates units and revenue per product; $sort returns the highest-revenue products first.",
+      "codeExplanationMarathi": "$group प्रत्येक product साठी units आणि revenue मोजतो; $sort सर्वाधिक revenue असलेले products आधी दाखवतो."
+    },
+    {
+      "id": 4,
+      "category": "ATOMICITY",
+      "question": "What atomicity guarantees does MongoDB provide, and when are transactions useful?",
+      "questionMarathi": "MongoDB कोणती atomicity guarantees देते आणि transactions कधी उपयुक्त असतात?",
+      "answer": "A write to a single document is atomic, including changes to embedded fields. Multi-document transactions provide atomicity across multiple documents when an operation truly requires it, but they add overhead. Data modeling that keeps related updates in one document can often avoid transactions.",
+      "answerMarathi": "एका document वरील write atomic असतो; embedded fields मधील बदलही त्यात समाविष्ट असतात. अनेक documents मध्ये एकाच वेळी atomic बदल आवश्यक असतील तेव्हा multi-document transactions वापरता येतात, पण त्यांचा overhead असतो. संबंधित updates एका document मध्ये ठेवणारे data modeling transactions टाळू शकते.",
+      "codeExample": "await session.withTransaction(async () => {\n  await accounts.updateOne(\n    { _id: fromId },\n    { $inc: { balance: -amount } },\n    { session }\n  );\n  await accounts.updateOne(\n    { _id: toId },\n    { $inc: { balance: amount } },\n    { session }\n  );\n});",
+      "codeExplanation": "Both account changes commit together or roll back together when run in a supported transaction.",
+      "codeExplanationMarathi": "समर्थित transaction मध्ये दोन्ही account changes एकत्र commit होतात किंवा एकत्र rollback होतात."
+    },
+    {
+      "id": 5,
+      "category": "SCHEMA VALIDATION",
+      "question": "How can you enforce a consistent document shape in a flexible MongoDB collection?",
+      "questionMarathi": "Flexible MongoDB collection मध्ये document ची रचना सुसंगत कशी ठेवता?",
+      "answer": "Use collection schema validation with JSON Schema rules to require fields, restrict BSON types, and define ranges or allowed values. Validation protects writes from invalid shapes while preserving flexibility for optional or evolving fields.",
+      "answerMarathi": "Fields आवश्यक करणे, BSON types मर्यादित करणे आणि ranges किंवा अनुमत values सांगणे यासाठी JSON Schema नियमांसह collection schema validation वापरा. Optional किंवा बदलणाऱ्या fields ची flexibility राखून validation चुकीच्या रचनेचे writes रोखते.",
+      "codeExample": "db.createCollection('products', {\n  validator: {\n    $jsonSchema: {\n      bsonType: 'object',\n      required: ['name', 'price'],\n      properties: {\n        name: { bsonType: 'string' },\n        price: { bsonType: 'number', minimum: 0 }\n      }\n    }\n  }\n});",
+      "codeExplanation": "The validator requires name and price and rejects a negative or non-numeric price.",
+      "codeExplanationMarathi": "Validator name आणि price आवश्यक करतो तसेच negative किंवा number नसलेली price नाकारतो."
+    }
+  ]
+}

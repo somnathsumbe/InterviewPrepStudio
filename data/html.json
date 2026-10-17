@@ -1,4 +1,60 @@
 {
   "technology": "HTML",
-  "questions": []
+  "questions": [
+    {
+      "id": 1,
+      "category": "SEMANTICS",
+      "question": "What is semantic HTML, and why is it important?",
+      "questionMarathi": "Semantic HTML म्हणजे काय आणि ते महत्त्वाचे का आहे?",
+      "answer": "Semantic HTML uses elements whose names describe their purpose, such as main, nav, article, and button. It gives browsers and assistive technologies useful structure, improves accessibility, and makes markup easier to understand and maintain.",
+      "answerMarathi": "Semantic HTML मध्ये main, nav, article आणि button यांसारखे उद्देश स्पष्ट करणारे elements वापरतात. त्यामुळे browser आणि assistive technologies ना पानाची रचना समजते, accessibility सुधारते आणि markup वाचणे व maintain करणे सोपे होते.",
+      "codeExample": "<main>\n  <article>\n    <h1>Interview tips</h1>\n    <p>Practice a little every day.</p>\n  </article>\n</main>",
+      "codeExplanation": "main identifies the primary page content and article represents a self-contained item.",
+      "codeExplanationMarathi": "main पानाचा मुख्य content दाखवतो आणि article स्वतंत्रपणे समजणारा content भाग दर्शवतो."
+    },
+    {
+      "id": 2,
+      "category": "ACCESSIBILITY",
+      "question": "How do you make an image accessible?",
+      "questionMarathi": "Image accessible कशी बनवाल?",
+      "answer": "Provide concise, meaningful alt text when an image conveys information. Use an empty alt attribute for decorative images so screen readers can skip them. Avoid putting essential text only inside an image.",
+      "answerMarathi": "Image मधून महत्त्वाची माहिती मिळत असल्यास संक्षिप्त आणि अर्थपूर्ण alt text द्या. सजावटीच्या images साठी रिकामा alt attribute द्या, म्हणजे screen reader ती वगळू शकतो. आवश्यक मजकूर फक्त image मध्ये ठेवू नका.",
+      "codeExample": "<img src=\"team.jpg\" alt=\"Engineers reviewing a design together\">\n<img src=\"divider.svg\" alt=\"\">",
+      "codeExplanation": "The first alt describes useful content; the empty alt marks the divider as decorative.",
+      "codeExplanationMarathi": "पहिला alt उपयुक्त माहिती सांगतो; रिकामा alt divider सजावटीचा आहे हे दर्शवतो."
+    },
+    {
+      "id": 3,
+      "category": "FORMS",
+      "question": "Why should every form control have a properly associated label?",
+      "questionMarathi": "प्रत्येक form control ला योग्य label जोडणे का आवश्यक आहे?",
+      "answer": "A label gives the control an accessible name and makes its clickable area larger. Explicitly connect the label's for value to the control's id so screen readers can announce the field purpose.",
+      "answerMarathi": "Label मुळे control ला accessible नाव मिळते आणि क्लिक करण्याची जागा मोठी होते. Screen reader ला field चा उद्देश सांगता यावा म्हणून label चा for आणि control चा id जुळवा.",
+      "codeExample": "<label for=\"email\">Email address</label>\n<input id=\"email\" name=\"email\" type=\"email\" autocomplete=\"email\">",
+      "codeExplanation": "The matching for and id values associate the visible label with the input.",
+      "codeExplanationMarathi": "for आणि id ची जुळणारी values दिसणारा label आणि input यांना जोडतात."
+    },
+    {
+      "id": 4,
+      "category": "BROWSER APIs",
+      "question": "What is the difference between localStorage and sessionStorage?",
+      "questionMarathi": "localStorage आणि sessionStorage यांच्यात काय फरक आहे?",
+      "answer": "Both Web Storage APIs store string key-value pairs for the current origin. localStorage persists across browser sessions until cleared, while sessionStorage is scoped to a page session and is cleared when that tab or session ends. Neither should store secrets.",
+      "answerMarathi": "दोन्ही Web Storage APIs सध्याच्या origin साठी string key-value pairs साठवतात. localStorage browser sessions नंतरही clear करेपर्यंत टिकते; sessionStorage त्या page session पुरते असते आणि tab किंवा session संपल्यावर काढले जाते. कोणत्याही storage मध्ये secrets ठेवू नयेत.",
+      "codeExample": "localStorage.setItem('theme', 'dark');\nconst theme = localStorage.getItem('theme');\n\nsessionStorage.setItem('draft-step', '2');",
+      "codeExplanation": "Use localStorage for longer-lived preferences and sessionStorage for temporary tab-specific state.",
+      "codeExplanationMarathi": "दीर्घकाळच्या preferences साठी localStorage आणि tab पुरत्या तात्पुरत्या state साठी sessionStorage वापरा."
+    },
+    {
+      "id": 5,
+      "category": "PERFORMANCE",
+      "question": "What do defer and async do on a script element?",
+      "questionMarathi": "Script element मधील defer आणि async काय करतात?",
+      "answer": "Both allow an external script to download without blocking HTML parsing. defer executes scripts after parsing in document order. async executes as soon as each script is ready, so execution order is not guaranteed. Use defer for scripts that depend on the document or each other.",
+      "answerMarathi": "दोन्ही external script download करताना HTML parsing थांबवत नाहीत. defer parsing पूर्ण झाल्यावर scripts document क्रमाने चालवतो. async script तयार होताच चालवतो, त्यामुळे क्रमाची हमी नसते. Document किंवा एकमेकांवर अवलंबून असलेल्या scripts साठी defer वापरा.",
+      "codeExample": "<script src=\"app.js\" defer></script>\n<script src=\"analytics.js\" async></script>",
+      "codeExplanation": "The application script runs after parsing; analytics can run whenever its download finishes.",
+      "codeExplanationMarathi": "Application script parsing नंतर चालतो; analytics download पूर्ण झाल्यावर कधीही चालू शकतो."
+    }
+  ]
 }

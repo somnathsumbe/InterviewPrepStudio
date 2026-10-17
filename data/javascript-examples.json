@@ -1,0 +1,60 @@
+{
+  "technology": "JavaScript Examples",
+  "questions": [
+    {
+      "id": 1,
+      "category": "ARRAYS",
+      "question": "Write a function that removes duplicate values from an array.",
+      "questionMarathi": "Array मधील duplicate values काढणारे function लिहा.",
+      "answer": "A Set stores unique values, so converting the input array to a Set and back to an array removes duplicates while preserving the first occurrence order.",
+      "answerMarathi": "Set मध्ये unique values साठवली जातात. Array ला Set मध्ये आणि पुन्हा array मध्ये convert केल्याने पहिल्या occurrence चा क्रम राखून duplicates काढले जातात.",
+      "codeExample": "function unique(values) {\n  return [...new Set(values)];\n}\n\nconsole.log(unique([1, 2, 2, 3])); // [1, 2, 3]",
+      "codeExplanation": "Set removes repeated values; spread syntax converts the Set back into an array.",
+      "codeExplanationMarathi": "Set पुनरावृत्ती values काढतो; spread syntax Set चे पुन्हा array मध्ये रूपांतर करते."
+    },
+    {
+      "id": 2,
+      "category": "STRINGS",
+      "question": "How can you check whether a string is a palindrome?",
+      "questionMarathi": "String palindrome आहे का हे कसे तपासाल?",
+      "answer": "Normalize the string by removing non-alphanumeric characters and converting it to lowercase. Compare it with its reversed form. This version handles punctuation, spaces, and letter case.",
+      "answerMarathi": "Non-alphanumeric characters काढून आणि lowercase करून string normalize करा. नंतर ती उलट केलेल्या string शी compare करा. या पद्धतीत punctuation, spaces आणि uppercase/lowercase चा फरक हाताळला जातो.",
+      "codeExample": "function isPalindrome(value) {\n  const normalized = value.toLowerCase().replace(/[^a-z0-9]/g, '');\n  return normalized === [...normalized].reverse().join('');\n}\n\nconsole.log(isPalindrome('A man, a plan, a canal: Panama')); // true",
+      "codeExplanation": "The regular expression keeps only letters and digits before comparing the normalized text to its reverse.",
+      "codeExplanationMarathi": "Compare करण्यापूर्वी regular expression फक्त अक्षरे आणि अंक ठेवतो; नंतर normalized मजकूर उलट क्रमाशी compare होतो."
+    },
+    {
+      "id": 3,
+      "category": "ARRAYS",
+      "question": "Write a function that returns the frequency of each item in an array.",
+      "questionMarathi": "Array मधील प्रत्येक item किती वेळा आहे हे मोजणारे function लिहा.",
+      "answer": "Reduce the array into an object keyed by each item. Increment the current count for each occurrence. For arbitrary object keys, use a Map instead.",
+      "answerMarathi": "Array ला reduce करून प्रत्येक item साठी key असलेला object तयार करा. प्रत्येक occurrence आल्यावर count वाढवा. कोणत्याही प्रकारच्या keys साठी Map वापरा.",
+      "codeExample": "function frequencies(items) {\n  return items.reduce((counts, item) => {\n    counts[item] = (counts[item] || 0) + 1;\n    return counts;\n  }, {});\n}\n\nconsole.log(frequencies(['a', 'b', 'a'])); // { a: 2, b: 1 }",
+      "codeExplanation": "reduce carries the counts object forward and increments the property for each item.",
+      "codeExplanationMarathi": "reduce प्रत्येक iteration मध्ये counts object पुढे नेतो आणि संबंधित item ची property वाढवतो."
+    },
+    {
+      "id": 4,
+      "category": "ASYNC",
+      "question": "How do you run several asynchronous tasks in parallel and collect their results?",
+      "questionMarathi": "अनेक asynchronous tasks parallel चालवून त्यांचे results कसे मिळवाल?",
+      "answer": "Use Promise.all when all tasks are independent and every result is required. It resolves with results in input order, and rejects as soon as one input Promise rejects. Use Promise.allSettled when every outcome must be inspected.",
+      "answerMarathi": "Tasks स्वतंत्र असतील आणि सर्व results आवश्यक असतील तर Promise.all वापरा. Results input च्या क्रमाने मिळतात; एखादा Promise reject झाला तर Promise.all reject होतो. प्रत्येक task चा निकाल तपासायचा असल्यास Promise.allSettled वापरा.",
+      "codeExample": "async function loadDashboard() {\n  const [profile, alerts] = await Promise.all([\n    fetch('/api/profile').then(response => response.json()),\n    fetch('/api/alerts').then(response => response.json())\n  ]);\n  return { profile, alerts };\n}",
+      "codeExplanation": "Both requests begin before awaiting Promise.all, avoiding unnecessary sequential network time.",
+      "codeExplanationMarathi": "Promise.all ला await करण्यापूर्वी दोन्ही requests सुरू होतात, त्यामुळे अनावश्यक sequential network delay टळतो."
+    },
+    {
+      "id": 5,
+      "category": "OBJECTS",
+      "question": "Write a function that groups an array of objects by a property.",
+      "questionMarathi": "Object च्या property नुसार array गटांमध्ये विभागणारे function लिहा.",
+      "answer": "Reduce the items into an object whose keys are property values and whose values are arrays of matching items. Object.groupBy is another option in runtimes that support it.",
+      "answerMarathi": "Items ला reduce करून property values या keys आणि जुळणारे items arrays म्हणून असलेला object तयार करा. Runtime मध्ये समर्थन असल्यास Object.groupBy हाही पर्याय आहे.",
+      "codeExample": "function groupBy(items, key) {\n  return items.reduce((groups, item) => {\n    const group = item[key];\n    (groups[group] ||= []).push(item);\n    return groups;\n  }, {});\n}\n\nconst grouped = groupBy([\n  { name: 'A', team: 'red' },\n  { name: 'B', team: 'blue' },\n  { name: 'C', team: 'red' }\n], 'team');",
+      "codeExplanation": "Each item is appended to the array for its team value; logical assignment initializes a missing group.",
+      "codeExplanationMarathi": "प्रत्येक item त्याच्या team value च्या array मध्ये जोडला जातो; logical assignment नसलेला group initialize करते."
+    }
+  ]
+}

@@ -1,4 +1,60 @@
 {
   "technology": "React",
-  "questions": []
+  "questions": [
+    {
+      "id": 1,
+      "category": "COMPONENTS",
+      "question": "What is a React component?",
+      "questionMarathi": "React component म्हणजे काय?",
+      "answer": "A React component is a reusable function or class that describes part of the user interface. Modern React commonly uses function components that return JSX and receive data through props.",
+      "answerMarathi": "React component म्हणजे user interface चा एखादा भाग दाखवणारे पुन्हा वापरता येणारे function किंवा class. आधुनिक React मध्ये JSX return करणारे आणि props मधून data घेणारे function components सामान्य आहेत.",
+      "codeExample": "function Greeting({ name }) {\n  return <h2>Hello, {name}</h2>;\n}",
+      "codeExplanation": "The component receives name as a prop and returns UI for that value.",
+      "codeExplanationMarathi": "Component name हे prop म्हणून घेतो आणि त्या value साठी UI return करतो."
+    },
+    {
+      "id": 2,
+      "category": "STATE",
+      "question": "What is the purpose of the useState hook?",
+      "questionMarathi": "useState hook चा उपयोग काय आहे?",
+      "answer": "useState adds local state to a function component. It returns the current state and a setter function. Calling the setter schedules a re-render; state should be updated immutably rather than mutated directly.",
+      "answerMarathi": "useState function component मध्ये local state ठेवतो. तो सध्याची state आणि setter function return करतो. Setter call केल्यावर re-render schedule होतो; state थेट बदलण्याऐवजी immutable पद्धतीने update करा.",
+      "codeExample": "function Counter() {\n  const [count, setCount] = useState(0);\n  return <button onClick={() => setCount(value => value + 1)}>{count}</button>;\n}",
+      "codeExplanation": "The functional setter uses the previous state value to calculate the next count.",
+      "codeExplanationMarathi": "Functional setter मागील state वापरून पुढचा count ठरवतो."
+    },
+    {
+      "id": 3,
+      "category": "EFFECTS",
+      "question": "When should you use the useEffect hook?",
+      "questionMarathi": "useEffect hook कधी वापरावा?",
+      "answer": "Use useEffect to synchronize a component with external systems, such as subscriptions, timers, or browser APIs. Include reactive dependencies and return a cleanup function when the effect creates resources that must be released. Do not use effects for values that can be derived during rendering.",
+      "answerMarathi": "Subscriptions, timers किंवा browser APIs यांसारख्या बाह्य systems शी component समक्रमित करण्यासाठी useEffect वापरा. आवश्यक reactive dependencies द्या आणि effect ने तयार केलेली resources बंद करायची असल्यास cleanup function return करा. Render करताना काढता येणाऱ्या values साठी effects वापरू नका.",
+      "codeExample": "useEffect(() => {\n  const id = setInterval(() => setTime(Date.now()), 1000);\n  return () => clearInterval(id);\n}, []);",
+      "codeExplanation": "The timer starts after mount and cleanup clears it when the component is removed.",
+      "codeExplanationMarathi": "Mount नंतर timer सुरू होतो आणि component काढताना cleanup तो बंद करतो."
+    },
+    {
+      "id": 4,
+      "category": "LISTS",
+      "question": "Why does React need a key when rendering a list?",
+      "questionMarathi": "List render करताना React ला key का आवश्यक असते?",
+      "answer": "A key gives each sibling element a stable identity so React can match items across renders and update only what changed. Use a stable unique identifier from the data rather than an array index when items may be reordered or removed.",
+      "answerMarathi": "प्रत्येक sibling element ला स्थिर ओळख देण्यासाठी key वापरतात. त्यामुळे वेगवेगळ्या renders मध्ये React items जुळवून फक्त बदललेला भाग update करू शकतो. Items reorder किंवा remove होऊ शकत असल्यास array index ऐवजी data मधील स्थिर unique ID वापरा.",
+      "codeExample": "items.map(item => (\n  <li key={item.id}>{item.name}</li>\n))",
+      "codeExplanation": "The stable item ID lets React track each list entry between updates.",
+      "codeExplanationMarathi": "स्थिर item ID मुळे updates दरम्यान React प्रत्येक list entry ओळखू शकतो."
+    },
+    {
+      "id": 5,
+      "category": "DATA FLOW",
+      "question": "What is the difference between props and state?",
+      "questionMarathi": "Props आणि state यांच्यात काय फरक आहे?",
+      "answer": "Props are inputs passed into a component by its parent and should be treated as read-only. State is data managed by the component and updated through state setters. Both can cause a re-render when their values change.",
+      "answerMarathi": "Props हे parent कडून component ला दिलेले inputs असतात आणि त्यांना read-only मानावे. State हा component स्वतः manage करतो आणि state setters ने update करतो. दोन्हींची value बदलल्यास re-render होऊ शकतो.",
+      "codeExample": "function Greeting({ name }) {\n  const [visible, setVisible] = useState(true);\n  return visible ? <p>Hello, {name}</p> : null;\n}",
+      "codeExplanation": "name is an input prop; visible is local state controlled by this component.",
+      "codeExplanationMarathi": "name हा input prop आहे; visible ही या component ने नियंत्रित केलेली local state आहे."
+    }
+  ]
 }

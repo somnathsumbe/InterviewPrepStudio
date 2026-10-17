@@ -1,0 +1,60 @@
+{
+  "technology": "Sass / SCSS",
+  "questions": [
+    {
+      "id": 1,
+      "category": "FUNDAMENTALS",
+      "question": "What is Sass, and how does SCSS differ from the indented syntax?",
+      "questionMarathi": "Sass म्हणजे काय आणि SCSS ही indented syntax पेक्षा कशी वेगळी आहे?",
+      "answer": "Sass is a CSS preprocessor that adds features such as variables, nesting, mixins, and functions. SCSS is Sass's CSS-compatible syntax: it uses braces and semicolons, so existing CSS can be used directly in an SCSS file. Both compile to regular CSS.",
+      "answerMarathi": "Sass हा CSS preprocessor आहे. त्यात variables, nesting, mixins आणि functions यांसारखी वैशिष्ट्ये मिळतात. SCSS ही Sass ची CSS-सुसंगत syntax आहे; ती braces आणि semicolons वापरते, त्यामुळे विद्यमान CSS थेट SCSS फाइलमध्ये लिहिता येते. दोन्हींचे रूपांतर सामान्य CSS मध्ये होते.",
+      "codeExample": "$brand: #2563eb;\n\n.button {\n  color: white;\n  background: $brand;\n}",
+      "codeExplanation": "The $brand variable is substituted when Sass compiles the SCSS to CSS.",
+      "codeExplanationMarathi": "Sass SCSS चे CSS मध्ये रूपांतर करताना $brand variable ची value वापरतो."
+    },
+    {
+      "id": 2,
+      "category": "VARIABLES",
+      "question": "How do Sass variables work, and how are they different from CSS custom properties?",
+      "questionMarathi": "Sass variables कसे काम करतात आणि ते CSS custom properties पेक्षा कसे वेगळे आहेत?",
+      "answer": "Sass variables use a $ prefix and are resolved at build time, so their values are compiled into the output CSS. CSS custom properties use -- names and remain in the browser at runtime; they can be changed through the cascade or JavaScript.",
+      "answerMarathi": "Sass variables साठी $ prefix वापरतात आणि त्यांची value build time ला निश्चित होते; compiled CSS मध्ये थेट ती value दिसते. CSS custom properties ना -- नाव असते आणि त्या browser मध्ये runtime ला उपलब्ध राहतात. Cascade किंवा JavaScript वापरून त्यांची value बदलता येते.",
+      "codeExample": "$spacing: 1rem;\n\n:root {\n  --surface-spacing: 1rem;\n}\n\n.card {\n  padding: $spacing;\n  margin: var(--surface-spacing);\n}",
+      "codeExplanation": "$spacing disappears into the compiled declaration, while --surface-spacing remains a runtime CSS property.",
+      "codeExplanationMarathi": "Compiled CSS मध्ये $spacing ची value थेट येते; --surface-spacing मात्र runtime CSS property म्हणून राहते."
+    },
+    {
+      "id": 3,
+      "category": "NESTING",
+      "question": "What are the benefits and risks of nesting selectors in SCSS?",
+      "questionMarathi": "SCSS मध्ये selectors nesting करण्याचे फायदे आणि धोके कोणते?",
+      "answer": "Nesting can keep related component styles together and make parent-child relationships clear. Deep or overly broad nesting creates long, highly specific selectors that are hard to override and maintain. Keep nesting shallow and use the parent selector (&) intentionally.",
+      "answerMarathi": "Nesting मुळे component शी संबंधित styles एकत्र ठेवता येतात आणि parent-child संबंध स्पष्ट होतात. खूप खोल किंवा व्यापक nesting मुळे लांब व जास्त specificity असलेले selectors तयार होतात; ते override आणि maintain करणे अवघड होते. Nesting मर्यादित ठेवा आणि parent selector (&) विचारपूर्वक वापरा.",
+      "codeExample": ".card {\n  padding: 1rem;\n\n  &:hover {\n    box-shadow: 0 4px 12px #0002;\n  }\n\n  .card-title {\n    font-weight: 700;\n  }\n}",
+      "codeExplanation": "& is replaced by .card, producing .card:hover. The nested title becomes .card .card-title.",
+      "codeExplanationMarathi": "& च्या जागी .card येतो आणि .card:hover तयार होतो. Nested title साठी .card .card-title selector तयार होतो."
+    },
+    {
+      "id": 4,
+      "category": "MIXINS",
+      "question": "When would you use a mixin instead of a placeholder selector?",
+      "questionMarathi": "Placeholder selector ऐवजी mixin कधी वापराल?",
+      "answer": "Use a mixin when reusable styles need parameters or conditional logic. Use a placeholder selector with @extend when selectors should share declarations and Sass can combine their selectors. Mixins duplicate declarations at each include; @extend can make selector relationships less obvious, so use it carefully.",
+      "answerMarathi": "पुन्हा वापरता येणाऱ्या styles ना parameters किंवा conditional logic आवश्यक असेल तेव्हा mixin वापरा. अनेक selectors मध्ये declarations सामायिक करून Sass ने selectors एकत्र करावेत असेल तेव्हा @extend सोबत placeholder वापरा. प्रत्येक include येथे mixin declarations पुन्हा लिहितो; @extend मुळे selector संबंध कमी स्पष्ट होऊ शकतात, म्हणून ते काळजीपूर्वक वापरा.",
+      "codeExample": "@mixin button-size($padding) {\n  padding: $padding;\n  border-radius: .5rem;\n}\n\n.button {\n  @include button-size(.75rem 1rem);\n}",
+      "codeExplanation": "The mixin accepts a padding argument, allowing multiple button variants to share the same rule shape.",
+      "codeExplanationMarathi": "Mixin padding argument स्वीकारतो, त्यामुळे वेगवेगळ्या button variants मध्ये समान rule रचना पुन्हा वापरता येते."
+    },
+    {
+      "id": 5,
+      "category": "MODULES",
+      "question": "How do @use and @forward improve Sass code organization?",
+      "questionMarathi": "Sass code organization सुधारण्यासाठी @use आणि @forward कसे मदत करतात?",
+      "answer": "@use loads another Sass module with a namespace, making dependencies explicit and avoiding global name collisions. @forward re-exports members from a module so a package can expose a curated public API. They replace the older, globally scoped @import workflow.",
+      "answerMarathi": "@use दुसरे Sass module namespace सह load करते. त्यामुळे dependencies स्पष्ट दिसतात आणि global नावांची टक्कर टळते. @forward module मधील members पुन्हा export करते, त्यामुळे package निवडक public API देऊ शकते. ही directives जुन्या global scope असलेल्या @import पद्धतीऐवजी वापरतात.",
+      "codeExample": "// _tokens.scss\n$brand: #2563eb;\n\n// styles.scss\n@use 'tokens';\n\n.link {\n  color: tokens.$brand;\n}",
+      "codeExplanation": "The module namespace tokens makes the source of $brand explicit.",
+      "codeExplanationMarathi": "tokens namespace मुळे $brand कुठल्या module मधून येतो हे स्पष्ट होते."
+    }
+  ]
+}

@@ -1,4 +1,60 @@
 {
   "technology": "CSS",
-  "questions": []
+  "questions": [
+    {
+      "id": 1,
+      "category": "LAYOUT",
+      "question": "How do Flexbox and CSS Grid differ?",
+      "questionMarathi": "Flexbox आणि CSS Grid यांच्यात काय फरक आहे?",
+      "answer": "Flexbox is primarily one-dimensional and arranges items along a row or column. Grid is two-dimensional and controls rows and columns together. Choose based on the layout: Flexbox for a component's linear alignment and Grid for page or card layouts.",
+      "answerMarathi": "Flexbox प्रामुख्याने एक-dimensional आहे आणि items एका row किंवा column मध्ये मांडतो. Grid rows आणि columns एकत्र नियंत्रित करणारे two-dimensional layout आहे. एका दिशेतील component alignment साठी Flexbox आणि page किंवा card layout साठी Grid निवडा.",
+      "codeExample": ".toolbar { display: flex; gap: 1rem; }\n\n.dashboard { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }",
+      "codeExplanation": "The toolbar lays items in a row; the dashboard defines a two-dimensional column layout.",
+      "codeExplanationMarathi": "Toolbar मधील items एका row मध्ये येतात; dashboard मध्ये columns असलेली two-dimensional रचना आहे."
+    },
+    {
+      "id": 2,
+      "category": "BOX MODEL",
+      "question": "What does box-sizing: border-box change?",
+      "questionMarathi": "box-sizing: border-box मुळे काय बदलते?",
+      "answer": "With content-box, declared width excludes padding and borders. With border-box, declared width includes content, padding, and borders, which makes sizing more predictable in responsive layouts.",
+      "answerMarathi": "content-box मध्ये दिलेल्या width मध्ये padding आणि borders समाविष्ट नसतात. border-box मध्ये content, padding आणि borders हे सर्व दिलेल्या width मध्ये येतात; त्यामुळे responsive layout मधील sizing अधिक अंदाजे होते.",
+      "codeExample": "*, *::before, *::after {\n  box-sizing: border-box;\n}\n\n.card { width: 20rem; padding: 1rem; border: 1px solid; }",
+      "codeExplanation": "The card's total outer width remains 20rem, including its padding and border.",
+      "codeExplanationMarathi": "Padding आणि border धरून card ची एकूण बाहेरील width 20rem राहते."
+    },
+    {
+      "id": 3,
+      "category": "SPECIFICITY",
+      "question": "How does CSS specificity determine which rule wins?",
+      "questionMarathi": "कोणता CSS rule लागू होईल हे specificity कसे ठरवते?",
+      "answer": "When declarations conflict, the cascade considers origin and importance, layer, specificity, and source order. Specificity compares selector components; IDs generally outweigh classes, which outweigh element selectors. Prefer simple selectors and avoid relying on !important.",
+      "answerMarathi": "Declarations मध्ये conflict असल्यास cascade origin आणि importance, layer, specificity आणि source order पाहते. Specificity मध्ये ID selectors साधारणपणे classes पेक्षा आणि classes elements पेक्षा अधिक प्रभावी असतात. साधे selectors वापरा आणि !important वर अवलंबून राहू नका.",
+      "codeExample": ".card p { color: navy; }\n#summary p { color: darkgreen; }",
+      "codeExplanation": "The ID selector has greater specificity for the paragraph inside the matching element.",
+      "codeExplanationMarathi": "जुळणाऱ्या element मधील paragraph साठी ID selector ची specificity जास्त असते."
+    },
+    {
+      "id": 4,
+      "category": "RESPONSIVE DESIGN",
+      "question": "How do media queries support responsive design?",
+      "questionMarathi": "Media queries responsive design साठी कशी मदत करतात?",
+      "answer": "Media queries conditionally apply styles based on viewport or user preferences. Use fluid layouts by default and add breakpoints when content needs a layout change, rather than targeting specific device models.",
+      "answerMarathi": "Viewport किंवा वापरकर्त्याच्या preferences नुसार media queries वेगळे styles लागू करतात. Default म्हणून fluid layouts ठेवा आणि विशिष्ट device model नुसार नव्हे, तर content ला layout बदल आवश्यक असेल तेव्हा breakpoint जोडा.",
+      "codeExample": ".cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }\n\n@media (max-width: 700px) {\n  .cards { grid-template-columns: 1fr; }\n}",
+      "codeExplanation": "The grid switches to one column when the available viewport becomes narrow.",
+      "codeExplanationMarathi": "Viewport अरुंद झाल्यावर grid एका column मध्ये बदलतो."
+    },
+    {
+      "id": 5,
+      "category": "ACCESSIBILITY",
+      "question": "How do you provide a visible keyboard focus indicator?",
+      "questionMarathi": "Keyboard focus indicator स्पष्टपणे कसा दाखवाल?",
+      "answer": "Use :focus-visible to show a clear outline when users navigate with a keyboard. Do not remove the browser outline without providing an equally visible replacement. Check contrast and ensure focused controls are not hidden behind sticky elements.",
+      "answerMarathi": "वापरकर्ता keyboard ने navigation करतो तेव्हा स्पष्ट outline दाखवण्यासाठी :focus-visible वापरा. दुसरा तितकाच स्पष्ट पर्याय न देता browser outline काढू नका. Contrast तपासा आणि focused controls sticky elements मागे लपणार नाहीत याची खात्री करा.",
+      "codeExample": "button:focus-visible,\na:focus-visible {\n  outline: 3px solid #2563eb;\n  outline-offset: 3px;\n}",
+      "codeExplanation": "The outline remains visible around a focused link or button without changing its layout.",
+      "codeExplanationMarathi": "Focused link किंवा button भोवती outline दिसते आणि layout बदलत नाही."
+    }
+  ]
 }

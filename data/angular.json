@@ -1,4 +1,60 @@
 {
   "technology": "Angular",
-  "questions": []
+  "questions": [
+    {
+      "id": 1,
+      "category": "COMPONENTS",
+      "question": "What is an Angular component?",
+      "questionMarathi": "Angular component म्हणजे काय?",
+      "answer": "A component is a UI building block that combines a TypeScript class, an HTML template, and optional styles. Its selector lets Angular place the component in a template, while inputs and outputs support communication with other components.",
+      "answerMarathi": "Component हा UI तयार करण्याचा भाग आहे. त्यात TypeScript class, HTML template आणि ऐच्छिक styles असतात. Selector वापरून template मध्ये component ठेवता येतो; inputs आणि outputs मुळे इतर components सोबत संवाद साधता येतो.",
+      "codeExample": "@Component({\n  selector: 'app-greeting',\n  standalone: true,\n  template: '<h2>Hello, {{ name }}</h2>'\n})\nexport class GreetingComponent {\n  name = 'Asha';\n}",
+      "codeExplanation": "The component metadata connects its selector and template to the class state.",
+      "codeExplanationMarathi": "Component metadata selector आणि template ला class मधील state शी जोडते."
+    },
+    {
+      "id": 2,
+      "category": "DATA BINDING",
+      "question": "What are the main types of data binding in Angular?",
+      "questionMarathi": "Angular मधील data binding चे मुख्य प्रकार कोणते?",
+      "answer": "Angular supports interpolation for text, property binding for DOM or component properties, event binding for user events, and two-way binding for synchronized input and component state. Prefer explicit one-way bindings when they make data flow clearer.",
+      "answerMarathi": "Text साठी interpolation, DOM किंवा component properties साठी property binding, user events साठी event binding आणि input व component state समक्रमित करण्यासाठी two-way binding Angular मध्ये उपलब्ध आहेत. Data flow अधिक स्पष्ट होत असल्यास explicit one-way bindings वापरा.",
+      "codeExample": "<input [value]=\"name\" (input)=\"name = $any($event.target).value\">\n<p>Hello, {{ name }}</p>\n\n<input [(ngModel)]=\"name\">",
+      "codeExplanation": "The first input shows property and event binding; the ngModel example uses two-way binding.",
+      "codeExplanationMarathi": "पहिल्या input मध्ये property आणि event binding आहेत; ngModel उदाहरण two-way binding वापरते."
+    },
+    {
+      "id": 3,
+      "category": "DEPENDENCY INJECTION",
+      "question": "What is dependency injection in Angular?",
+      "questionMarathi": "Angular मधील dependency injection म्हणजे काय?",
+      "answer": "Dependency injection lets a class receive the services it needs from Angular's injector instead of constructing them itself. It improves separation of concerns and testability. Services can be provided at application, route, or component scope.",
+      "answerMarathi": "Dependency injection मुळे class ला आवश्यक services स्वतः तयार करण्याऐवजी Angular injector कडून मिळतात. त्यामुळे जबाबदाऱ्या वेगळ्या राहतात आणि testing सोपे होते. Services application, route किंवा component scope मध्ये provide करता येतात.",
+      "codeExample": "@Injectable({ providedIn: 'root' })\nexport class UserService {\n  getName() { return 'Asha'; }\n}\n\n@Component({ /* metadata */ })\nexport class ProfileComponent {\n  private users = inject(UserService);\n}",
+      "codeExplanation": "providedIn: 'root' registers a shared service, and inject() obtains it for the component.",
+      "codeExplanationMarathi": "providedIn: 'root' shared service नोंदवते आणि inject() component ला ती service देते."
+    },
+    {
+      "id": 4,
+      "category": "ROUTING",
+      "question": "How does Angular routing display different views without reloading the application?",
+      "questionMarathi": "Angular routing application reload न करता वेगवेगळे views कसे दाखवते?",
+      "answer": "The Angular Router maps URL paths to components and renders the active route in a router outlet. RouterLink supports client-side navigation, while route guards and resolvers can control access or prepare data when needed.",
+      "answerMarathi": "Angular Router URL paths ना components शी map करतो आणि सध्याचा route router outlet मध्ये दाखवतो. Client-side navigation साठी RouterLink वापरतात; आवश्यकतेनुसार route guards access नियंत्रित करतात आणि resolvers data तयार करतात.",
+      "codeExample": "const routes: Routes = [\n  { path: 'profile', component: ProfileComponent },\n  { path: '', redirectTo: 'profile', pathMatch: 'full' }\n];\n\n<a routerLink=\"/profile\">Profile</a>\n<router-outlet />",
+      "codeExplanation": "The router selects a component for the current URL and places it inside router-outlet.",
+      "codeExplanationMarathi": "सध्याच्या URL साठी router component निवडतो आणि router-outlet मध्ये दाखवतो."
+    },
+    {
+      "id": 5,
+      "category": "REACTIVITY",
+      "question": "What is the difference between an Observable and a Promise in Angular applications?",
+      "questionMarathi": "Angular application मध्ये Observable आणि Promise यांच्यात काय फरक आहे?",
+      "answer": "A Promise produces one eventual value and cannot be cancelled through its standard API. An Observable can emit zero or more values over time, can be unsubscribed, and supports RxJS operators. Angular HttpClient returns Observables, which execute when subscribed.",
+      "answerMarathi": "Promise भविष्यात एक value देतो आणि त्याच्या सामान्य API ने cancel करता येत नाही. Observable वेळेनुसार शून्य किंवा अनेक values देऊ शकतो, unsubscribe करता येतो आणि RxJS operators वापरता येतात. Angular HttpClient Observables return करतो; subscribe केल्यावर request execute होते.",
+      "codeExample": "this.http.get<User>('/api/user').subscribe({\n  next: user => this.user = user,\n  error: error => this.error = error\n});",
+      "codeExplanation": "Subscribing to the HttpClient Observable starts the request and handles its notifications.",
+      "codeExplanationMarathi": "HttpClient Observable ला subscribe केल्यावर request सुरू होते आणि त्याची notifications हाताळता येतात."
+    }
+  ]
 }

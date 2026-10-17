@@ -1,0 +1,60 @@
+{
+  "technology": "HR Interview",
+  "questions": [
+    {
+      "id": 1,
+      "category": "INTRODUCTION",
+      "question": "Tell me about yourself.",
+      "questionMarathi": "तुमच्याबद्दल सांगा.",
+      "answer": "I am a software professional with experience building and maintaining web applications. In my recent work, I focused on delivering reliable features and collaborating with cross-functional teams. I am now looking for a role where I can contribute those skills and continue growing.",
+      "answerMarathi": "मी web applications तयार करणे आणि maintain करण्याचा अनुभव असलेला software professional आहे. अलीकडील कामात मी विश्वासार्ह features देणे आणि विविध विभागांच्या टीमसोबत सहकार्य करणे यावर लक्ष दिले. आता ही कौशल्ये वापरून योगदान देता येईल आणि पुढे शिकता येईल अशी भूमिका शोधत आहे.",
+      "codeExample": "",
+      "codeExplanation": "",
+      "codeExplanationMarathi": ""
+    },
+    {
+      "id": 2,
+      "category": "STRENGTHS",
+      "question": "What is one of your strengths?",
+      "questionMarathi": "तुमची एखादी ताकद कोणती आहे?",
+      "answer": "One of my strengths is breaking ambiguous problems into clear, manageable steps. For example, when a feature has several dependencies, I clarify requirements early, agree on milestones with teammates, and communicate risks before they become blockers.",
+      "answerMarathi": "अस्पष्ट समस्या स्पष्ट आणि हाताळता येतील अशा टप्प्यांमध्ये विभागणे ही माझी एक ताकद आहे. उदाहरणार्थ, एखाद्या feature वर अनेक dependencies असतील तर मी requirements लवकर स्पष्ट करतो, टीमसोबत milestones ठरवतो आणि अडथळा होण्यापूर्वी risks सांगतो.",
+      "codeExample": "",
+      "codeExplanation": "",
+      "codeExplanationMarathi": ""
+    },
+    {
+      "id": 3,
+      "category": "GROWTH",
+      "question": "What is an area you are working to improve?",
+      "questionMarathi": "तुम्ही कोणत्या क्षेत्रात सुधारणा करण्याचा प्रयत्न करत आहात?",
+      "answer": "I am working on communicating progress more proactively when a task spans multiple days. I now share concise updates that include what is complete, what is next, and any risks, so teammates can coordinate earlier.",
+      "answerMarathi": "अनेक दिवस चालणाऱ्या कामाबाबत progress अधिक proactively सांगण्यावर मी काम करत आहे. आता काय पूर्ण झाले, पुढे काय करणार आणि कोणते risks आहेत याचे थोडक्यात updates देतो, त्यामुळे टीमला आधीपासून समन्वय साधता येतो.",
+      "codeExample": "",
+      "codeExplanation": "",
+      "codeExplanationMarathi": ""
+    },
+    {
+      "id": 4,
+      "category": "TEAMWORK",
+      "question": "Tell me about a time you disagreed with a teammate.",
+      "questionMarathi": "टीममधील सहकाऱ्याशी मतभेद झाल्याचा अनुभव सांगा.",
+      "answer": "During a design discussion, a teammate and I preferred different approaches. I asked about the constraints behind their proposal, then compared both options against reliability, delivery time, and maintenance needs. We agreed on a small validation step, reviewed the results together, and chose the approach that best met the requirements.",
+      "answerMarathi": "एका design चर्चेत माझे आणि सहकाऱ्याचे वेगवेगळे दृष्टिकोन होते. त्यांच्या प्रस्तावामागील constraints मी समजून घेतले आणि reliability, delivery time व maintenance या निकषांवर दोन्ही पर्याय तपासले. आम्ही छोटा validation टप्पा ठरवला, परिणाम एकत्र पाहिले आणि requirements ला योग्य पर्याय निवडला.",
+      "codeExample": "",
+      "codeExplanation": "",
+      "codeExplanationMarathi": ""
+    },
+    {
+      "id": 5,
+      "category": "MOTIVATION",
+      "question": "Why are you interested in this role?",
+      "questionMarathi": "तुम्हाला या भूमिकेत रस का आहे?",
+      "answer": "This role matches my experience in building user-focused software and gives me the opportunity to contribute to meaningful product work. I am especially interested in the team's problem space and the chance to collaborate, learn, and take ownership of outcomes.",
+      "answerMarathi": "वापरकर्त्यांसाठी उपयुक्त software तयार करण्याचा माझा अनुभव या भूमिकेशी जुळतो आणि अर्थपूर्ण product कामात योगदान देण्याची संधी मिळते. टीम ज्या समस्यांवर काम करते त्यात मला विशेष रस आहे; तसेच सहकार्य, शिकणे आणि परिणामांची जबाबदारी घेण्याची संधीही महत्त्वाची वाटते.",
+      "codeExample": "",
+      "codeExplanation": "",
+      "codeExplanationMarathi": ""
+    }
+  ]
+}

@@ -1,4 +1,60 @@
 {
   "technology": "JavaScript",
-  "questions": []
+  "questions": [
+    {
+      "id": 1,
+      "category": "TYPES",
+      "question": "What is the difference between == and === in JavaScript?",
+      "questionMarathi": "JavaScript मध्ये == आणि === यांच्यात काय फरक आहे?",
+      "answer": "The loose equality operator == may convert types before comparing values. Strict equality === compares both type and value without coercion. Prefer === for predictable comparisons, unless a specific coercion is intentional.",
+      "answerMarathi": "== loose equality compare करण्यापूर्वी types convert करू शकतो. === strict equality मध्ये type आणि value दोन्ही coercion न करता तपासले जातात. ठरावीक coercion मुद्दाम आवश्यक नसेल तर === वापरणे अधिक अंदाजे असते.",
+      "codeExample": "0 == false;  // true\n0 === false; // false\n'5' === 5;   // false",
+      "codeExplanation": "Loose equality coerces values; strict equality does not.",
+      "codeExplanationMarathi": "Loose equality values coerce करते; strict equality तसे करत नाही."
+    },
+    {
+      "id": 2,
+      "category": "SCOPE",
+      "question": "What is a closure in JavaScript?",
+      "questionMarathi": "JavaScript मधील closure म्हणजे काय?",
+      "answer": "A closure is a function together with access to variables in its lexical scope, even after the outer function has returned. Closures are useful for private state, callbacks, and function factories.",
+      "answerMarathi": "Closure म्हणजे function आणि त्याच्या lexical scope मधील variables पर्यंतचा access. बाहेरील function संपल्यानंतरही हा access राहू शकतो. Private state, callbacks आणि function factories साठी closures उपयुक्त आहेत.",
+      "codeExample": "function createCounter() {\n  let count = 0;\n  return () => ++count;\n}\n\nconst next = createCounter();\nnext(); // 1\nnext(); // 2",
+      "codeExplanation": "The returned function retains access to count after createCounter has finished.",
+      "codeExplanationMarathi": "createCounter पूर्ण झाल्यानंतरही return केलेल्या function कडे count चा access राहतो."
+    },
+    {
+      "id": 3,
+      "category": "ASYNC",
+      "question": "What is the difference between a Promise and a callback?",
+      "questionMarathi": "Promise आणि callback यांच्यात काय फरक आहे?",
+      "answer": "A callback is a function passed to another function to run later. A Promise represents an eventual result and provides chaining, centralized error propagation, and composition methods such as Promise.all. Promises do not automatically make CPU-bound work non-blocking.",
+      "answerMarathi": "Callback म्हणजे नंतर चालवण्यासाठी दुसऱ्या function ला दिलेले function. Promise भविष्यातील result दर्शवतो आणि chaining, एकत्रित error propagation तसेच Promise.all सारख्या composition methods देतो. Promise मुळे CPU-bound काम आपोआप non-blocking होत नाही.",
+      "codeExample": "fetch('/api/profile')\n  .then(response => response.json())\n  .then(profile => console.log(profile))\n  .catch(error => console.error(error));",
+      "codeExplanation": "Each then handles the previous result, while catch handles a rejection in the chain.",
+      "codeExplanationMarathi": "प्रत्येक then मागील result हाताळतो; chain मधील rejection catch हाताळतो."
+    },
+    {
+      "id": 4,
+      "category": "THIS",
+      "question": "How is this determined in a JavaScript function?",
+      "questionMarathi": "JavaScript function मध्ये this कसे ठरते?",
+      "answer": "For regular functions, this is generally determined by how the function is called: as a method, with call/apply/bind, or as a plain function. Arrow functions do not bind their own this and instead capture it from the surrounding lexical scope.",
+      "answerMarathi": "सामान्य functions मध्ये this साधारणपणे function कसा call केला यावर ठरते: method म्हणून, call/apply/bind ने किंवा साधा function म्हणून. Arrow function स्वतःचे this तयार करत नाही; तो आसपासच्या lexical scope मधील this वापरतो.",
+      "codeExample": "const user = {\n  name: 'Mira',\n  showName() { return this.name; }\n};\n\nuser.showName(); // 'Mira'",
+      "codeExplanation": "Calling showName through user makes user the receiver and sets this to that object.",
+      "codeExplanationMarathi": "user द्वारे showName call केल्याने user receiver बनतो आणि this त्या object कडे निर्देश करतो."
+    },
+    {
+      "id": 5,
+      "category": "EVENTS",
+      "question": "What is event bubbling, and how can event delegation use it?",
+      "questionMarathi": "Event bubbling म्हणजे काय आणि event delegation मध्ये त्याचा कसा उपयोग होतो?",
+      "answer": "In event bubbling, an event propagates from its target up through ancestor elements. Event delegation attaches one listener to a stable parent and checks the event target, which is useful for handling many current or dynamically added child elements.",
+      "answerMarathi": "Event bubbling मध्ये event target पासून parent elements कडे वर propagate होतो. Event delegation मध्ये स्थिर parent वर एक listener लावून event target तपासतात. अनेक किंवा नंतर जोडलेल्या child elements साठी ही पद्धत उपयुक्त आहे.",
+      "codeExample": "document.querySelector('#list').addEventListener('click', event => {\n  const item = event.target.closest('[data-item]');\n  if (item) console.log(item.dataset.item);\n});",
+      "codeExplanation": "A single parent listener handles clicks from any matching descendant.",
+      "codeExplanationMarathi": "एक parent listener जुळणाऱ्या कोणत्याही descendant वरील click हाताळतो."
+    }
+  ]
 }

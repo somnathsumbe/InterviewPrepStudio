@@ -1,4 +1,60 @@
 {
   "technology": "Bootstrap 5",
-  "questions": []
+  "questions": [
+    {
+      "id": 1,
+      "category": "GRID",
+      "question": "How does the Bootstrap 5 grid system work?",
+      "questionMarathi": "Bootstrap 5 grid system कसे काम करते?",
+      "answer": "Bootstrap's grid uses containers, rows, and columns built with responsive breakpoints and flexbox. Columns share a 12-unit row by default. Responsive column classes let layouts adapt at selected viewport sizes.",
+      "answerMarathi": "Bootstrap grid मध्ये responsive breakpoints आणि flexbox वापरून containers, rows आणि columns तयार होतात. एका row मध्ये साधारणपणे 12 units असतात. वेगवेगळ्या viewport आकारांसाठी responsive column classes वापरता येतात.",
+      "codeExample": "<div class=\"container-fluid\">\n  <div class=\"row g-3\">\n    <div class=\"col-12 col-md-6 col-xl-4\">Card</div>\n    <div class=\"col-12 col-md-6 col-xl-4\">Card</div>\n  </div>\n</div>",
+      "codeExplanation": "Each column is full width on small screens, half width at md, and one third width at xl.",
+      "codeExplanationMarathi": "लहान screens वर प्रत्येक column पूर्ण width घेतो, md पासून अर्धी आणि xl पासून एक-तृतीयांश width घेतो."
+    },
+    {
+      "id": 2,
+      "category": "UTILITIES",
+      "question": "What are Bootstrap utility classes, and when should you use them?",
+      "questionMarathi": "Bootstrap utility classes म्हणजे काय आणि त्या कधी वापराव्यात?",
+      "answer": "Utilities are single-purpose classes for common properties such as spacing, display, color, and alignment. They speed up consistent layout work, but repeated complex combinations may be clearer as a component class.",
+      "answerMarathi": "Spacing, display, color आणि alignment यांसारख्या सामान्य properties साठी utility classes एकाच उद्देशाचे classes असतात. त्या सुसंगत layout लवकर तयार करतात; मात्र वारंवार वापरल्या जाणाऱ्या गुंतागुंतीच्या combinations साठी component class अधिक स्पष्ट असू शकतो.",
+      "codeExample": "<div class=\"d-flex align-items-center gap-3 p-3\">\n  <span class=\"text-body-secondary\">Status</span>\n  <strong class=\"ms-auto\">Active</strong>\n</div>",
+      "codeExplanation": "These utilities create a flex row with alignment, spacing, padding, muted text, and an auto left margin.",
+      "codeExplanationMarathi": "या utilities flex row, alignment, spacing, padding, muted text आणि auto left margin तयार करतात."
+    },
+    {
+      "id": 3,
+      "category": "COMPONENTS",
+      "question": "How do you make a Bootstrap navigation bar responsive?",
+      "questionMarathi": "Bootstrap navigation bar responsive कसा बनवाल?",
+      "answer": "Use navbar-expand at the breakpoint where the full navigation should appear, a navbar-toggler button, and a collapsible container with matching IDs. The Bootstrap JavaScript bundle is required for the collapse interaction.",
+      "answerMarathi": "पूर्ण navigation कोणत्या breakpoint पासून दिसावी त्यासाठी navbar-expand वापरा, navbar-toggler button द्या आणि जुळणाऱ्या IDs सह collapsible container ठेवा. Collapse interaction साठी Bootstrap JavaScript bundle आवश्यक आहे.",
+      "codeExample": "<nav class=\"navbar navbar-expand-lg\">\n  <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\"\n    data-bs-target=\"#mainNav\" aria-controls=\"mainNav\" aria-expanded=\"false\">\n    <span class=\"navbar-toggler-icon\"></span>\n  </button>\n  <div class=\"collapse navbar-collapse\" id=\"mainNav\">...</div>\n</nav>",
+      "codeExplanation": "The menu collapses below the lg breakpoint and the toggler controls the matching target.",
+      "codeExplanationMarathi": "lg breakpoint खाली menu collapse होतो आणि toggler जुळणाऱ्या target ला नियंत्रित करतो."
+    },
+    {
+      "id": 4,
+      "category": "FORMS",
+      "question": "How should validation feedback be marked up in a Bootstrap form?",
+      "questionMarathi": "Bootstrap form मध्ये validation feedback कसे दाखवावे?",
+      "answer": "Associate labels with controls, apply is-invalid or is-valid to the control, and show feedback with invalid-feedback or valid-feedback. Also provide accessible descriptions and do not rely on color alone to communicate an error.",
+      "answerMarathi": "Labels controls शी जोडा, control ला is-invalid किंवा is-valid द्या आणि invalid-feedback किंवा valid-feedback ने सूचना दाखवा. Accessible descriptions द्या आणि error समजावण्यासाठी फक्त रंगावर अवलंबून राहू नका.",
+      "codeExample": "<label for=\"email\" class=\"form-label\">Email</label>\n<input id=\"email\" class=\"form-control is-invalid\" aria-describedby=\"emailError\">\n<div id=\"emailError\" class=\"invalid-feedback\">Enter a valid email address.</div>",
+      "codeExplanation": "aria-describedby connects the input to its visible error message.",
+      "codeExplanationMarathi": "aria-describedby input ला दिसणाऱ्या error message शी जोडते."
+    },
+    {
+      "id": 5,
+      "category": "CUSTOMIZATION",
+      "question": "What are Bootstrap breakpoints, and how should you choose one?",
+      "questionMarathi": "Bootstrap breakpoints म्हणजे काय आणि कोणता निवडावा?",
+      "answer": "Breakpoints are viewport widths where responsive styles change. Bootstrap provides standard responsive tiers such as sm, md, lg, xl, and xxl. Choose a breakpoint when the content no longer fits comfortably, rather than for a named device.",
+      "answerMarathi": "Responsive styles ज्या viewport width वर बदलतात त्या मर्यादा म्हणजे breakpoints. Bootstrap मध्ये sm, md, lg, xl आणि xxl असे tiers आहेत. विशिष्ट device साठी नव्हे, तर content आरामात बसत नाही तेव्हा breakpoint निवडा.",
+      "codeExample": "<div class=\"d-none d-md-block\">\n  Visible from the md breakpoint upward\n</div>",
+      "codeExplanation": "The element is hidden below md and displayed as a block at md and wider sizes.",
+      "codeExplanationMarathi": "md खाली element लपतो आणि md किंवा त्यापेक्षा मोठ्या आकारात block म्हणून दिसतो."
+    }
+  ]
 }

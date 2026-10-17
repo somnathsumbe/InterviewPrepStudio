@@ -50,6 +50,7 @@ function renderTechnologyCards(technologies, questionCounts, filter = "") {
         const card = document.createElement("a");
         card.className = "tech-card col";
         card.href = technology.pageUrl;
+        card.dataset.tech = technology.id;
         card.setAttribute("aria-label", `Open ${technology.name} questions`);
 
         const icon = document.createElement("span");
@@ -282,8 +283,11 @@ async function initQuestionPage(technologyId) {
     const empty = $("emptyState");
     try {
         questionData = validateQuestionData(await loadJsonData(`data/${technologyId}.json`));
-        document.title = `${questionData.technology} Interview Questions · Interview Prep Studio`;
-        $("practiceTitle").textContent = `${questionData.technology} Interview Questions`;
+        const questionTitle = questionData.technology === "HR Interview"
+            ? "HR Interview Questions"
+            : `${questionData.technology} Interview Questions`;
+        document.title = `${questionTitle} · Interview Prep Studio`;
+        $("practiceTitle").textContent = questionTitle;
         loading.classList.add("hidden");
         if (!questionData.questions.length) {
             empty.classList.remove("hidden");

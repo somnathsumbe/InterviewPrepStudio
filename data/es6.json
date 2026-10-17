@@ -1,0 +1,60 @@
+{
+  "technology": "ES6",
+  "questions": [
+    {
+      "id": 1,
+      "category": "VARIABLES",
+      "question": "What is the difference between var, let, and const?",
+      "questionMarathi": "var, let आणि const यांच्यात काय फरक आहे?",
+      "answer": "var is function-scoped and can be redeclared, while let and const are block-scoped and cannot be redeclared in the same scope. let can be reassigned. const cannot be reassigned, although an object or array declared with const can still have its contents mutated.",
+      "answerMarathi": "var हे function-scoped असते आणि पुन्हा declare करता येते. let आणि const हे block-scoped असतात आणि त्याच scope मध्ये पुन्हा declare करता येत नाहीत. let ची value पुन्हा assign करता येते. const पुन्हा assign करता येत नाही; परंतु const ने declare केलेल्या object किंवा array मधील properties बदलता येतात.",
+      "codeExample": "var oldValue = 1;\nlet count = 2;\nconst settings = { theme: 'light' };\n\ncount = 3;\nsettings.theme = 'dark';",
+      "codeExplanation": "Prefer const by default, use let for reassigned bindings, and generally avoid var in modern code.",
+      "codeExplanationMarathi": "आधुनिक code मध्ये शक्यतो const वापरा, पुन्हा assign करायचे असल्यास let वापरा आणि सामान्यतः var टाळा."
+    },
+    {
+      "id": 2,
+      "category": "ARROW FUNCTIONS",
+      "question": "How do arrow functions differ from regular functions?",
+      "questionMarathi": "Arrow functions या सामान्य functions पेक्षा कशा वेगळ्या आहेत?",
+      "answer": "Arrow functions provide concise syntax and do not create their own this, arguments, super, or new.target bindings. They capture this lexically from the surrounding scope, so they are useful for callbacks but are not suitable as constructors or methods that need their own this.",
+      "answerMarathi": "Arrow functions ची syntax संक्षिप्त असते आणि त्या स्वतःचे this, arguments, super किंवा new.target तयार करत नाहीत. त्या आसपासच्या scope मधील this वापरतात. त्यामुळे callbacks साठी त्या उपयुक्त आहेत; पण constructor किंवा स्वतःचे this आवश्यक असलेल्या method साठी योग्य नाहीत.",
+      "codeExample": "const user = {\n  name: 'Asha',\n  sayLater() {\n    setTimeout(() => console.log(this.name), 0);\n  }\n};",
+      "codeExplanation": "The arrow callback keeps the this value from sayLater(), so it logs Asha.",
+      "codeExplanationMarathi": "Arrow callback sayLater() मधील this वापरतो, त्यामुळे Asha छापले जाते."
+    },
+    {
+      "id": 3,
+      "category": "DESTRUCTURING",
+      "question": "What is destructuring assignment?",
+      "questionMarathi": "Destructuring assignment म्हणजे काय?",
+      "answer": "Destructuring extracts values from arrays or properties from objects into variables using a concise pattern. It supports defaults, renaming object properties, and nested patterns.",
+      "answerMarathi": "Destructuring वापरून array मधील values किंवा object मधील properties एका संक्षिप्त pattern ने variables मध्ये घेता येतात. यात default values, object properties ची नवीन नावे आणि nested patterns वापरता येतात.",
+      "codeExample": "const user = { name: 'Asha', role: 'Engineer' };\nconst { name, role: job, level = 'junior' } = user;\nconst [first, second] = [10, 20];",
+      "codeExplanation": "The role property is assigned to job, and level uses its default because the object has no level property.",
+      "codeExplanationMarathi": "role property ची value job मध्ये येते; object मध्ये level नसल्याने त्याला default value मिळते."
+    },
+    {
+      "id": 4,
+      "category": "SPREAD AND REST",
+      "question": "What is the difference between spread and rest syntax?",
+      "questionMarathi": "Spread आणि rest syntax मधील फरक काय आहे?",
+      "answer": "Both use three dots. Spread expands an iterable or object into individual elements or properties. Rest collects remaining function arguments, array items, or object properties into one array or object.",
+      "answerMarathi": "दोन्हींसाठी तीन dots वापरतात. Spread iterable किंवा object मधील values स्वतंत्र elements किंवा properties म्हणून उघडतो. Rest उरलेले function arguments, array items किंवा object properties एका array किंवा object मध्ये गोळा करतो.",
+      "codeExample": "const values = [2, 3];\nconst combined = [1, ...values, 4];\n\nfunction sum(first, ...rest) {\n  return first + rest.reduce((total, value) => total + value, 0);\n}",
+      "codeExplanation": "Spread inserts array items into combined; rest gathers remaining arguments in the rest array.",
+      "codeExplanationMarathi": "Spread array मधील items combined मध्ये घालतो; rest उरलेले arguments rest array मध्ये गोळा करतो."
+    },
+    {
+      "id": 5,
+      "category": "PROMISES",
+      "question": "What are Promises, and how does async/await work with them?",
+      "questionMarathi": "Promises म्हणजे काय आणि async/await त्यांच्यासोबत कसे काम करते?",
+      "answer": "A Promise represents the eventual fulfillment or rejection of an asynchronous operation. async functions always return a Promise. await pauses that async function until a Promise settles, and try/catch can handle rejections.",
+      "answerMarathi": "Promise हे asynchronous operation भविष्यात पूर्ण होईल किंवा fail होईल याचे प्रतिनिधित्व करते. async function नेहमी Promise return करते. await मुळे Promise settle होईपर्यंत त्या async function चे execution थांबते; rejection हाताळण्यासाठी try/catch वापरता येते.",
+      "codeExample": "async function loadUser(id) {\n  try {\n    const response = await fetch(`/api/users/${id}`);\n    if (!response.ok) throw new Error('Request failed');\n    return await response.json();\n  } catch (error) {\n    console.error(error);\n    throw error;\n  }\n}",
+      "codeExplanation": "await makes the Promise-based flow easier to read, while the status check ensures HTTP errors are handled.",
+      "codeExplanationMarathi": "await मुळे Promise आधारित code वाचायला सोपा होतो; status check मुळे HTTP errors हाताळले जातात."
+    }
+  ]
+}

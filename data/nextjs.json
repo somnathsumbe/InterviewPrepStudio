@@ -1,4 +1,60 @@
 {
   "technology": "Next.js",
-  "questions": []
+  "questions": [
+    {
+      "id": 1,
+      "category": "ROUTING",
+      "question": "How does file-system routing work in the Next.js App Router?",
+      "questionMarathi": "Next.js App Router मध्ये file-system routing कसे काम करते?",
+      "answer": "The app directory defines routes through folders and special files. A page.js or page.tsx file creates a route, while layout files provide shared UI. Dynamic segments use bracketed folder names such as [slug].",
+      "answerMarathi": "app directory मधील folders आणि विशेष files वापरून routes ठरतात. page.js किंवा page.tsx route तयार करतो आणि layout files सामायिक UI देतात. Dynamic segments साठी [slug] सारखी bracket असलेली folder नावे वापरतात.",
+      "codeExample": "app/\n  layout.tsx\n  page.tsx\n  products/\n    [id]/\n      page.tsx",
+      "codeExplanation": "The dynamic [id] segment can render a product page for URLs such as /products/42.",
+      "codeExplanationMarathi": "[id] dynamic segment मुळे /products/42 सारख्या URL साठी product page दाखवता येते."
+    },
+    {
+      "id": 2,
+      "category": "RENDERING",
+      "question": "What is the difference between a Server Component and a Client Component in Next.js?",
+      "questionMarathi": "Next.js मधील Server Component आणि Client Component यांच्यात काय फरक आहे?",
+      "answer": "Server Components render on the server by default in the App Router and are suitable for data access and reducing client JavaScript. Client Components opt into browser interactivity with the 'use client' directive and can use state, effects, and browser APIs.",
+      "answerMarathi": "App Router मध्ये Server Components default ने server वर render होतात; data access आणि client JavaScript कमी करण्यासाठी ते उपयुक्त आहेत. 'use client' directive असलेले Client Components browser मधील interactivity साठी वापरतात आणि state, effects व browser APIs वापरू शकतात.",
+      "codeExample": "'use client';\n\nimport { useState } from 'react';\n\nexport function LikeButton() {\n  const [liked, setLiked] = useState(false);\n  return <button onClick={() => setLiked(!liked)}>{liked ? 'Liked' : 'Like'}</button>;\n}",
+      "codeExplanation": "The directive marks the component as a client boundary so it can use state and click handlers.",
+      "codeExplanationMarathi": "ही directive component ला client boundary करते, त्यामुळे state आणि click handlers वापरता येतात."
+    },
+    {
+      "id": 3,
+      "category": "DATA FETCHING",
+      "question": "How can a Server Component load data in Next.js?",
+      "questionMarathi": "Next.js मध्ये Server Component data कसा load करू शकतो?",
+      "answer": "A Server Component can be an async function and await data directly on the server. Handle failures explicitly, and use framework caching or revalidation options according to how fresh the data must be.",
+      "answerMarathi": "Server Component async function असू शकतो आणि server वर थेट data await करू शकतो. Failures स्पष्टपणे हाताळा आणि data किती ताजा हवा यानुसार framework caching किंवा revalidation पर्याय वापरा.",
+      "codeExample": "export default async function ProductsPage() {\n  const response = await fetch('https://example.com/api/products', {\n    next: { revalidate: 60 }\n  });\n  if (!response.ok) throw new Error('Could not load products');\n  const products = await response.json();\n  return <ProductList products={products} />;\n}",
+      "codeExplanation": "The server fetches the data and revalidates the cached result after the configured interval.",
+      "codeExplanationMarathi": "Server data fetch करतो आणि दिलेला interval झाल्यावर cached result पुन्हा validate करतो."
+    },
+    {
+      "id": 4,
+      "category": "API",
+      "question": "How do you create an API endpoint with a Route Handler?",
+      "questionMarathi": "Route Handler वापरून API endpoint कसा तयार कराल?",
+      "answer": "Add a route.js or route.ts file under the app directory. Export functions named after HTTP methods such as GET or POST. Validate input, return appropriate status codes, and avoid exposing internal errors.",
+      "answerMarathi": "app directory मध्ये route.js किंवा route.ts file तयार करा. GET किंवा POST यांसारख्या HTTP method नावाची functions export करा. Input validate करा, योग्य status codes द्या आणि internal errors उघड करू नका.",
+      "codeExample": "// app/api/health/route.js\nexport async function GET() {\n  return Response.json({ status: 'ok' });\n}",
+      "codeExplanation": "Requests to /api/health are handled by the exported GET function.",
+      "codeExplanationMarathi": "/api/health वरील requests export केलेली GET function हाताळते."
+    },
+    {
+      "id": 5,
+      "category": "OPTIMIZATION",
+      "question": "How does Next.js Image help optimize images?",
+      "questionMarathi": "Next.js Image images optimize करण्यात कशी मदत करते?",
+      "answer": "The Image component can generate appropriately sized image variants, support modern formats, and help prevent layout shifts when dimensions are provided. Configure trusted remote image hosts and provide meaningful alt text.",
+      "answerMarathi": "Image component योग्य आकाराच्या image variants तयार करू शकतो, आधुनिक formats वापरू शकतो आणि dimensions दिल्यास layout shift कमी करण्यात मदत करतो. वापरण्यासाठी trusted remote image hosts configure करा आणि अर्थपूर्ण alt text द्या.",
+      "codeExample": "import Image from 'next/image';\n\n<Image\n  src=\"/team.jpg\"\n  alt=\"Team reviewing a project\"\n  width={800}\n  height={500}\n/>",
+      "codeExplanation": "Explicit dimensions let the browser reserve space and reduce layout movement while loading.",
+      "codeExplanationMarathi": "स्पष्ट dimensions मुळे browser जागा आधी राखतो आणि loading दरम्यान layout हलणे कमी होते."
+    }
+  ]
 }

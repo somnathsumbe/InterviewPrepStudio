@@ -54,5 +54,47 @@
     "description": "Operators & observables",
     "icon": "Rx",
     "pageUrl": "rxjs.html"
+  },
+  {
+    "id": "sass",
+    "name": "Sass / SCSS",
+    "description": "Variables, mixins & nesting",
+    "icon": "S",
+    "pageUrl": "sass.html"
+  },
+  {
+    "id": "es6",
+    "name": "ES6",
+    "description": "Modern JavaScript features",
+    "icon": "ES6",
+    "pageUrl": "es6.html"
+  },
+  {
+    "id": "javascript-examples",
+    "name": "JavaScript Examples",
+    "description": "Practical coding problems",
+    "icon": "JS",
+    "pageUrl": "javascript-examples.html"
+  },
+  {
+    "id": "nodejs",
+    "name": "Node.js",
+    "description": "Server-side JavaScript",
+    "icon": "N",
+    "pageUrl": "nodejs.html"
+  },
+  {
+    "id": "mongodb",
+    "name": "MongoDB",
+    "description": "Document database & queries",
+    "icon": "M",
+    "pageUrl": "mongodb.html"
+  },
+  {
+    "id": "hr",
+    "name": "HR Interview",
+    "description": "Behavioral & career questions",
+    "icon": "HR",
+    "pageUrl": "hr.html"
   }
 ]

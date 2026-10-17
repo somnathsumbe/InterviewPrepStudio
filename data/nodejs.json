@@ -1,0 +1,60 @@
+{
+  "technology": "Node.js",
+  "questions": [
+    {
+      "id": 1,
+      "category": "RUNTIME",
+      "question": "What is Node.js, and when is it a good choice?",
+      "questionMarathi": "Node.js म्हणजे काय आणि तो कधी वापरणे योग्य असते?",
+      "answer": "Node.js is a JavaScript runtime built on the V8 engine. Its event-driven, non-blocking I/O model is effective for APIs, streaming, and applications with many concurrent network operations. CPU-heavy work may need worker threads or separate services so it does not block the event loop.",
+      "answerMarathi": "Node.js हा V8 engine वर आधारित JavaScript runtime आहे. Event-driven आणि non-blocking I/O मुळे APIs, streaming आणि अनेक concurrent network operations असलेल्या applications साठी तो प्रभावी आहे. CPU-intensive कामांसाठी worker threads किंवा स्वतंत्र services वापरणे योग्य असते, जेणेकरून event loop block होणार नाही.",
+      "codeExample": "import { createServer } from 'node:http';\n\nconst server = createServer((request, response) => {\n  response.writeHead(200, { 'content-type': 'text/plain' });\n  response.end('API is ready');\n});\n\nserver.listen(3000);",
+      "codeExplanation": "The server handles requests asynchronously and can continue accepting other work while I/O is pending.",
+      "codeExplanationMarathi": "I/O पूर्ण होण्याची वाट पाहताना server इतर काम स्वीकारू शकतो; requests asynchronous पद्धतीने हाताळल्या जातात."
+    },
+    {
+      "id": 2,
+      "category": "EVENT LOOP",
+      "question": "How does the Node.js event loop support non-blocking I/O?",
+      "questionMarathi": "Node.js event loop non-blocking I/O ला कशी मदत करतो?",
+      "answer": "JavaScript callbacks run on the event loop thread. Node delegates many I/O operations to the operating system or its worker pool, then queues their callbacks when they complete. Long synchronous or CPU-heavy work still blocks that thread and delays other callbacks.",
+      "answerMarathi": "JavaScript callbacks event loop thread वर चालतात. अनेक I/O operations Node operating system किंवा worker pool कडे सोपवतो आणि operation पूर्ण झाल्यावर callback queue करतो. लांब synchronous किंवा CPU-intensive काम मात्र तो thread block करून इतर callbacks ला उशीर लावते.",
+      "codeExample": "console.log('start');\nsetTimeout(() => console.log('timer callback'), 0);\nconsole.log('end');\n// start, end, timer callback",
+      "codeExplanation": "The timer callback runs after the current synchronous stack completes, even with a zero-millisecond delay.",
+      "codeExplanationMarathi": "शून्य millisecond delay असला तरी सध्याचा synchronous stack पूर्ण झाल्यानंतर timer callback चालतो."
+    },
+    {
+      "id": 3,
+      "category": "MODULES",
+      "question": "What is the difference between CommonJS and ECMAScript modules in Node.js?",
+      "questionMarathi": "Node.js मधील CommonJS आणि ECMAScript modules मध्ये काय फरक आहे?",
+      "answer": "CommonJS uses require() and module.exports and is traditionally loaded synchronously. ECMAScript modules use import and export, support static analysis and top-level await, and are enabled with .mjs files or package configuration such as \"type\": \"module\".",
+      "answerMarathi": "CommonJS मध्ये require() आणि module.exports वापरतात आणि त्याची loading पारंपरिकरित्या synchronous असते. ECMAScript modules मध्ये import आणि export वापरतात; ते static analysis आणि top-level await समर्थित करतात. .mjs extension किंवा package मधील \"type\": \"module\" वापरून ते enable करता येतात.",
+      "codeExample": "// CommonJS\nconst path = require('node:path');\nmodule.exports = { path };\n\n// ECMAScript module\nimport path from 'node:path';\nexport { path };",
+      "codeExplanation": "Use the module syntax configured for the project and avoid mixing module systems without a clear interoperability plan.",
+      "codeExplanationMarathi": "Project मध्ये configure केलेली module syntax वापरा आणि स्पष्ट interoperability योजना नसताना module systems मिसळू नका."
+    },
+    {
+      "id": 4,
+      "category": "ERROR HANDLING",
+      "question": "How should errors be handled in an async Node.js request handler?",
+      "questionMarathi": "Async Node.js request handler मध्ये errors कसे हाताळावेत?",
+      "answer": "Use try/catch around awaited operations, log useful server-side context, and translate known failures into appropriate HTTP responses. Pass unexpected errors to centralized middleware or an error boundary; do not expose stack traces or sensitive details to clients.",
+      "answerMarathi": "await केलेल्या operations भोवती try/catch वापरा, server-side context सह log करा आणि ओळखलेल्या failures साठी योग्य HTTP response द्या. अनपेक्षित errors centralized middleware कडे पाठवा; stack traces किंवा संवेदनशील माहिती client ला देऊ नका.",
+      "codeExample": "async function getProfileHandler(request, response, next) {\n  try {\n    const profile = await loadProfile(request.params.id);\n    response.json(profile);\n  } catch (error) {\n    next(error);\n  }\n}",
+      "codeExplanation": "Forwarding the error lets shared middleware apply consistent logging and response handling.",
+      "codeExplanationMarathi": "Error पुढे पाठवल्याने shared middleware मध्ये logging आणि response handling सुसंगत राहते."
+    },
+    {
+      "id": 5,
+      "category": "PERFORMANCE",
+      "question": "How can you handle CPU-intensive work without blocking a Node.js server?",
+      "questionMarathi": "Node.js server block न करता CPU-intensive काम कसे हाताळाल?",
+      "answer": "Move CPU-heavy tasks to worker threads, a job queue, or a separate service. Worker threads are useful for parallel JavaScript computation; queues help with durable, retryable background work. Keep request handlers responsive and limit concurrency according to available resources.",
+      "answerMarathi": "CPU-intensive tasks worker threads, job queue किंवा स्वतंत्र service मध्ये हलवा. Parallel JavaScript computation साठी worker threads उपयुक्त आहेत; टिकाऊ आणि retry करता येणाऱ्या background कामांसाठी queues मदत करतात. Request handlers responsive ठेवा आणि उपलब्ध resources नुसार concurrency मर्यादित ठेवा.",
+      "codeExample": "import { Worker } from 'node:worker_threads';\n\nconst worker = new Worker(new URL('./compute-worker.js', import.meta.url), {\n  workerData: { input: 1000000 }\n});\n\nworker.on('message', result => console.log(result));\nworker.on('error', error => console.error(error));",
+      "codeExplanation": "The worker performs CPU-bound work outside the main event loop thread.",
+      "codeExplanationMarathi": "Worker CPU-bound काम मुख्य event loop thread च्या बाहेर करतो."
+    }
+  ]
+}
